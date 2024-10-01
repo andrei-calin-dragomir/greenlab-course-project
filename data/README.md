@@ -1,6 +1,11 @@
 # Experiment Data
 
+## Experimental Setup
+
+**TODO** Write specifications of the machine we ran the experiment on.
+
 ## Data format
+
 The measurements collected for each run can be found under `run_table.csv` with the following entry types:
 | Entry | Type | Note |
 | :---: | :---: | :--- |
