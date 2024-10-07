@@ -29,17 +29,26 @@ These versions are all instruct versions of the open-source Mistral model model.
 
 ## Tool Selection
 
-# Experiment Automation
+### Experiment Automation
 We automated the experiment using the following framework: [experiment-runner](https://github.com/S2-group/experiment-runner).
 
-The workflow of the experiment is defined as:
-**TODO** Write here the direct translation of the experiment runner config steps. It should be matching with Section 5 of the paper.
-
-# Metrics Extraction
+### Metrics Extraction
 - Energy Consumption (CPU/GPU):
     - [powerjoular](https://wiki.archlinux.org/title/Powertop) : 
         - **CPU Consumption (Joules)**
         - **GPU Consumption (Joules)**
 - Resource Utilization:
-    - [htop](https://linux.die.net/man/1/htop) : **CPU Utilization (%), Memory Utilization (Bytes/%)**
+    - [top](https://linux.die.net/man/1/top) : **CPU Utilization (%), Memory Utilization (Bytes/%)**
     - [nvidia-smi](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) : **GPU Utilization (%), GPU VMemory (Bytes/%)**
+
+## Running the Experiment
+The workflow of the experiment is defined as:
+1. BEFORE_EXPERIMENT
+2. BEFORE_RUN
+3. START_RUN
+4. START_MEASUREMENT
+5. INTERACT
+6. STOP_MEASUREMENT
+7. STOP_RUN
+8. POPULATE_RUN_DATA
+9. AFTER_EXPERIMENT
