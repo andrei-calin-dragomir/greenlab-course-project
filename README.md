@@ -36,9 +36,10 @@ The workflow of the experiment is defined as:
 **TODO** Write here the direct translation of the experiment runner config steps. It should be matching with Section 5 of the paper.
 
 # Metrics Extraction
-- Energy Consumption:
-    - [powertop](https://wiki.archlinux.org/title/Powertop) : **CPU Consumption (Joules)**
-    - [nvidia-smi](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) : **GPU Consumption (Joules)**
+- Energy Consumption (CPU/GPU):
+    - [powerjoular](https://wiki.archlinux.org/title/Powertop) : 
+        - **CPU Consumption (Joules)**
+        - **GPU Consumption (Joules)**
 - Resource Utilization:
     - [htop](https://linux.die.net/man/1/htop) : **CPU Utilization (%), Memory Utilization (Bytes/%)**
     - [nvidia-smi](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) : **GPU Utilization (%), GPU VMemory (Bytes/%)**
