@@ -30,16 +30,21 @@ These versions are all instruct versions of the open-source Mistral model model.
 ## Tool Selection
 
 ### Experiment Automation
-We automated the experiment using the following framework: [experiment-runner](https://github.com/S2-group/experiment-runner).
+We automated the experiment using the following framework: [Experiment-Runner](https://github.com/S2-group/experiment-runner)
 
 ### Metrics Extraction
 - Energy Consumption (CPU/GPU):
-    - [powerjoular](https://wiki.archlinux.org/title/Powertop) : 
+    - [PowerJoular](https://joular.github.io/powerjoular/) : 
         - **CPU Consumption (Joules)**
         - **GPU Consumption (Joules)**
 - Resource Utilization:
     - [top](https://linux.die.net/man/1/top) : **CPU Utilization (%), Memory Utilization (Bytes/%)**
     - [nvidia-smi](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) : **GPU Utilization (%), GPU VMemory (Bytes/%)**
+- Model Performance:
+    - [DeepEval](https://docs.confident-ai.com/):
+        - [**Contextual Relevancy (0-1 Score)**](https://docs.confident-ai.com/docs/metrics-contextual-relevancy)
+        - [**Answer Correctness (0-1 Score)**](https://docs.confident-ai.com/docs/guides-answer-correctness-metric)
+        - [**Summarization Completeness (0-1 Score)**](https://docs.confident-ai.com/docs/metrics-summarization)
 
 ## Running the Experiment
 The workflow of the experiment is defined as:
