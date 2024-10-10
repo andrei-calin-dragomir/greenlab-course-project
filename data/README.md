@@ -1,20 +1,24 @@
 # Experiment Data
 
-## Experimental Setup
-
-**TODO** Write specifications of the machine we ran the experiment on.
+## Machine specifications
+|Type   | Spec  |
+| :---: | :---: |
+| CPU   | Intel i9-13900KF |
+| RAM   | 64GB  |
+| GPU   | GeForce RTX 4070 | 
+| VRAM  | 12GB |
 
 ## Data format
 
 The measurements collected for each run can be found under `run_table.csv` with the following entry types:
 | Entry | Type | Note |
 | :---: | :---: | :--- |
-| run*number | str | format: r*x* where \_x* is iteration |
-| candidate*family | str | `mistral` OR `qwen` OR `gemma` |
+| run_number | str | format: r*x* where _x_ is iteration |
+| candidate_family | str | `mistral` OR `qwen` OR `gemma` |
 |performance_score_type | str | `ans_correctness` OR `sum_correctness` OR `context_relevancy` |
 | task_type | str | `generation` OR `answering` OR `summarization` |
-| input_type | str | `small` OR `large` |
-| release_version | str | format: **v**y where \_y* represents the version number |
+| input_type | str | `short` OR `long` |
+| release_version | str | format: **v**y where _y_ represents the version number |
 | gpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |
 | cpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |
 | memory_usage | \[(timestamp, int)\] | a set of timestamped datapoints |
