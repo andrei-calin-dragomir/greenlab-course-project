@@ -46,6 +46,15 @@ We automated the experiment using the following framework: [Experiment-Runner](h
         - [**Answer Correctness (0-1 Score)**](https://docs.confident-ai.com/docs/guides-answer-correctness-metric)
         - [**Summarization Completeness (0-1 Score)**](https://docs.confident-ai.com/docs/metrics-summarization)
 
+## Installation
+```bash
+git clone https://github.com/andrei-calin-dragomir/greenlab-course-project.git --recursive
+cd greenlab-course-project/experiment-runner/
+python3 -m venv ~/py_envs
+source ~/py_envs/bin/activate
+pip install -r requirements.txt
+```
+
 ## Running the Experiment
 The workflow of the experiment is defined as:
 1. BEFORE_EXPERIMENT
