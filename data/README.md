@@ -22,7 +22,7 @@ The measurements collected for each run can be found under `run_table.csv` with 
 | cpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |
 | ram_usage | \[(timestamp, int)\] | a set of timestamped datapoints |
 | gpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |
-| ram_usage | \[(timestamp, int)\] | a set of timestamped datapoints |
+| vram_usage | \[(timestamp, int)\] | a set of timestamped datapoints |
 | response_time | deltatime | time between request and response receival |
 | performance_score | float | ranging from 0-1 |
 | energy_consumption | \[(timestamp, int)\] | a set of timestamped datapoints |
