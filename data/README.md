@@ -15,10 +15,10 @@ The measurements collected for each run can be found under `run_table.csv` with 
 | :---: | :---: | :--- |
 | run_number | str | format: r*x* where _x_ is iteration |
 | candidate_family | str | `mistral` OR `qwen` OR `gemma` |
-|performance_score_type | str | `ans_correctness` OR `sum_correctness` OR `context_relevancy` |
 | task_type | str | `generation` OR `answering` OR `summarization` |
 | input_type | str | `short` OR `long` |
-| release_version | str | format: **v**y where _y_ represents the version number |
+| model_version | str | format: **v**y where _y_ represents the version number |
+|performance_score_type | str | `ans_correctness` OR `sum_correctness` OR `context_relevancy` |
 | cpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |
 | ram_usage | \[(timestamp, int)\] | a set of timestamped datapoints |
 | gpu_utilization | \[(timestamp, float)\] | a set of timestamped datapoints |

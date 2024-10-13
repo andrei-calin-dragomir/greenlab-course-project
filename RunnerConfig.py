@@ -11,9 +11,11 @@ from typing import Dict, List, Any, Optional
 from pathlib import Path
 from os.path import dirname, realpath
 
+import subprocess
+import time
 
 class RunnerConfig:
-    ROOT_DIR = Path(dirname(realpath(__file__)))
+    ROOT_DIR = Path("../data/")
 
     # ================================ USER SPECIFIC CONFIG ================================
     """The name of the experiment."""
@@ -29,7 +31,7 @@ class RunnerConfig:
 
     """The time Experiment Runner will wait after a run completes.
     This can be essential to accommodate for cooldown periods on some systems."""
-    time_between_runs_in_ms:    int             = 1000
+    time_between_runs_in_ms:    int             = 1000 * 60
 
     # Dynamic configurations can be one-time satisfied here before the program takes the config as-is
     # e.g. Setting some variable based on some criteria
@@ -54,15 +56,25 @@ class RunnerConfig:
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
         representing each run performed"""
-        factor1 = FactorModel("example_factor1", ['example_treatment1', 'example_treatment2', 'example_treatment3'])
-        factor2 = FactorModel("example_factor2", [True, False])
+        main_factor = FactorModel("model_version", ['v0.1', 'v0.2', 'v0.3', 'v1', 'v1.1', 'v1.5', 'v2', 'v2.5'])
+        blocking_factor_1 = FactorModel("candidate_family", ['mistral', 'gemma', 'qwen'])
+        blocking_factor_2 = FactorModel("task_type", ['generation', 'answering', 'summarization'])
+        co_factor = FactorModel("input_size", ['short', 'long'])
+
         self.run_table_model = RunTableModel(
-            factors=[factor1, factor2],
+            factors=[main_factor, blocking_factor_1, blocking_factor_2, co_factor],
             exclude_variations=[
-                {factor1: ['example_treatment1']},                   # all runs having treatment "example_treatment1" will be excluded
-                {factor1: ['example_treatment2'], factor2: [True]},  # all runs having the combination ("example_treatment2", True) will be excluded
+                {blocking_factor_1: ['mistral'], main_factor: ['v1', 'v1.1', 'v1.5', 'v2', 'v2.5']},
+                {blocking_factor_1: ['gemma'], main_factor: ['v0.1', 'v0.2', 'v0.3', 'v1.5', 'v2.5']},
+                {blocking_factor_1: ['qwen'], main_factor: {'v0.1', 'v0.2', 'v0.3', 'v1.1'}}
             ],
-            data_columns=['avg_cpu', 'avg_mem']
+            repetitions = 30,
+            data_columns=['cpu_utilization', 'ram_usage', 
+                          'gpu_utilization', 'vram_usage',
+                          'performance_score', 'performance_score_type',
+                          'response_time', 'input_token_size', 'output_token_size',
+                          'energy_consumption'
+                        ]
         )
         return self.run_table_model
 
@@ -75,6 +87,8 @@ class RunnerConfig:
     def before_run(self) -> None:
         """Perform any activity required before starting a run.
         No context is available here as the run is not yet active (BEFORE RUN)"""
+
+
 
         output.console_log("Config.before_run() called!")
 

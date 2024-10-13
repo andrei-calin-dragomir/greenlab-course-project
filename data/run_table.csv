@@ -1,1 +1,0 @@
-run_number,candidate_family,performance_score_type,task_type,input_type,release_version,gpu_utilization,cpu_utilization,memory_usage,response_time,performance_score,energy_consumption,input_token_size,output_token_size
