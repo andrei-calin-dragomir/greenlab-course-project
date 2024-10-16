@@ -14,6 +14,9 @@ from os.path import dirname, realpath
 import subprocess
 import time
 
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
 class RunnerConfig:
     ROOT_DIR = Path("../data/")
 
@@ -51,7 +54,54 @@ class RunnerConfig:
         ])
         self.run_table_model = None  # Initialized later
 
+        self.model_configs = {
+            "qwen-v1": {
+                "model_name": "Qwen/Qwen-7B",
+                "tokenizer_name": "Qwen/Qwen1.5-7B",
+            },
+            "qwen-v1.5": {
+                "model_name": "Qwen/Qwen1.5-7B",
+                "tokenizer_name": "Qwen/Qwen1.5-7B",
+            },
+            "qwen-v2": {
+                "model_name": "Qwen/Qwen2-7B",
+                "tokenizer_name": "Qwen/Qwen2-7B",
+            },
+            "qwen-v2.5": {
+                "model_name": "Qwen/Qwen2.5-7B",
+                "tokenizer_name": "Qwen/Qwen2.5-7B",
+            },
+            "gemma-v1": {
+                "model_name": "google/gemma-2b-it",
+                "tokenizer_name": "google/gemma-2b-it",
+            },
+            "gemma-v1.1": {
+                "model_name": "google/gemma-1.1-2b-it",
+                "tokenizer_name": "google/gemma-1.1-2b-it",
+            },
+            "gemma-v2": {
+                "model_name": "google/gemma-2-2b-it",
+                "tokenizer_name": "google/gemma-2-2b-it",
+            },
+            "mistral-v0.1": {
+                "model_name": "mistralai/Mistral-7B-Instruct-v0.1",
+                "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.1",
+            },
+            "mistral-v0.2": {
+                "model_name": "mistralai/Mistral-7B-Instruct-v0.2",
+                "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.2",
+            },
+            "mistral-v0.3": {
+                "model_name" : "mistralai/Mistral-7B-Instruct-v0.3",
+                "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.3",
+            },
+        }
+        
         output.console_log("Custom config loaded")
+
+    # Function to lazily initialize the model and tokenizer
+    def initialize_model(config) -> AutoModelForCausalLM, AutoTokenizer
+        pass
 
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
