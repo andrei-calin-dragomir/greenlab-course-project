@@ -14,6 +14,9 @@ from os.path import dirname, realpath
 import subprocess
 import time
 
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
 class RunnerConfig:
     ROOT_DIR = Path("../data/")
 
@@ -95,6 +98,10 @@ class RunnerConfig:
         }
         
         output.console_log("Custom config loaded")
+
+    # Function to lazily initialize the model and tokenizer
+    def initialize_model(config) -> AutoModelForCausalLM, AutoTokenizer
+        pass
 
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
