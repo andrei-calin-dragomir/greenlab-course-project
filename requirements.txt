@@ -1,6 +1,6 @@
 deepeval
-pytorch>=1.12
-transformers==4.32.0
+torch>=1.12
+transformers>=4.10.0
 accelerate 
 tiktoken 
 einops 
