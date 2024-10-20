@@ -65,7 +65,7 @@ class RunnerConfig:
     results_output_path: Path = ROOT_DIR / 'experiments'  # Path where results will be stored
     operation_type: OperationType = OperationType.AUTO  # Operation type for automatic execution
     time_between_runs_in_ms: int = 1000 * 5  # 5 seconds between runs
-    repetitions: int = 1  # Default repetitions for the experiment runs
+    repetitions: int = 30  # Number of repetitions for the experiment runs
     
     def __init__(self):
         # Subscribe to different lifecycle events of the experiment
@@ -109,8 +109,8 @@ class RunnerConfig:
 
     def create_run_table_model(self) -> RunTableModel:
         # Create a model to represent the configuration of different experiment runs
-        main_factor = FactorModel("model_version", ['qwen-v1'])  # Main factor representing model versions
-        blocking_factor_1 = FactorModel("candidate_family", ['qwen'])  # Blocking factor to specify candidate family
+        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing all model versions
+        blocking_factor_1 = FactorModel("candidate_family", ['qwen', 'gemma', 'mistral'])  # Blocking factor to specify candidate family
         blocking_factor_2 = FactorModel("task_type", ['generation'])  # Blocking factor to specify task type
         co_factor = FactorModel("input_size", ['short'])  # Co-factor to specify input size
         # Defining the run table with repetitions and the data columns to collect
