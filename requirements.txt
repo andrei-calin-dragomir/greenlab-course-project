@@ -1,16 +1,16 @@
 deepeval
 torch>=1.12
 transformers>=4.10.0
-accelerate 
-tiktoken 
-einops 
-scipy 
-transformers_stream_generator==0.0.4 
-peft 
+accelerate
+tiktoken
+einops
+scipy
+transformers_stream_generator==0.0.4
+peft
 deepspeed
 psutil
-torch
 pandas
 tabulate
 dill
 jsonpickle
+flash-attn @ git+https://github.com/Dao-AILab/flash-attention.git
