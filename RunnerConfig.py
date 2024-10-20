@@ -88,7 +88,6 @@ class RunnerConfig:
     repetitions: int = 30  # Number of repetitions for the experiment runs
 
     def __init__(self):
-        # Subscribe to different lifecycle events of the experiment
         EventSubscriptionController.subscribe_to_multiple_events([
             (RunnerEvents.BEFORE_EXPERIMENT, self.before_experiment),
             (RunnerEvents.BEFORE_RUN, self.before_run),
@@ -111,7 +110,6 @@ class RunnerConfig:
         output.console_log("Custom config loaded")
 
     def load_model(self, context: RunnerContext):
-        # Load the model and tokenizer based on the current run configuration
         run_variation = context.run_variation["model_version"]
         if run_variation in model_configs:
             model_name = model_configs[run_variation]["model_name"]
@@ -124,7 +122,6 @@ class RunnerConfig:
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
 
     def create_run_table_model(self) -> RunTableModel:
-        # Create a model to represent the configuration of different experiment runs
         main_factor = FactorModel("model_version", list(model_configs.keys()))
         blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
         co_factor = FactorModel("input_size", ['short', 'long'])
@@ -159,9 +156,13 @@ class RunnerConfig:
         power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
         cpu_profiler_cmd = f'top -b -d 1 -n 60 > {context.run_dir / "cpu_mem_profiler.csv"}'
 
-        self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
-        self.gpu_profiler = subprocess.Popen(shlex.split(gpu_profiler_cmd))
-        self.cpu_profiler = subprocess.Popen(shlex.split(cpu_profiler_cmd))
+        try:
+            self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
+            self.gpu_profiler = subprocess.Popen(shlex.split(gpu_profiler_cmd))
+            self.cpu_profiler = subprocess.Popen(shlex.split(cpu_profiler_cmd))
+        except Exception as e:
+            output.console_log(f"Error starting profilers: {e}")
+            self.cleanup()
 
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
@@ -170,7 +171,7 @@ class RunnerConfig:
         start_time = time.time()
         outputs = self.model.generate(**inputs, max_length=100)
         end_time = time.time()
-        
+
         self.run_data["response_time"] = end_time - start_time
         self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
@@ -183,12 +184,18 @@ class RunnerConfig:
 
     def stop_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_measurement called!")
-        os.kill(self.power_profiler.pid, signal.SIGINT)
-        self.power_profiler.wait()
-        os.kill(self.gpu_profiler.pid, signal.SIGINT)
-        self.gpu_profiler.wait()
-        os.kill(self.cpu_profiler.pid, signal.SIGINT)
-        self.cpu_profiler.wait()
+        try:
+            if self.power_profiler:
+                os.kill(self.power_profiler.pid, signal.SIGINT)
+                self.power_profiler.wait()
+            if self.gpu_profiler:
+                os.kill(self.gpu_profiler.pid, signal.SIGINT)
+                self.gpu_profiler.wait()
+            if self.cpu_profiler:
+                os.kill(self.cpu_profiler.pid, signal.SIGINT)
+                self.cpu_profiler.wait()
+        except Exception as e:
+            output.console_log(f"Error stopping profilers: {e}")
 
     def stop_run(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_run() called!")
@@ -226,6 +233,21 @@ class RunnerConfig:
         output.console_log(f"Total experiment duration: {int(hours)} hours and {int(minutes)} minutes.")
         output.console_log("Config.after_experiment() called!")
 
+    def cleanup(self):
+        try:
+            if self.power_profiler and self.power_profiler.poll() is None:
+                self.power_profiler.terminate()
+            if self.gpu_profiler and self.gpu_profiler.poll() is None:
+                self.gpu_profiler.terminate()
+            if self.cpu_profiler and self.cpu_profiler.poll() is None:
+                self.cpu_profiler.terminate()
+        except Exception as e:
+            output.console_log(f"Error during cleanup: {e}")
+
 if __name__ == "__main__":
-    config = RunnerConfig()
-    config.create_run_table_model()
+    try:
+        config = RunnerConfig()
+        config.create_run_table_model()
+    except Exception as e:
+        config.cleanup()
+        output.console_log(f"Error occurred during execution: {e}")
