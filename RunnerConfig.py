@@ -59,14 +59,24 @@ model_configs = {
     },
 }
 
+# List of prompts
+prompts = [
+    "Generate a story about a brave knight and a dragon.",
+    "Write a creative description of an underwater city.",
+    "What is the capital of France?",
+    "Explain the process of photosynthesis.",
+    "Summarize the key events in World War II.",
+    "Summarize the benefits of a healthy diet."
+]
+
 class RunnerConfig:
     ROOT_DIR = Path("../data/")  # Root directory for storing data
     name: str = "test_runner_experiment"  # Name of the experiment
     results_output_path: Path = ROOT_DIR / 'experiments'  # Path where results will be stored
     operation_type: OperationType = OperationType.AUTO  # Operation type for automatic execution
-    time_between_runs_in_ms: int = 1000 * 5  # 5 seconds between runs
+    time_between_runs_in_ms: int = 1000 * 30  # 30 seconds between runs
     repetitions: int = 30  # Number of repetitions for the experiment runs
-    
+
     def __init__(self):
         # Subscribe to different lifecycle events of the experiment
         EventSubscriptionController.subscribe_to_multiple_events([
@@ -102,20 +112,26 @@ class RunnerConfig:
         output.console_log("Config.start_run() called!")
 
     def start_measurement(self, context: RunnerContext) -> None:
-        # Start measurement by querying GPU usage and memory utilization
+        # Start measurement by querying GPU usage, memory utilization, and power consumption using Powerstat
         output.console_log("Config.start_measurement() called!")
         context.run_data['gpu_utilization'] = subprocess.getoutput("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits")
         context.run_data['vram_usage'] = subprocess.getoutput("nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits")
+        # Use Powerstat to get power consumption data
+        try:
+            power_output = subprocess.getoutput("powerstat -d 1 1 | grep 'W' | awk '{print $4}'")
+            context.run_data['power_consumption'] = float(power_output.strip()) if power_output else 0.0
+        except Exception as e:
+            context.run_data['power_consumption'] = 0.0
+            output.console_log(f"Powerstat failed: {str(e)}")
 
     def create_run_table_model(self) -> RunTableModel:
         # Create a model to represent the configuration of different experiment runs
-        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing all model versions
-        blocking_factor_1 = FactorModel("candidate_family", ['qwen', 'gemma', 'mistral'])  # Blocking factor to specify candidate family
-        blocking_factor_2 = FactorModel("task_type", ['generation'])  # Blocking factor to specify task type
-        co_factor = FactorModel("input_size", ['short'])  # Co-factor to specify input size
+        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing model versions
+        blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
+        co_factor = FactorModel("input_size", ['short'])
         # Defining the run table with repetitions and the data columns to collect
         self.run_table_model = RunTableModel(
-            factors=[main_factor, blocking_factor_1, blocking_factor_2, co_factor],
+            factors=[main_factor, blocking_factor_1, co_factor],
             repetitions=self.repetitions,
             data_columns=['cpu_utilization', 'ram_usage', 
                           'gpu_utilization', 'vram_usage',
@@ -145,7 +161,9 @@ class RunnerConfig:
     def interact(self, context: RunnerContext) -> None:
         # Perform interaction with the model by providing an input text
         output.console_log("Config.interact() called!")
-        input_text = "What is the capital of France?"
+        prompt_index = context.run_id % len(prompts)
+        input_text = prompts[prompt_index]  # Select one of the 6 prompts
+
         model, tokenizer = self.load_model(context)  # Load model and tokenizer
         
         inputs = tokenizer(input_text, return_tensors="pt")  # Tokenize the input text
@@ -167,22 +185,17 @@ class RunnerConfig:
         run_end_time = time.time()
         total_run_time = run_end_time - self.run_start_time
         # Estimate total time required for all runs based on the time taken for this run
-        estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60  # Estimated hours
-        
+        estimated_total_time = ((total_run_time + 30) * self.repetitions) / 60 / 60  # Estimated hours
+
         # Calculate performance score based on response time and GPU utilization
         gpu_utilization = float(context.run_data.get('gpu_utilization', 0))
         response_time = context.run_data.get('response_time', 1)
         context.run_data['performance_score'] = 1000 / (response_time * (gpu_utilization / 100 + 1))
-        
-        # Estimate energy consumption (assuming power ratings for GPU and CPU)
-        gpu_power = 300  # Watts for GPU
-        cpu_power = 100  # Watts for CPU
-        gpu_utilization_percent = float(context.run_data.get('gpu_utilization', 0)) / 100
-        cpu_utilization_percent = psutil.cpu_percent() / 100
-        context.run_data['energy_consumption'] = (
-            ((gpu_power * gpu_utilization_percent) + (cpu_power * cpu_utilization_percent)) * total_run_time
-        ) / 3600  # in kWh
-        
+
+        # Estimate energy consumption using power consumption from Powerstat
+        power_consumption = context.run_data.get('power_consumption', 0.0)  # Power consumption in watts
+        context.run_data['energy_consumption'] = (power_consumption * total_run_time) / 3600  # in kWh
+
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
         output.console_log(f"Performance score: {context.run_data['performance_score']:.2f}")
