@@ -10,3 +10,7 @@ peft
 deepspeed
 psutil
 torch
+pandas
+tabulate
+dill
+jsonpickle
