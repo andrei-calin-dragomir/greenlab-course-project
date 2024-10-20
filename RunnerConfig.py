@@ -14,11 +14,12 @@ from ConfigValidator.Config.Models.RunnerContext import RunnerContext
 from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
-from deepeval import assert_test
-from deepeval.metrics import AnswerRelevancyMetric
+from deepeval.metrics import GEval, ContextualRelevancyMetric, SummarizationMetric
 from deepeval.test_case import LLMTestCase
 from typing import Dict, Optional
 from pathlib import Path
+
+OPENAI_API_KEY = ''
 
 # Dictionary to store model configurations
 model_configs = {
@@ -67,17 +68,35 @@ model_configs = {
 # List of prompts
 prompts = {
     "generation": {
-        "short": "Complete the sentence. The weather today is",
-        "long": "Continue the paragraph with additional information that logically follows. In various regions across the globe, the climate conditions can vary significantly depending on the season, geography, and local atmospheric factors. Some areas experience more frequent changes in weather patterns, while others remain stable for longer periods of time. When looking at today's forecast, one could observe..."
+        "short": {
+            "instruction": "Complete the sentence.",
+            "content": "The weather today is",
+        },
+        "long": {
+            "instruction": "Continue the paragraph with additional information that logically follows.",
+            "content": "In various regions across the globe, the climate conditions can vary significantly depending on the season, geography, and local atmospheric factors. Some areas experience more frequent changes in weather patterns, while others remain stable for longer periods of time. When looking at today's forecast, one could observe...",
+        },
     },
     "question_answering": {
-        "short": "Provide the answer to the question. What is the capital of France?",
-        "long": "Based on the given information, provide a clear and concise answer to the question. France, located in Western Europe, is a country with a rich history, culture, and diverse geography. It has played a major role in international politics, economics, and culture. One of the key aspects of any country is its capital, which often serves as the political, cultural, and economic hub. For France, what is its capital city?"
+        "short": {
+            "instruction": "Provide the answer to the question.",
+            "content": "What is the capital of France?",
+        },
+        "long": {
+            "instruction": "Based on the given information, provide a clear and concise answer to the question.",
+            "content": "France, located in Western Europe, is a country with a rich history, culture, and diverse geography. It has played a major role in international politics, economics, and culture. One of the key aspects of any country is its capital, which often serves as the political, cultural, and economic hub. For France, what is its capital city?",
+        } 
     },
     "summarization": {
-        "short": "Summarize the key points of the paragraph. Global trade connects markets across continents, leading to the exchange of goods, services, and ideas. Technological advancements and faster transportation have driven exponential growth in international trade, creating new business opportunities and economic growth worldwide. However, challenges like trade imbalances, economic dependencies, and environmental concerns have arisen as a result. The role of international cooperation has become increasingly important to resolve disputes and manage these impacts.",
-        "long": "Summarize the key points of the paragraphs in a concise manner. Global trade has evolved significantly over the past century, largely driven by advancements in transportation and communication technologies. This rapid growth has enabled businesses to access new markets and fostered international collaboration, leading to increased economic interdependence. However, with these benefits have come challenges, including increased competition and the risk of trade imbalances between nations. \n\nAt the same time, the rise of global trade has spurred significant changes in labor markets. Countries with access to cheaper labor have become manufacturing hubs, while higher-income nations have focused more on services and technology. This shift has led to wage disparities and political debates about the future of work in many economies. \n\nEnvironmental impacts of global trade have also become a pressing issue. Increased production and transportation contribute to higher greenhouse gas emissions and resource depletion. International efforts, such as environmental agreements, seek to mitigate these impacts, though balancing economic growth with sustainability remains a challenge. \n\nFinally, trade policies and agreements play a crucial role in shaping global trade dynamics. Countries enter into bilateral or multilateral agreements to reduce tariffs, promote free trade, or protect key industries. These agreements can boost economic ties but also lead to disputes over issues like intellectual property, market access, and labor standards."
-    }
+        "short": {
+            "instruction": "Summarize the key points of the paragraph.",
+            "content": "Global trade connects markets across continents, leading to the exchange of goods, services, and ideas. Technological advancements and faster transportation have driven exponential growth in international trade, creating new business opportunities and economic growth worldwide. However, challenges like trade imbalances, economic dependencies, and environmental concerns have arisen as a result. The role of international cooperation has become increasingly important to resolve disputes and manage these impacts.",
+        },
+        "long": {
+            "instruction": "Summarize the key points of the paragraphs in a concise manner.",
+            "content": "Global trade has evolved significantly over the past century, largely driven by advancements in transportation and communication technologies. This rapid growth has enabled businesses to access new markets and fostered international collaboration, leading to increased economic interdependence. However, with these benefits have come challenges, including increased competition and the risk of trade imbalances between nations. \n\nAt the same time, the rise of global trade has spurred significant changes in labor markets. Countries with access to cheaper labor have become manufacturing hubs, while higher-income nations have focused more on services and technology. This shift has led to wage disparities and political debates about the future of work in many economies. \n\nEnvironmental impacts of global trade have also become a pressing issue. Increased production and transportation contribute to higher greenhouse gas emissions and resource depletion. International efforts, such as environmental agreements, seek to mitigate these impacts, though balancing economic growth with sustainability remains a challenge. \n\nFinally, trade policies and agreements play a crucial role in shaping global trade dynamics. Countries enter into bilateral or multilateral agreements to reduce tariffs, promote free trade, or protect key industries. These agreements can boost economic ties but also lead to disputes over issues like intellectual property, market access, and labor standards.",
+        },
+    },
 }
 
 class RunnerConfig:
@@ -155,7 +174,7 @@ class RunnerConfig:
         output.console_log("Config.start_measurement() called!")
         gpu_profiler_cmd = f'nvidia-smi --query-gpu=utilization.gpu, memory.used --format=csv,nounits -l 1 > {context.run_dir / "nvidia-smi.csv"}'
         power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
-        cpu_profiler_cmd = f'top -b -d 1 -p {os.getpid()} | grep \'{os.getpid()}\' --line-buffered | tee {context.run_dir / 'top-output.txt'}'
+        cpu_profiler_cmd = f'top -b -d 1 -p {os.getpid()} | grep \'{os.getpid()}\' --line-buffered | tee {context.run_dir / "top-output.txt"}'
 
         try:
             self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
@@ -167,7 +186,8 @@ class RunnerConfig:
 
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
-        input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]
+        input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['instruction'].join(
+            prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'])
         inputs = self.tokenizer(input_text, return_tensors="pt")
         start_time = time.time()
         outputs = self.model.generate(**inputs, max_length=100)
@@ -176,24 +196,7 @@ class RunnerConfig:
         self.run_data["response_time"] = end_time - start_time
         self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-        # Evaluate performance using Deepeval
-        answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
-        test_case = LLMTestCase(
-            input=input_text,
-            actual_output=self.run_data["output_text"],
-            retrieval_context=["Evaluate the output relevancy for the provided input."]
-        )
-        
-        try:
-            assert_test(test_case, [answer_relevancy_metric])
-            self.run_data["performance_score"] = answer_relevancy_metric.calculate(test_case)
-            self.run_data["performance_score_type"] = "Answer Relevancy"
-        except AssertionError:
-            self.run_data["performance_score"] = 0
-            self.run_data["performance_score_type"] = "Failed"
-
         output.console_log(f"Generated output: {self.run_data['output_text']}")
-        output.console_log(f"Performance score: {self.run_data['performance_score']}")
 
     def stop_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_measurement called!")
@@ -216,6 +219,8 @@ class RunnerConfig:
         total_run_time = run_end_time - self.run_start_time
         estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60
 
+        self.model, self.tokenizer = None
+
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
@@ -226,13 +231,48 @@ class RunnerConfig:
         cpu_usage = []
         memory_usage = []
 
-        # Open the file containing the 'top' command output
         with open('top-output.txt', 'r') as file:
             for line in file:
                 columns = line.split()
                 # Append CPU usage (9th column) and RES memory (6th column) to the respective lists
-                cpu_usage.append(columns[8])  # 9th column (CPU usage)
-                memory_usage.append(columns[5])  # 6th column (RES memory)
+                cpu_usage.append(columns[8])
+                memory_usage.append(columns[5])
+
+        # Evaluate performance using Deepeval
+        if context.run_variation['task_type'] == 'generation':
+            test_case = LLMTestCase(
+                input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
+                actual_output=self.run_data["output_text"],
+                retrieval_context=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
+            )
+            metric = ContextualRelevancyMetric(
+                threshold=0.7,
+                model="gpt-4",
+            )
+        elif context.run_variation['task_type'] == 'question_answering':
+            test_case = LLMTestCase(input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
+                                    actual_output=self.run_data["output_text"],
+                                    expected_output='The capital of France is Paris.')
+            metric = GEval(
+                name="Correctness",
+                model="gpt-4o",
+                evaluation_steps=["Check whether the facts in 'actual output' contradicts any facts in 'expected output'"]
+            )
+        elif context.run_variation['task_type'] == 'summarization':
+            test_case = LLMTestCase(input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
+                                    actual_output=self.run_data["output_text"])
+            metric = SummarizationMetric(
+                threshold=0.5,
+                model="gpt-4",
+                assessment_questions=[
+                    "Is the coverage score based on a percentage of 'yes' answers?",
+                    "Does the score ensure the summary's accuracy with the source?",
+                    "Does a higher score mean a more comprehensive summary?"
+                ]
+            )
+        
+        metric.measure(test_case)
+        self.run_data["performance_score"] = metric.score
 
         return {
             "cpu_utilization": cpu_usage,
