@@ -122,7 +122,8 @@ class RunnerConfig:
         self.run_table_model = None
         self.run_data = {}
 
-        self.model, self.tokenizer = None
+        self.model = None
+        self.tokenizer = None
 
         self.power_profiler = None
         self.gpu_profiler = None
@@ -172,17 +173,40 @@ class RunnerConfig:
 
     def start_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.start_measurement() called!")
-        gpu_profiler_cmd = f'nvidia-smi --query-gpu=utilization.gpu, memory.used --format=csv,nounits -l 1 > {context.run_dir / "nvidia-smi.csv"}'
-        power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
-        cpu_profiler_cmd = f'top -b -d 1 -p {os.getpid()} | grep \'{os.getpid()}\' --line-buffered | tee {context.run_dir / "top-output.txt"}'
+
+        # Remove `>` redirection and handle output directly in Python.
+        gpu_profiler_cmd = [
+            'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
+            '--format=csv,noheader,nounits', '-l', '1'
+        ]
+        power_profiler_cmd = [
+            'powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
+        ]
+        cpu_profiler_cmd = [
+            'top', '-b', '-d', '1', '-u', os.getenv('USER')
+        ]
 
         try:
-            self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
-            self.gpu_profiler = subprocess.Popen(shlex.split(gpu_profiler_cmd))
-            self.cpu_profiler = subprocess.Popen(shlex.split(cpu_profiler_cmd))
+            # Open the files in Python and redirect output there.
+            gpu_output_file = open(context.run_dir / "nvidia-smi.csv", "w")
+            power_output_file = open(context.run_dir / "powerjoular.csv", "w")
+            cpu_output_file = open(context.run_dir / "top-output.txt", "w")
+
+            # Start the profilers, redirecting their output to respective files.
+            self.gpu_profiler = subprocess.Popen(
+                gpu_profiler_cmd, stdout=gpu_output_file, stderr=subprocess.DEVNULL
+            )
+            self.power_profiler = subprocess.Popen(
+                power_profiler_cmd, stdout=power_output_file, stderr=subprocess.DEVNULL
+            )
+            self.cpu_profiler = subprocess.Popen(
+                cpu_profiler_cmd, stdout=cpu_output_file, stderr=subprocess.DEVNULL
+            )
         except Exception as e:
             output.console_log(f"Error starting profilers: {e}")
             self.cleanup()
+
+
 
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
