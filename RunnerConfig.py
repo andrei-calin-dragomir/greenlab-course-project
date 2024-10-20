@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 import subprocess
-import psutil
 import time
 import json
 import shlex
@@ -217,12 +216,11 @@ class RunnerConfig:
         return {
             "cpu_utilization": avg_cpu_usage,
             "ram_usage": avg_ram_usage,
-            "gpu_utilization": gpu_df['utilization.gpu [%]'].mean(),
-            "vram_usage": gpu_df['memory.used [MiB]'].mean(),
+            "gpu_utilization": gpu_df['utilization.gpu [%]'].to_list(),
+            "vram_usage": gpu_df['memory.used [MiB]'].to_list(),
             "response_time": self.run_data['response_time'],
             "performance_score": self.run_data['performance_score'],
-            "performance_score_type": self.run_data.get('performance_score_type'),
-            "energy_consumption": power_df['Total Power'].sum()
+            "energy_consumption": power_df['Total Power'].to_list()
         }
 
     def after_experiment(self) -> None:
