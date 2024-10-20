@@ -1,8 +1,11 @@
 import os
+import pandas as pd
 import subprocess
 import psutil
 import time
 import json
+import shlex
+import signal
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from EventManager.Models.RunnerEvents import RunnerEvents
 from EventManager.EventSubscriptionController import EventSubscriptionController
@@ -97,54 +100,14 @@ class RunnerConfig:
             (RunnerEvents.AFTER_EXPERIMENT, self.after_experiment)
         ])
         self.run_table_model = None  # Placeholder for run table model, to be initialized later
-
         self.run_data = {}
+
+        self.model, self.tokenizer = None
+
+        self.power_profiler = None
+        self.gpu_profiler = None
+        self.cpu_profiler = None
         output.console_log("Custom config loaded")
-
-    def before_experiment(self) -> None:
-        output.console_log("Config.before_experiment() called!")
-        self.experiment_start_time = time.time()  # Track total experiment start time
-        output.console_log("Experiment started.")
-
-    def before_run(self) -> None:
-        # Called before each run of the experiment
-        output.console_log("Config.before_run() called!")
-
-    def start_run(self, context: RunnerContext) -> None:
-        # Initialize data for each run and track the start time
-        self.run_start_time = time.time()  # Track the start time for each individual run
-        self.run_data = {}  # Initialize run_data as an empty dictionary
-        output.console_log("Config.start_run() called!")
-
-    def start_measurement(self, context: RunnerContext) -> None:
-        # Start measurement by querying GPU usage, memory utilization, and power consumption using Powerstat
-        output.console_log("Config.start_measurement() called!")
-        self.run_data['gpu_utilization'] = subprocess.getoutput("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits")
-        self.run_data['vram_usage'] = subprocess.getoutput("nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits")
-        # Use Powerstat to get power consumption data
-        try:
-            power_output = subprocess.getoutput("powerstat -d 1 1 | grep 'W' | awk '{print $4}'")
-            self.run_data['power_consumption'] = float(power_output.strip()) if power_output else 0.0
-        except Exception as e:
-            self.run_data['power_consumption'] = 0.0
-            output.console_log(f"Powerstat failed: {str(e)}")
-
-    def create_run_table_model(self) -> RunTableModel:
-        # Create a model to represent the configuration of different experiment runs
-        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing model versions
-        blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
-        co_factor = FactorModel("input_size", ['short', 'long'])
-        # Defining the run table with repetitions and the data columns to collect
-        self.run_table_model = RunTableModel(
-            factors=[main_factor, blocking_factor_1, co_factor],
-            repetitions=self.repetitions,
-            data_columns=['cpu_utilization', 'ram_usage', 
-                          'gpu_utilization', 'vram_usage',
-                          'performance_score', 'performance_score_type',
-                          'response_time', 'input_token_size', 'output_token_size',
-                          'energy_consumption']
-        )
-        return self.run_table_model
 
     def load_model(self, context: RunnerContext):
         # Load the model and tokenizer based on the current run configuration
@@ -163,61 +126,102 @@ class RunnerConfig:
             # Raise an error if the model configuration is not found
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
 
+    def create_run_table_model(self) -> RunTableModel:
+        # Create a model to represent the configuration of different experiment runs
+        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing model versions
+        blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
+        co_factor = FactorModel("input_size", ['short', 'long'])
+        # Defining the run table with repetitions and the data columns to collect
+        self.run_table_model = RunTableModel(
+            factors=[main_factor, blocking_factor_1, co_factor],
+            repetitions=self.repetitions,
+            data_columns=['cpu_utilization', 'ram_usage', 
+                          'gpu_utilization', 'vram_usage',
+                          'performance_score', 'response_time', 
+                          'input_token_size', 'output_token_size',
+                          'energy_consumption']
+        )
+        return self.run_table_model
+
+    def before_experiment(self) -> None:
+        output.console_log("Config.before_experiment() called!")
+        self.experiment_start_time = time.time()  # Track total experiment start time
+        output.console_log("Experiment started.")
+
+    def before_run(self) -> None:
+        # Called before each run of the experiment
+        output.console_log("Config.before_run() called!")
+
+    def start_run(self, context: RunnerContext) -> None:
+        # Initialize data for each run and track the start time
+        self.run_start_time = time.time()  # Track the start time for each individual run
+        self.run_data = {}  # Initialize run_data as an empty dictionary
+
+        self.model, self.tokenizer = self.load_model(context)  # Load model and tokenizer
+        output.console_log("Config.start_run() called!")
+
+    def start_measurement(self, context: RunnerContext) -> None:
+        # Start measurement by querying GPU usage, memory utilization, and power consumption using Powerstat
+        output.console_log("Config.start_measurement() called!")
+        gpu_profiler_cmd = f'nvidia-smi --query-gpu=utilization.gpu, memory.used --format=csv,nounits -l 1 > {context.run_dir / "nvidia-smi.csv"}'
+        power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
+
+        self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
+        self.gpu_profiler = subprocess.Popen(shlex.split(gpu_profiler_cmd))
+
+        #TODO Add the profiler for CPU and Memory here
+        self.cpu_profiler = None
+
     def interact(self, context: RunnerContext) -> None:
         # Perform interaction with the model by providing an input text
         output.console_log("Config.interact() called!")
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]
 
-        model, tokenizer = self.load_model(context)  # Load model and tokenizer
-        
-        inputs = tokenizer(input_text, return_tensors="pt")  # Tokenize the input text
+        inputs = self.tokenizer(input_text, return_tensors="pt")  # Tokenize the input text
         start_time = time.time()  # Track the start time for generating output
-        outputs = model.generate(**inputs, max_length=50)  # Generate output using the model
+        outputs = self.model.generate(**inputs, max_length=50)  # Generate output using the model
         end_time = time.time()  # Track the end time for generating output
         
         # Store the response time and the generated output in the run data
         self.run_data["response_time"] = end_time - start_time
-        self.run_data["output_text"] = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         output.console_log(f"Generated output: {self.run_data['output_text']}")
 
     def stop_measurement(self, context: RunnerContext) -> None:
         # Called to stop any measurements after the run
         output.console_log("Config.stop_measurement called!")
 
+        os.kill(self.power_profiler.pid, signal.SIGINT) # graceful shutdown of powerjoular
+        self.power_profiler.wait()
+        os.kill(self.gpu_profiler.pid, signal.SIGINT) # graceful shutdown of powerjoular
+        self.gpu_profiler.wait()
+
     def stop_run(self, context: RunnerContext) -> None:
         # Called after completing each run, calculates total run time
+        output.console_log("Config.stop_run() called!")
         run_end_time = time.time()
         total_run_time = run_end_time - self.run_start_time
         # Estimate total time required for all runs based on the time taken for this run
-        estimated_total_time = ((total_run_time + 30) * self.repetitions) / 60 / 60  # Estimated hours
-
-        # Calculate performance score based on response time and GPU utilization
-        gpu_utilization = float(self.run_data.get('gpu_utilization', 0))
-        response_time = self.run_data.get('response_time', 1)
-        self.run_data['performance_score'] = 1000 / (response_time * (gpu_utilization / 100 + 1))
-
-        # Estimate energy consumption using power consumption from Powerstat
-        power_consumption = self.run_data.get('power_consumption', 0.0)  # Power consumption in watts
-        self.run_data['energy_consumption'] = (power_consumption * total_run_time) / 3600  # in kWh
+        estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60  # Estimated hours
 
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
-        output.console_log(f"Performance score: {self.run_data['performance_score']:.2f}")
-        output.console_log(f"Estimated energy consumption: {self.run_data['energy_consumption']:.4f} kWh")
-        output.console_log("Config.stop_run() called!")
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
-        # Populate data collected during the run for further analysis
-        cpu_usage = psutil.cpu_percent()  # Get current CPU usage
-        ram_usage = psutil.virtual_memory().percent  # Get current RAM usage
+        #TODO Get performance score
+        performance_score = None
+
+        power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
+        gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
+
         return {
-            "cpu_utilization": cpu_usage,
-            "ram_usage": ram_usage,
-            "gpu_utilization": self.run_data.get('gpu_utilization'),
-            "vram_usage": self.run_data.get('vram_usage'),
-            "response_time": self.run_data.get('response_time'),
-            "performance_score": self.run_data.get('performance_score'),
-            "energy_consumption": self.run_data.get('energy_consumption')
+            "cpu_utilization": None,
+            "ram_usage": None,
+            "gpu_utilization": gpu_df['utilization.gpu [%]'].to_list(),
+            "vram_usage": gpu_df[' memory.used [MiB]'].to_list(),
+            "response_time": self.run_data['response_time'],
+            "performance_score": None,
+            "energy_consumption": power_df['Total Power'].to_list()
         }
 
     def after_experiment(self) -> None:
