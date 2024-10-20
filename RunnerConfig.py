@@ -14,7 +14,9 @@ from ConfigValidator.Config.Models.RunnerContext import RunnerContext
 from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
-from deepeval import evaluate_performance
+from deepeval import assert_test
+from deepeval.metrics import AnswerRelevancyMetric
+from deepeval.test_case import LLMTestCase
 from typing import Dict, Optional
 from pathlib import Path
 
@@ -174,9 +176,21 @@ class RunnerConfig:
         self.run_data["response_time"] = end_time - start_time
         self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-        performance_result = evaluate_performance(input_text, self.run_data["output_text"])
-        self.run_data["performance_score"] = performance_result["score"]
-        self.run_data["performance_score_type"] = performance_result["type"]
+        # Evaluate performance using Deepeval
+        answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
+        test_case = LLMTestCase(
+            input=input_text,
+            actual_output=self.run_data["output_text"],
+            retrieval_context=["Evaluate the output relevancy for the provided input."]
+        )
+        
+        try:
+            assert_test(test_case, [answer_relevancy_metric])
+            self.run_data["performance_score"] = answer_relevancy_metric.calculate(test_case)
+            self.run_data["performance_score_type"] = "Answer Relevancy"
+        except AssertionError:
+            self.run_data["performance_score"] = 0
+            self.run_data["performance_score_type"] = "Failed"
 
         output.console_log(f"Generated output: {self.run_data['output_text']}")
         output.console_log(f"Performance score: {self.run_data['performance_score']}")
