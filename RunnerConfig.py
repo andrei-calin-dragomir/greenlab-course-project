@@ -155,7 +155,7 @@ class RunnerConfig:
         output.console_log("Config.start_measurement() called!")
         gpu_profiler_cmd = f'nvidia-smi --query-gpu=utilization.gpu, memory.used --format=csv,nounits -l 1 > {context.run_dir / "nvidia-smi.csv"}'
         power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
-        cpu_profiler_cmd = f'top -b -d 1 -n 60 > {context.run_dir / "cpu_mem_profiler.csv"}'
+        cpu_profiler_cmd = f'top -b -d 1 -p {os.getpid()} | grep \'{os.getpid()}\' --line-buffered | tee {context.run_dir / 'top-output.txt'}'
 
         try:
             self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
@@ -222,14 +222,21 @@ class RunnerConfig:
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
         power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
         gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
-        cpu_df = pd.read_csv(context.run_dir / "cpu_mem_profiler.csv")
+        
+        cpu_usage = []
+        memory_usage = []
 
-        avg_cpu_usage = cpu_df['%Cpu(s)'].mean() if '%Cpu(s)' in cpu_df.columns else None
-        avg_ram_usage = cpu_df['%Mem'].mean() if '%Mem' in cpu_df.columns else None
+        # Open the file containing the 'top' command output
+        with open('top-output.txt', 'r') as file:
+            for line in file:
+                columns = line.split()
+                # Append CPU usage (9th column) and RES memory (6th column) to the respective lists
+                cpu_usage.append(columns[8])  # 9th column (CPU usage)
+                memory_usage.append(columns[5])  # 6th column (RES memory)
 
         return {
-            "cpu_utilization": avg_cpu_usage,
-            "ram_usage": avg_ram_usage,
+            "cpu_utilization": cpu_usage,
+            "ram_usage": memory_usage,
             "gpu_utilization": gpu_df['utilization.gpu [%]'].to_list(),
             "vram_usage": gpu_df['memory.used [MiB]'].to_list(),
             "response_time": self.run_data['response_time'],
