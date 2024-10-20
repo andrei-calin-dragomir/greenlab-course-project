@@ -60,21 +60,27 @@ model_configs = {
 }
 
 # List of prompts
-prompts = [
-    "Generate a story about a brave knight and a dragon.",
-    "Write a creative description of an underwater city.",
-    "What is the capital of France?",
-    "Explain the process of photosynthesis.",
-    "Summarize the key events in World War II.",
-    "Summarize the benefits of a healthy diet."
-]
+prompts = {
+    "generation": {
+        "short": "Complete the sentence. The weather today is",
+        "long": "Continue the paragraph with additional information that logically follows. In various regions across the globe, the climate conditions can vary significantly depending on the season, geography, and local atmospheric factors. Some areas experience more frequent changes in weather patterns, while others remain stable for longer periods of time. When looking at today's forecast, one could observe..."
+    },
+    "question_answering": {
+        "short": "Provide the answer to the question. What is the capital of France?",
+        "long": "Based on the given information, provide a clear and concise answer to the question. France, located in Western Europe, is a country with a rich history, culture, and diverse geography. It has played a major role in international politics, economics, and culture. One of the key aspects of any country is its capital, which often serves as the political, cultural, and economic hub. For France, what is its capital city?"
+    },
+    "summarization": {
+        "short": "Summarize the key points of the paragraph. Global trade connects markets across continents, leading to the exchange of goods, services, and ideas. Technological advancements and faster transportation have driven exponential growth in international trade, creating new business opportunities and economic growth worldwide. However, challenges like trade imbalances, economic dependencies, and environmental concerns have arisen as a result. The role of international cooperation has become increasingly important to resolve disputes and manage these impacts.",
+        "long": "Summarize the key points of the paragraphs in a concise manner. Global trade has evolved significantly over the past century, largely driven by advancements in transportation and communication technologies. This rapid growth has enabled businesses to access new markets and fostered international collaboration, leading to increased economic interdependence. However, with these benefits have come challenges, including increased competition and the risk of trade imbalances between nations. \n\nAt the same time, the rise of global trade has spurred significant changes in labor markets. Countries with access to cheaper labor have become manufacturing hubs, while higher-income nations have focused more on services and technology. This shift has led to wage disparities and political debates about the future of work in many economies. \n\nEnvironmental impacts of global trade have also become a pressing issue. Increased production and transportation contribute to higher greenhouse gas emissions and resource depletion. International efforts, such as environmental agreements, seek to mitigate these impacts, though balancing economic growth with sustainability remains a challenge. \n\nFinally, trade policies and agreements play a crucial role in shaping global trade dynamics. Countries enter into bilateral or multilateral agreements to reduce tariffs, promote free trade, or protect key industries. These agreements can boost economic ties but also lead to disputes over issues like intellectual property, market access, and labor standards."
+    }
+}
 
 class RunnerConfig:
     ROOT_DIR = Path("../data/")  # Root directory for storing data
     name: str = "test_runner_experiment"  # Name of the experiment
     results_output_path: Path = ROOT_DIR / 'experiments'  # Path where results will be stored
     operation_type: OperationType = OperationType.AUTO  # Operation type for automatic execution
-    time_between_runs_in_ms: int = 1000 * 30  # 30 seconds between runs
+    time_between_runs_in_ms: int = 1000 * 60  # 60 seconds between runs
     repetitions: int = 30  # Number of repetitions for the experiment runs
 
     def __init__(self):
@@ -91,16 +97,14 @@ class RunnerConfig:
             (RunnerEvents.AFTER_EXPERIMENT, self.after_experiment)
         ])
         self.run_table_model = None  # Placeholder for run table model, to be initialized later
-        self.prompt_index = 0  # Initialize prompt index
+
+        self.run_data = {}
         output.console_log("Custom config loaded")
 
     def before_experiment(self) -> None:
-        # Install dependencies before starting the experiment
-        print("Installing dependencies...")
-        subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
+        output.console_log("Config.before_experiment() called!")
         self.experiment_start_time = time.time()  # Track total experiment start time
         output.console_log("Experiment started.")
-        output.console_log("Config.before_experiment() called!")
 
     def before_run(self) -> None:
         # Called before each run of the experiment
@@ -109,27 +113,27 @@ class RunnerConfig:
     def start_run(self, context: RunnerContext) -> None:
         # Initialize data for each run and track the start time
         self.run_start_time = time.time()  # Track the start time for each individual run
-        context.run_data = {}  # Initialize run_data as an empty dictionary
+        self.run_data = {}  # Initialize run_data as an empty dictionary
         output.console_log("Config.start_run() called!")
 
     def start_measurement(self, context: RunnerContext) -> None:
         # Start measurement by querying GPU usage, memory utilization, and power consumption using Powerstat
         output.console_log("Config.start_measurement() called!")
-        context.run_data['gpu_utilization'] = subprocess.getoutput("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits")
-        context.run_data['vram_usage'] = subprocess.getoutput("nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits")
+        self.run_data['gpu_utilization'] = subprocess.getoutput("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits")
+        self.run_data['vram_usage'] = subprocess.getoutput("nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits")
         # Use Powerstat to get power consumption data
         try:
             power_output = subprocess.getoutput("powerstat -d 1 1 | grep 'W' | awk '{print $4}'")
-            context.run_data['power_consumption'] = float(power_output.strip()) if power_output else 0.0
+            self.run_data['power_consumption'] = float(power_output.strip()) if power_output else 0.0
         except Exception as e:
-            context.run_data['power_consumption'] = 0.0
+            self.run_data['power_consumption'] = 0.0
             output.console_log(f"Powerstat failed: {str(e)}")
 
     def create_run_table_model(self) -> RunTableModel:
         # Create a model to represent the configuration of different experiment runs
         main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing model versions
         blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
-        co_factor = FactorModel("input_size", ['short'])
+        co_factor = FactorModel("input_size", ['short', 'long'])
         # Defining the run table with repetitions and the data columns to collect
         self.run_table_model = RunTableModel(
             factors=[main_factor, blocking_factor_1, co_factor],
@@ -162,8 +166,7 @@ class RunnerConfig:
     def interact(self, context: RunnerContext) -> None:
         # Perform interaction with the model by providing an input text
         output.console_log("Config.interact() called!")
-        input_text = prompts[self.prompt_index % len(prompts)]  # Use prompt based on current index
-        self.prompt_index += 1  # Increment the prompt index for the next interaction
+        input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]
 
         model, tokenizer = self.load_model(context)  # Load model and tokenizer
         
@@ -173,9 +176,9 @@ class RunnerConfig:
         end_time = time.time()  # Track the end time for generating output
         
         # Store the response time and the generated output in the run data
-        context.run_data["response_time"] = end_time - start_time
-        context.run_data["output_text"] = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        output.console_log(f"Generated output: {context.run_data['output_text']}")
+        self.run_data["response_time"] = end_time - start_time
+        self.run_data["output_text"] = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        output.console_log(f"Generated output: {self.run_data['output_text']}")
 
     def stop_measurement(self, context: RunnerContext) -> None:
         # Called to stop any measurements after the run
@@ -189,18 +192,18 @@ class RunnerConfig:
         estimated_total_time = ((total_run_time + 30) * self.repetitions) / 60 / 60  # Estimated hours
 
         # Calculate performance score based on response time and GPU utilization
-        gpu_utilization = float(context.run_data.get('gpu_utilization', 0))
-        response_time = context.run_data.get('response_time', 1)
-        context.run_data['performance_score'] = 1000 / (response_time * (gpu_utilization / 100 + 1))
+        gpu_utilization = float(self.run_data.get('gpu_utilization', 0))
+        response_time = self.run_data.get('response_time', 1)
+        self.run_data['performance_score'] = 1000 / (response_time * (gpu_utilization / 100 + 1))
 
         # Estimate energy consumption using power consumption from Powerstat
-        power_consumption = context.run_data.get('power_consumption', 0.0)  # Power consumption in watts
-        context.run_data['energy_consumption'] = (power_consumption * total_run_time) / 3600  # in kWh
+        power_consumption = self.run_data.get('power_consumption', 0.0)  # Power consumption in watts
+        self.run_data['energy_consumption'] = (power_consumption * total_run_time) / 3600  # in kWh
 
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
-        output.console_log(f"Performance score: {context.run_data['performance_score']:.2f}")
-        output.console_log(f"Estimated energy consumption: {context.run_data['energy_consumption']:.4f} kWh")
+        output.console_log(f"Performance score: {self.run_data['performance_score']:.2f}")
+        output.console_log(f"Estimated energy consumption: {self.run_data['energy_consumption']:.4f} kWh")
         output.console_log("Config.stop_run() called!")
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
@@ -210,11 +213,11 @@ class RunnerConfig:
         return {
             "cpu_utilization": cpu_usage,
             "ram_usage": ram_usage,
-            "gpu_utilization": context.run_data.get('gpu_utilization'),
-            "vram_usage": context.run_data.get('vram_usage'),
-            "response_time": context.run_data.get('response_time'),
-            "performance_score": context.run_data.get('performance_score'),
-            "energy_consumption": context.run_data.get('energy_consumption')
+            "gpu_utilization": self.run_data.get('gpu_utilization'),
+            "vram_usage": self.run_data.get('vram_usage'),
+            "response_time": self.run_data.get('response_time'),
+            "performance_score": self.run_data.get('performance_score'),
+            "energy_consumption": self.run_data.get('energy_consumption')
         }
 
     def after_experiment(self) -> None:
