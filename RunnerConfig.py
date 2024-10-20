@@ -220,24 +220,28 @@ class RunnerConfig:
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
-    def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
-        power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
-        gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
-        cpu_df = pd.read_csv(context.run_dir / "cpu_mem_profiler.csv")
+def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
+    power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
+    gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
+    cpu_df = pd.read_csv(context.run_dir / "cpu_mem_profiler.csv")
 
-        avg_cpu_usage = cpu_df['%Cpu(s)'].mean() if '%Cpu(s)' in cpu_df.columns else None
-        avg_ram_usage = cpu_df['%Mem'].mean() if '%Mem' in cpu_df.columns else None
+    # Convert columns to lists to return all data points instead of just averages
+    cpu_usage = cpu_df['%Cpu(s)'].tolist() if '%Cpu(s)' in cpu_df.columns else []
+    ram_usage = cpu_df['%Mem'].tolist() if '%Mem' in cpu_df.columns else []
+    gpu_utilization = gpu_df['utilization.gpu [%]'].tolist() if 'utilization.gpu [%]' in gpu_df.columns else []
+    vram_usage = gpu_df['memory.used [MiB]'].tolist() if 'memory.used [MiB]' in gpu_df.columns else []
 
-        return {
-            "cpu_utilization": avg_cpu_usage,
-            "ram_usage": avg_ram_usage,
-            "gpu_utilization": gpu_df['utilization.gpu [%]'].mean(),
-            "vram_usage": gpu_df['memory.used [MiB]'].mean(),
-            "response_time": self.run_data['response_time'],
-            "performance_score": self.run_data['performance_score'],
-            "performance_score_type": self.run_data.get('performance_score_type'),
-            "energy_consumption": power_df['Total Power'].sum()
-        }
+    return {
+        "cpu_utilization": cpu_usage,
+        "ram_usage": ram_usage,
+        "gpu_utilization": gpu_utilization,
+        "vram_usage": vram_usage,
+        "response_time": [self.run_data['response_time']],  # Make it a list for consistency
+        "performance_score": [self.run_data['performance_score']],
+        "performance_score_type": [self.run_data.get('performance_score_type')],
+        "energy_consumption": power_df['Total Power'].tolist() if 'Total Power' in power_df.columns else []
+    }
+
 
     def after_experiment(self) -> None:
         experiment_end_time = time.time()
