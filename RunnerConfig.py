@@ -15,6 +15,7 @@ from ConfigValidator.Config.Models.RunnerContext import RunnerContext
 from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
+from deepeval import evaluate_performance
 from typing import Dict, Optional
 from pathlib import Path
 
@@ -99,7 +100,7 @@ class RunnerConfig:
             (RunnerEvents.POPULATE_RUN_DATA, self.populate_run_data),
             (RunnerEvents.AFTER_EXPERIMENT, self.after_experiment)
         ])
-        self.run_table_model = None  # Placeholder for run table model, to be initialized later
+        self.run_table_model = None
         self.run_data = {}
 
         self.model, self.tokenizer = None
@@ -111,33 +112,28 @@ class RunnerConfig:
 
     def load_model(self, context: RunnerContext):
         # Load the model and tokenizer based on the current run configuration
-        run_variation = context.run_variation["model_version"]  # Get the run variation, e.g., "qwen-v1"
-
-        # Fetch model and tokenizer configurations from the dictionary
+        run_variation = context.run_variation["model_version"]
         if run_variation in model_configs:
             model_name = model_configs[run_variation]["model_name"]
             tokenizer_name = model_configs[run_variation]["tokenizer_name"]
             print(f"Loading model: {model_name}, tokenizer: {tokenizer_name}")
-            # Load the model and tokenizer
             model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
             tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
             return model, tokenizer
         else:
-            # Raise an error if the model configuration is not found
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
 
     def create_run_table_model(self) -> RunTableModel:
         # Create a model to represent the configuration of different experiment runs
-        main_factor = FactorModel("model_version", list(model_configs.keys()))  # Main factor representing model versions
+        main_factor = FactorModel("model_version", list(model_configs.keys()))
         blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
         co_factor = FactorModel("input_size", ['short', 'long'])
-        # Defining the run table with repetitions and the data columns to collect
         self.run_table_model = RunTableModel(
             factors=[main_factor, blocking_factor_1, co_factor],
             repetitions=self.repetitions,
-            data_columns=['cpu_utilization', 'ram_usage', 
+            data_columns=['cpu_utilization', 'ram_usage',
                           'gpu_utilization', 'vram_usage',
-                          'performance_score', 'response_time', 
+                          'performance_score', 'response_time',
                           'input_token_size', 'output_token_size',
                           'energy_consumption']
         )
@@ -145,87 +141,84 @@ class RunnerConfig:
 
     def before_experiment(self) -> None:
         output.console_log("Config.before_experiment() called!")
-        self.experiment_start_time = time.time()  # Track total experiment start time
+        self.experiment_start_time = time.time()
         output.console_log("Experiment started.")
 
     def before_run(self) -> None:
-        # Called before each run of the experiment
         output.console_log("Config.before_run() called!")
 
     def start_run(self, context: RunnerContext) -> None:
-        # Initialize data for each run and track the start time
-        self.run_start_time = time.time()  # Track the start time for each individual run
-        self.run_data = {}  # Initialize run_data as an empty dictionary
-
-        self.model, self.tokenizer = self.load_model(context)  # Load model and tokenizer
+        self.run_start_time = time.time()
+        self.run_data = {}
+        self.model, self.tokenizer = self.load_model(context)
         output.console_log("Config.start_run() called!")
 
     def start_measurement(self, context: RunnerContext) -> None:
-        # Start measurement by querying GPU usage, memory utilization, and power consumption using Powerstat
         output.console_log("Config.start_measurement() called!")
         gpu_profiler_cmd = f'nvidia-smi --query-gpu=utilization.gpu, memory.used --format=csv,nounits -l 1 > {context.run_dir / "nvidia-smi.csv"}'
         power_profiler_cmd = f'powerjoular -l -f {context.run_dir / "powerjoular.csv"}'
+        cpu_profiler_cmd = f'top -b -d 1 -n 60 > {context.run_dir / "cpu_mem_profiler.csv"}'
 
         self.power_profiler = subprocess.Popen(shlex.split(power_profiler_cmd))
         self.gpu_profiler = subprocess.Popen(shlex.split(gpu_profiler_cmd))
-
-        #TODO Add the profiler for CPU and Memory here
-        self.cpu_profiler = None
+        self.cpu_profiler = subprocess.Popen(shlex.split(cpu_profiler_cmd))
 
     def interact(self, context: RunnerContext) -> None:
-        # Perform interaction with the model by providing an input text
         output.console_log("Config.interact() called!")
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]
-
-        inputs = self.tokenizer(input_text, return_tensors="pt")  # Tokenize the input text
-        start_time = time.time()  # Track the start time for generating output
-        outputs = self.model.generate(**inputs, max_length=50)  # Generate output using the model
-        end_time = time.time()  # Track the end time for generating output
+        inputs = self.tokenizer(input_text, return_tensors="pt")
+        start_time = time.time()
+        outputs = self.model.generate(**inputs, max_length=100)
+        end_time = time.time()
         
-        # Store the response time and the generated output in the run data
         self.run_data["response_time"] = end_time - start_time
         self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+        performance_result = evaluate_performance(input_text, self.run_data["output_text"])
+        self.run_data["performance_score"] = performance_result["score"]
+        self.run_data["performance_score_type"] = performance_result["type"]
+
         output.console_log(f"Generated output: {self.run_data['output_text']}")
+        output.console_log(f"Performance score: {self.run_data['performance_score']}")
 
     def stop_measurement(self, context: RunnerContext) -> None:
-        # Called to stop any measurements after the run
         output.console_log("Config.stop_measurement called!")
-
-        os.kill(self.power_profiler.pid, signal.SIGINT) # graceful shutdown of powerjoular
+        os.kill(self.power_profiler.pid, signal.SIGINT)
         self.power_profiler.wait()
-        os.kill(self.gpu_profiler.pid, signal.SIGINT) # graceful shutdown of powerjoular
+        os.kill(self.gpu_profiler.pid, signal.SIGINT)
         self.gpu_profiler.wait()
+        os.kill(self.cpu_profiler.pid, signal.SIGINT)
+        self.cpu_profiler.wait()
 
     def stop_run(self, context: RunnerContext) -> None:
-        # Called after completing each run, calculates total run time
         output.console_log("Config.stop_run() called!")
         run_end_time = time.time()
         total_run_time = run_end_time - self.run_start_time
-        # Estimate total time required for all runs based on the time taken for this run
-        estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60  # Estimated hours
+        estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60
 
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
-        #TODO Get performance score
-        performance_score = None
-
         power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
         gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
+        cpu_df = pd.read_csv(context.run_dir / "cpu_mem_profiler.csv")
+
+        avg_cpu_usage = cpu_df['%Cpu(s)'].mean() if '%Cpu(s)' in cpu_df.columns else None
+        avg_ram_usage = cpu_df['%Mem'].mean() if '%Mem' in cpu_df.columns else None
 
         return {
-            "cpu_utilization": None,
-            "ram_usage": None,
-            "gpu_utilization": gpu_df['utilization.gpu [%]'].to_list(),
-            "vram_usage": gpu_df[' memory.used [MiB]'].to_list(),
+            "cpu_utilization": avg_cpu_usage,
+            "ram_usage": avg_ram_usage,
+            "gpu_utilization": gpu_df['utilization.gpu [%]'].mean(),
+            "vram_usage": gpu_df['memory.used [MiB]'].mean(),
             "response_time": self.run_data['response_time'],
-            "performance_score": None,
-            "energy_consumption": power_df['Total Power'].to_list()
+            "performance_score": self.run_data['performance_score'],
+            "performance_score_type": self.run_data.get('performance_score_type'),
+            "energy_consumption": power_df['Total Power'].sum()
         }
 
     def after_experiment(self) -> None:
-        # Called after the entire experiment is completed to log the total duration
         experiment_end_time = time.time()
         total_experiment_duration = experiment_end_time - self.experiment_start_time
         hours, remainder = divmod(total_experiment_duration, 3600)
@@ -234,6 +227,5 @@ class RunnerConfig:
         output.console_log("Config.after_experiment() called!")
 
 if __name__ == "__main__":
-    # Instantiate the RunnerConfig and create the run table model
     config = RunnerConfig()
     config.create_run_table_model()
