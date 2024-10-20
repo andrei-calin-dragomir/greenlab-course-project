@@ -91,6 +91,7 @@ class RunnerConfig:
             (RunnerEvents.AFTER_EXPERIMENT, self.after_experiment)
         ])
         self.run_table_model = None  # Placeholder for run table model, to be initialized later
+        self.prompt_index = 0  # Initialize prompt index
         output.console_log("Custom config loaded")
 
     def before_experiment(self) -> None:
@@ -161,8 +162,8 @@ class RunnerConfig:
     def interact(self, context: RunnerContext) -> None:
         # Perform interaction with the model by providing an input text
         output.console_log("Config.interact() called!")
-        prompt_index = context.run_id % len(prompts)
-        input_text = prompts[prompt_index]  # Select one of the 6 prompts
+        input_text = prompts[self.prompt_index % len(prompts)]  # Use prompt based on current index
+        self.prompt_index += 1  # Increment the prompt index for the next interaction
 
         model, tokenizer = self.load_model(context)  # Load model and tokenizer
         
