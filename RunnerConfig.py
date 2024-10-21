@@ -26,7 +26,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 model_configs = {
     "qwen-v1": {
         "model_name": "Qwen/Qwen-7B",
-        "tokenizer_name": "Qwen/Qwen1.5-7B",
+        "tokenizer_name": "Qwen/Qwen-7B",
     },
     "qwen-v1.5": {
         "model_name": "Qwen/Qwen1.5-7B",
@@ -309,71 +309,6 @@ class RunnerConfig:
                 return None
             except Exception as e:
                 output.console_log(f"Unexpected error reading CPU profiling data: {e}")
-                return None
-
-            # Evaluate performance using Deepeval
-            try:
-                task_type = context.run_variation['task_type']
-                input_size = context.run_variation['input_size']
-                prompt = prompts[task_type][input_size]
-                retrieval_context = [prompt['content']]
-
-                if task_type == 'question_answering' and 'expected_output' in prompt:
-                    expected_output = prompt['expected_output']
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        expected_output=expected_output,  # Correctly provide expected output
-                        retrieval_context=retrieval_context
-                    )
-                    metric = GEval(
-                        name="Correctness",
-                        model="gpt-4",
-                        evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
-                        evaluation_steps=[
-                            "Check whether the facts in 'actual output' contradict any facts in 'expected_output'"
-                        ]
-                    )
-                elif task_type == 'generation':
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        retrieval_context=retrieval_context
-                    )
-                    metric = ContextualRelevancyMetric(
-                        threshold=0.7,
-                        model="gpt-4",
-                    )
-                elif task_type == 'summarization':
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        retrieval_context=retrieval_context
-                    )
-                    metric = SummarizationMetric(
-                        threshold=0.5,
-                        model="gpt-4",
-                        assessment_questions=[
-                            "Is the coverage score based on a percentage of 'yes' answers?",
-                            "Does the score ensure the summary's accuracy with the source?",
-                            "Does a higher score mean a more comprehensive summary?"
-                        ]
-                    )
-                else:
-                    raise ValueError(f"Unknown task type: {task_type}")
-
-                # Measuring the metric score
-                metric.measure(test_case)
-                self.run_data["performance_score"] = metric.score
-
-            except KeyError as e:
-                output.console_log(f"KeyError when accessing prompts or run data: {e}")
-                return None
-            except ValueError as e:
-                output.console_log(f"ValueError in performance evaluation: {e}")
-                return None
-            except Exception as e:
-                output.console_log(f"Unexpected error during performance evaluation: {e}")
                 return None
 
             # Return run data
