@@ -252,26 +252,28 @@ class RunnerConfig:
         output.console_log("Config.start_measurement() called!")
 
         gpu_profiler_cmd = [
-            'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
+            'sudo', 'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
             '--format=csv,nounits', '-l', '1'
         ]
         power_profiler_cmd = [
             'sudo', '/usr/bin/powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
         ]
         cpu_profiler_cmd = [
-            'top', '-b', '-d', '1', '-u', os.getenv('USER')
+            'sudo', 'top', '-b', '-d', '1', '-p', os.getpid(), '|', 'grep', f"\'{os.getpid()}\'", '--line-buffered'
         ]
 
         try:
             gpu_output_file = open(context.run_dir / "nvidia-smi.csv", "w")
-            power_output_file = open(context.run_dir / "powerjoular.csv", "w")
+
+            # There's no need to open the file for power joular because the -f flag set above tells it to save data in the csv file specified automatically
+            # power_output_file = open(context.run_dir / "powerjoular.csv", "w")
             cpu_output_file = open(context.run_dir / "top-output.txt", "w")
 
             self.gpu_profiler = subprocess.Popen(
                 gpu_profiler_cmd, stdout=gpu_output_file, stderr=subprocess.DEVNULL
             )
             self.power_profiler = subprocess.Popen(
-                power_profiler_cmd, stdout=power_output_file, stderr=subprocess.DEVNULL
+                power_profiler_cmd, stderr=subprocess.DEVNULL
             )
             self.cpu_profiler = subprocess.Popen(
                 cpu_profiler_cmd, stdout=cpu_output_file, stderr=subprocess.DEVNULL
