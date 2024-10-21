@@ -5,7 +5,8 @@ import time
 import json
 import shlex
 import signal
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from EventManager.Models.RunnerEvents import RunnerEvents
 from EventManager.EventSubscriptionController import EventSubscriptionController
 from ConfigValidator.Config.Models.RunTableModel import RunTableModel
@@ -14,55 +15,74 @@ from ConfigValidator.Config.Models.RunnerContext import RunnerContext
 from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
-from deepeval.metrics import GEval, ContextualRelevancyMetric, SummarizationMetric
-from deepeval.test_case import LLMTestCase, LLMTestCaseParams
+from deepeval.metrics import ContextualRelevancyMetric, SummarizationMetric
+from deepeval.test_case import LLMTestCase
+from deepeval.models import DeepEvalBaseLLM
 from typing import Dict, Optional
 from pathlib import Path
+from pydantic import BaseModel
+
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+
+HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+if not HUGGINGFACE_API_TOKEN:
+    raise ValueError("HUGGINGFACE_API_TOKEN is not set. Please set it as an environment variable.")
 
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if os.geteuid() != 0:
+    raise PermissionError("This script must be run as root (with sudo) to use powerjoular.")
 
-# Dictionary to store model configurations
+
 model_configs = {
     "qwen-v1": {
         "model_name": "Qwen/Qwen-7B",
         "tokenizer_name": "Qwen/Qwen1.5-7B",
+        "device": "cuda"
     },
     "qwen-v1.5": {
         "model_name": "Qwen/Qwen1.5-7B",
         "tokenizer_name": "Qwen/Qwen1.5-7B",
+        "device": "cuda"
     },
     "qwen-v2": {
         "model_name": "Qwen/Qwen2-7B",
         "tokenizer_name": "Qwen/Qwen2-7B",
+        "device": "cuda"
     },
     "qwen-v2.5": {
         "model_name": "Qwen/Qwen2.5-7B",
         "tokenizer_name": "Qwen/Qwen2.5-7B",
+        "device": "cuda"
     },
     "gemma-v1": {
         "model_name": "google/gemma-2b-it",
         "tokenizer_name": "google/gemma-2b-it",
+        "device": "cuda"
     },
     "gemma-v1.1": {
         "model_name": "google/gemma-1.1-2b-it",
         "tokenizer_name": "google/gemma-1.1-2b-it",
+        "device": "cuda"
     },
     "gemma-v2": {
         "model_name": "google/gemma-2-2b-it",
         "tokenizer_name": "google/gemma-2-2b-it",
+        "device": "cuda"
     },
     "mistral-v0.1": {
         "model_name": "mistralai/Mistral-7B-Instruct-v0.1",
         "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.1",
+        "device": "cuda"
     },
     "mistral-v0.2": {
         "model_name": "mistralai/Mistral-7B-Instruct-v0.2",
         "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.2",
+        "device": "cuda"
     },
     "mistral-v0.3": {
         "model_name": "mistralai/Mistral-7B-Instruct-v0.3",
         "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.3",
+        "device": "cuda"
     },
 }
 
@@ -97,18 +117,50 @@ prompts = {
         },
         "long": {
             "instruction": "Summarize the key points of the paragraphs in a concise manner.",
-            "content": "Global trade has evolved significantly over the past century, largely driven by advancements in transportation and communication technologies. This rapid growth has enabled businesses to access new markets and fostered international collaboration, leading to increased economic interdependence. However, with these benefits have come challenges, including increased competition and the risk of trade imbalances between nations. \n\nAt the same time, the rise of global trade has spurred significant changes in labor markets. Countries with access to cheaper labor have become manufacturing hubs, while higher-income nations have focused more on services and technology. This shift has led to wage disparities and political debates about the future of work in many economies. \n\nEnvironmental impacts of global trade have also become a pressing issue. Increased production and transportation contribute to higher greenhouse gas emissions and resource depletion. International efforts, such as environmental agreements, seek to mitigate these impacts, though balancing economic growth with sustainability remains a challenge. \n\nFinally, trade policies and agreements play a crucial role in shaping global trade dynamics. Countries enter into bilateral or multilateral agreements to reduce tariffs, promote free trade, or protect key industries. These agreements can boost economic ties but also lead to disputes over issues like intellectual property, market access, and labor standards.",
+            "content": "Global trade has evolved significantly over the past century, largely driven by advancements in transportation and communication technologies. This rapid growth has enabled businesses to access new markets and fostered international collaboration, leading to increased economic interdependence. However, with these benefits have come challenges, including increased competition and the risk of trade imbalances between nations.\n\nAt the same time, the rise of global trade has spurred significant changes in labor markets. Countries with access to cheaper labor have become manufacturing hubs, while higher-income nations have focused more on services and technology. This shift has led to wage disparities and political debates about the future of work in many economies.\n\nEnvironmental impacts of global trade have also become a pressing issue. Increased production and transportation contribute to higher greenhouse gas emissions and resource depletion. International efforts, such as environmental agreements, seek to mitigate these impacts, though balancing economic growth with sustainability remains a challenge.\n\nFinally, trade policies and agreements play a crucial role in shaping global trade dynamics. Countries enter into bilateral or multilateral agreements to reduce tariffs, promote free trade, or protect key industries. These agreements can boost economic ties but also lead to disputes over issues like intellectual property, market access, and labor standards.",
         },
     },
 }
 
+
+class CustomLLM(DeepEvalBaseLLM):
+    def __init__(self, model_name: str, tokenizer_name: str):
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            device_map="auto",
+            trust_remote_code=True  # Ensuring the custom code from the model's repository is trusted.
+        )
+        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
+
+    def load_model(self):
+        return self.model
+
+    def generate(self, prompt: str, schema: Optional[BaseModel] = None) -> str:
+        gen_pipeline = pipeline(
+            "text-generation",
+            model=self.model,
+            tokenizer=self.tokenizer,
+            device_map="auto",
+            max_length=250,
+            num_return_sequences=1
+        )
+
+        output = gen_pipeline(prompt)[0]["generated_text"]
+        return output
+
+    async def a_generate(self, prompt: str, schema: Optional[BaseModel] = None) -> str:
+        return self.generate(prompt)
+
+    def get_model_name(self):
+        return "Custom LLM"
+    
 class RunnerConfig:
-    ROOT_DIR = Path("../data/")  # Root directory for storing data
-    name: str = "test_runner_experiment"  # Name of the experiment
-    results_output_path: Path = ROOT_DIR / 'experiments'  # Path where results will be stored
-    operation_type: OperationType = OperationType.AUTO  # Operation type for automatic execution
-    time_between_runs_in_ms: int = 1000 * 60  # 60 seconds between runs
-    repetitions: int = 30  # Number of repetitions for the experiment runs
+    ROOT_DIR = Path("../data/")
+    name: str = "test_runner_experiment"
+    results_output_path: Path = ROOT_DIR / 'experiments'
+    operation_type: OperationType = OperationType.AUTO
+    time_between_runs_in_ms: int = 1000 * 60
+    repetitions: int = 30
 
     def __init__(self):
         EventSubscriptionController.subscribe_to_multiple_events([
@@ -127,23 +179,45 @@ class RunnerConfig:
 
         self.model = None
         self.tokenizer = None
-
         self.power_profiler = None
         self.gpu_profiler = None
         self.cpu_profiler = None
+
         output.console_log("Custom config loaded")
+
 
     def load_model(self, context: RunnerContext):
         run_variation = context.run_variation["model_version"]
         if run_variation in model_configs:
             model_name = model_configs[run_variation]["model_name"]
             tokenizer_name = model_configs[run_variation]["tokenizer_name"]
-            print(f"Loading model: {model_name}, tokenizer: {tokenizer_name}")
-            model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True)
-            tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-            return model, tokenizer
+            device = model_configs[run_variation]["device"]
+            print(f"Loading model: {model_name}, tokenizer: {tokenizer_name} on device: {device}")
+            try:
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_name,
+                    token=HUGGINGFACE_API_TOKEN,
+                    trust_remote_code=True,  # Added this line to avoid the need for user input
+                    device_map="auto",
+                    torch_dtype=torch.bfloat16
+                )
+                tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, token=HUGGINGFACE_API_TOKEN, trust_remote_code=True)
+                return model, tokenizer
+            except RuntimeError as e:
+                if "CUDA out of memory" in str(e):
+                    output.console_log("CUDA out of memory error. Trying CPU fallback...")
+                    model = AutoModelForCausalLM.from_pretrained(
+                        model_name,
+                        token=HUGGINGFACE_API_TOKEN,
+                        trust_remote_code=True
+                    ).to("cpu")
+                    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, token=HUGGINGFACE_API_TOKEN, trust_remote_code=True)
+                    return model, tokenizer
+                else:
+                    raise RuntimeError(f"Failed to load model/tokenizer: {e}")
         else:
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
+
 
     def create_run_table_model(self) -> RunTableModel:
         main_factor = FactorModel("model_version", list(model_configs.keys()))
@@ -177,25 +251,22 @@ class RunnerConfig:
     def start_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.start_measurement() called!")
 
-        # Commands for GPU, power, and CPU profiling
         gpu_profiler_cmd = [
             'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
             '--format=csv,nounits', '-l', '1'
         ]
         power_profiler_cmd = [
-            'powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
+            'sudo', '/usr/bin/powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
         ]
         cpu_profiler_cmd = [
             'top', '-b', '-d', '1', '-u', os.getenv('USER')
         ]
 
         try:
-            # Open the files in Python and redirect output there.
             gpu_output_file = open(context.run_dir / "nvidia-smi.csv", "w")
             power_output_file = open(context.run_dir / "powerjoular.csv", "w")
             cpu_output_file = open(context.run_dir / "top-output.txt", "w")
 
-            # Start the profilers, redirecting their output to respective files.
             self.gpu_profiler = subprocess.Popen(
                 gpu_profiler_cmd, stdout=gpu_output_file, stderr=subprocess.DEVNULL
             )
@@ -212,39 +283,36 @@ class RunnerConfig:
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
 
-        # Prepare input text and tokenize
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
         inputs = self.tokenizer(input_text, return_tensors="pt", padding=True)
 
-        # Extract attention mask
-        attention_mask = inputs['attention_mask']
 
-        start_time = time.time()
-        # Generate output with attention mask to avoid the error
-        outputs = self.model.generate(
-            inputs['input_ids'],
-            attention_mask=attention_mask,
-            max_new_tokens=100
-        )
-        end_time = time.time()
+        device = next(self.model.parameters()).device
+        inputs = inputs.to(device)
 
-        self.run_data["response_time"] = end_time - start_time
-        self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        try:
+            start_time = time.time()
+            outputs = self.model.generate(
+                inputs['input_ids'],
+                attention_mask=inputs.get('attention_mask', None),
+                max_new_tokens=100
+            )
+            end_time = time.time()
 
-        output.console_log(f"Generated output: {self.run_data['output_text']}")
+            self.run_data["response_time"] = end_time - start_time
+            self.run_data["output_text"] = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+            output.console_log(f"Generated output: {self.run_data['output_text']}")
+
+        except RuntimeError as e:
+            output.console_log(f"RuntimeError during generation: {e}")
 
     def stop_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_measurement called!")
         try:
-            if self.power_profiler:
-                os.kill(self.power_profiler.pid, signal.SIGINT)
-                self.power_profiler.wait()
-            if self.gpu_profiler:
-                os.kill(self.gpu_profiler.pid, signal.SIGINT)
-                self.gpu_profiler.wait()
-            if self.cpu_profiler:
-                os.kill(self.cpu_profiler.pid, signal.SIGINT)
-                self.cpu_profiler.wait()
+            for profiler in [self.power_profiler, self.gpu_profiler, self.cpu_profiler]:
+                if profiler and profiler.poll() is None:
+                    profiler.terminate()
         except Exception as e:
             output.console_log(f"Error stopping profilers: {e}")
 
@@ -260,40 +328,27 @@ class RunnerConfig:
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
+
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
         try:
-            # Reading power profiling data
+            # Power profiling
             try:
                 power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
-            except FileNotFoundError as e:
-                output.console_log(f"Power profiling data not found: {e}")
-                return None
-            except pd.errors.EmptyDataError as e:
-                output.console_log(f"Power profiling data is empty: {e}")
-                return None
+            except FileNotFoundError:
+                output.console_log("Power profiling data not found.")
+                power_df = pd.DataFrame()
 
-            # Reading GPU profiling data
+            # GPU profiling
             try:
                 gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
-                # Strip whitespace and handle potential column name variations
                 gpu_df.columns = gpu_df.columns.str.strip()
-                output.console_log(f"GPU profiling data columns: {gpu_df.columns}")
+                gpu_utilization = gpu_df.get('utilization.gpu [%]', []).tolist()
+                vram_usage = gpu_df.get('memory.used [MiB]', []).tolist()
+            except FileNotFoundError:
+                output.console_log("GPU profiling data not found.")
+                gpu_utilization, vram_usage = [], []
 
-                # Extract the GPU utilization and VRAM usage
-                gpu_utilization = gpu_df.get('utilization.gpu [%]', gpu_df.get('utilization.gpu')).to_list()
-                vram_usage = gpu_df.get('memory.used [MiB]', gpu_df.get('memory.used')).to_list()
-
-            except FileNotFoundError as e:
-                output.console_log(f"GPU profiling data not found: {e}")
-                return None
-            except pd.errors.EmptyDataError as e:
-                output.console_log(f"GPU profiling data is empty: {e}")
-                return None
-            except Exception as e:
-                output.console_log(f"Unexpected error reading GPU profiling data: {e}")
-                return None
-
-            # Reading CPU profiling data from top-output.txt
+            # CPU profiling
             cpu_usage = []
             memory_usage = []
             try:
@@ -301,105 +356,54 @@ class RunnerConfig:
                     for line in file:
                         columns = line.split()
                         if len(columns) > 8:
-                            # Append CPU usage (9th column) and RES memory (6th column) to the respective lists
                             cpu_usage.append(columns[8])
                             memory_usage.append(columns[5])
-            except FileNotFoundError as e:
-                output.console_log(f"CPU profiling data file not found: {e}")
-                return None
-            except Exception as e:
-                output.console_log(f"Unexpected error reading CPU profiling data: {e}")
-                return None
+            except FileNotFoundError:
+                output.console_log("CPU profiling data file not found.")
 
-            # Evaluate performance using Deepeval
+            # Performance evaluation using custom model
             try:
                 task_type = context.run_variation['task_type']
                 input_size = context.run_variation['input_size']
                 prompt = prompts[task_type][input_size]
-                retrieval_context = [prompt['content']]
 
-                if task_type == 'question_answering' and 'expected_output' in prompt:
-                    expected_output = prompt['expected_output']
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        expected_output=expected_output,  # Correctly provide expected output
-                        retrieval_context=retrieval_context
-                    )
-                    metric = GEval(
-                        name="Correctness",
-                        model="gpt-4",
-                        evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
-                        evaluation_steps=[
-                            "Check whether the facts in 'actual output' contradict any facts in 'expected_output'"
-                        ]
-                    )
-                elif task_type == 'generation':
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        retrieval_context=retrieval_context
-                    )
-                    metric = ContextualRelevancyMetric(
-                        threshold=0.7,
-                        model="gpt-4",
-                    )
-                elif task_type == 'summarization':
-                    test_case = LLMTestCase(
-                        input=prompt['content'],
-                        actual_output=self.run_data["output_text"],
-                        retrieval_context=retrieval_context
-                    )
-                    metric = SummarizationMetric(
-                        threshold=0.5,
-                        model="gpt-4",
-                        assessment_questions=[
-                            "Is the coverage score based on a percentage of 'yes' answers?",
-                            "Does the score ensure the summary's accuracy with the source?",
-                            "Does a higher score mean a more comprehensive summary?"
-                        ]
-                    )
+                test_case = LLMTestCase(
+                    input=prompt['content'],
+                    actual_output=self.run_data["output_text"],
+                    retrieval_context=[prompt['content']]
+                )
+
+                # Use the CustomLLM for evaluation instead of GPT-4
+                model_name = model_configs[context.run_variation['model_version']]["model_name"]
+                tokenizer_name = model_configs[context.run_variation['model_version']]["tokenizer_name"]
+                custom_llm = CustomLLM(model_name, tokenizer_name)
+
+                # Choose the appropriate metric and evaluate
+                if task_type == 'generation':
+                    metric = ContextualRelevancyMetric(model=custom_llm, threshold=0.7)
                 else:
-                    raise ValueError(f"Unknown task type: {task_type}")
+                    metric = SummarizationMetric(model=custom_llm, threshold=0.5)
 
-                # Measuring the metric score
                 metric.measure(test_case)
                 self.run_data["performance_score"] = metric.score
 
-            except KeyError as e:
-                output.console_log(f"KeyError when accessing prompts or run data: {e}")
-                return None
-            except ValueError as e:
-                output.console_log(f"ValueError in performance evaluation: {e}")
-                return None
             except Exception as e:
                 output.console_log(f"Unexpected error during performance evaluation: {e}")
                 return None
 
-            # Return run data
-            try:
-                return {
-                    "cpu_utilization": cpu_usage,
-                    "ram_usage": memory_usage,
-                    "gpu_utilization": gpu_utilization,
-                    "vram_usage": vram_usage,
-                    "response_time": self.run_data['response_time'],
-                    "performance_score": self.run_data['performance_score'],
-                    "energy_consumption": power_df['Total Power'].to_list() if 'Total Power' in power_df.columns else []
-                }
-            except KeyError as e:
-                output.console_log(f"KeyError when preparing run data to return: {e}")
-                return None
-            except Exception as e:
-                output.console_log(f"Unexpected error preparing run data: {e}")
-                return None
+            return {
+                "cpu_utilization": cpu_usage,
+                "ram_usage": memory_usage,
+                "gpu_utilization": gpu_utilization,
+                "vram_usage": vram_usage,
+                "response_time": self.run_data['response_time'],
+                "performance_score": self.run_data['performance_score'],
+                "energy_consumption": power_df['Total Power'].to_list() if 'Total Power' in power_df.columns else []
+            }
 
         except Exception as e:
-            import traceback
-            error_message = f"Error populating run data: {e}\n{traceback.format_exc()}"
-            output.console_log(error_message)
+            output.console_log(f"Error populating run data: {e}")
             return None
-
 
 
     def after_experiment(self) -> None:
@@ -412,15 +416,12 @@ class RunnerConfig:
 
     def cleanup(self):
         try:
-            if self.power_profiler and self.power_profiler.poll() is None:
-                self.power_profiler.terminate()
-            if self.gpu_profiler and self.gpu_profiler.poll() is None:
-                self.gpu_profiler.terminate()
-            if self.cpu_profiler and self.cpu_profiler.poll() is None:
-                self.cpu_profiler.terminate()
+            for profiler in [self.power_profiler, self.gpu_profiler, self.cpu_profiler]:
+                if profiler and profiler.poll() is None:
+                    profiler.terminate()
         except Exception as e:
             output.console_log(f"Error during cleanup: {e}")
-
+            
 if __name__ == "__main__":
     try:
         config = RunnerConfig()
