@@ -15,11 +15,12 @@ from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
 from deepeval.metrics import GEval, ContextualRelevancyMetric, SummarizationMetric
-from deepeval.test_case import LLMTestCase
+from deepeval.test_case import LLMTestCase, LLMTestCaseParams
 from typing import Dict, Optional
 from pathlib import Path
 
-OPENAI_API_KEY = ''
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Dictionary to store model configurations
 model_configs = {
@@ -81,10 +82,12 @@ prompts = {
         "short": {
             "instruction": "Provide the answer to the question.",
             "content": "What is the capital of France?",
+            "expected_output": "Paris",
         },
         "long": {
             "instruction": "Based on the given information, provide a clear and concise answer to the question.",
             "content": "France, located in Western Europe, is a country with a rich history, culture, and diverse geography. It has played a major role in international politics, economics, and culture. One of the key aspects of any country is its capital, which often serves as the political, cultural, and economic hub. For France, what is its capital city?",
+            "expected_output": "Paris",
         } 
     },
     "summarization": {
@@ -174,10 +177,10 @@ class RunnerConfig:
     def start_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.start_measurement() called!")
 
-        # Remove `>` redirection and handle output directly in Python.
+        # Commands for GPU, power, and CPU profiling
         gpu_profiler_cmd = [
             'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
-            '--format=csv,noheader,nounits', '-l', '1'
+            '--format=csv,nounits', '-l', '1'
         ]
         power_profiler_cmd = [
             'powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
@@ -206,15 +209,23 @@ class RunnerConfig:
             output.console_log(f"Error starting profilers: {e}")
             self.cleanup()
 
-
-
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
-        input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['instruction'].join(
-            prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'])
-        inputs = self.tokenizer(input_text, return_tensors="pt")
+
+        # Prepare input text and tokenize
+        input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
+        inputs = self.tokenizer(input_text, return_tensors="pt", padding=True)
+
+        # Extract attention mask
+        attention_mask = inputs['attention_mask']
+
         start_time = time.time()
-        outputs = self.model.generate(**inputs, max_length=100)
+        # Generate output with attention mask to avoid the error
+        outputs = self.model.generate(
+            inputs['input_ids'],
+            attention_mask=attention_mask,
+            max_new_tokens=100
+        )
         end_time = time.time()
 
         self.run_data["response_time"] = end_time - start_time
@@ -243,70 +254,153 @@ class RunnerConfig:
         total_run_time = run_end_time - self.run_start_time
         estimated_total_time = ((total_run_time + 60) * self.repetitions) / 60 / 60
 
-        self.model, self.tokenizer = None
+        self.model = None
+        self.tokenizer = None
 
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
-        power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
-        gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
-        
-        cpu_usage = []
-        memory_usage = []
+        try:
+            # Reading power profiling data
+            try:
+                power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
+            except FileNotFoundError as e:
+                output.console_log(f"Power profiling data not found: {e}")
+                return None
+            except pd.errors.EmptyDataError as e:
+                output.console_log(f"Power profiling data is empty: {e}")
+                return None
 
-        with open('top-output.txt', 'r') as file:
-            for line in file:
-                columns = line.split()
-                # Append CPU usage (9th column) and RES memory (6th column) to the respective lists
-                cpu_usage.append(columns[8])
-                memory_usage.append(columns[5])
+            # Reading GPU profiling data
+            try:
+                gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
+                # Strip whitespace and handle potential column name variations
+                gpu_df.columns = gpu_df.columns.str.strip()
+                output.console_log(f"GPU profiling data columns: {gpu_df.columns}")
 
-        # Evaluate performance using Deepeval
-        if context.run_variation['task_type'] == 'generation':
-            test_case = LLMTestCase(
-                input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
-                actual_output=self.run_data["output_text"],
-                retrieval_context=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
-            )
-            metric = ContextualRelevancyMetric(
-                threshold=0.7,
-                model="gpt-4",
-            )
-        elif context.run_variation['task_type'] == 'question_answering':
-            test_case = LLMTestCase(input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
-                                    actual_output=self.run_data["output_text"],
-                                    expected_output='The capital of France is Paris.')
-            metric = GEval(
-                name="Correctness",
-                model="gpt-4o",
-                evaluation_steps=["Check whether the facts in 'actual output' contradicts any facts in 'expected output'"]
-            )
-        elif context.run_variation['task_type'] == 'summarization':
-            test_case = LLMTestCase(input=prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content'],
-                                    actual_output=self.run_data["output_text"])
-            metric = SummarizationMetric(
-                threshold=0.5,
-                model="gpt-4",
-                assessment_questions=[
-                    "Is the coverage score based on a percentage of 'yes' answers?",
-                    "Does the score ensure the summary's accuracy with the source?",
-                    "Does a higher score mean a more comprehensive summary?"
-                ]
-            )
-        
-        metric.measure(test_case)
-        self.run_data["performance_score"] = metric.score
+                # Extract the GPU utilization and VRAM usage
+                gpu_utilization = gpu_df.get('utilization.gpu [%]', gpu_df.get('utilization.gpu')).to_list()
+                vram_usage = gpu_df.get('memory.used [MiB]', gpu_df.get('memory.used')).to_list()
 
-        return {
-            "cpu_utilization": cpu_usage,
-            "ram_usage": memory_usage,
-            "gpu_utilization": gpu_df['utilization.gpu [%]'].to_list(),
-            "vram_usage": gpu_df['memory.used [MiB]'].to_list(),
-            "response_time": self.run_data['response_time'],
-            "performance_score": self.run_data['performance_score'],
-            "energy_consumption": power_df['Total Power'].to_list()
-        }
+            except FileNotFoundError as e:
+                output.console_log(f"GPU profiling data not found: {e}")
+                return None
+            except pd.errors.EmptyDataError as e:
+                output.console_log(f"GPU profiling data is empty: {e}")
+                return None
+            except Exception as e:
+                output.console_log(f"Unexpected error reading GPU profiling data: {e}")
+                return None
+
+            # Reading CPU profiling data from top-output.txt
+            cpu_usage = []
+            memory_usage = []
+            try:
+                with open(context.run_dir / 'top-output.txt', 'r') as file:
+                    for line in file:
+                        columns = line.split()
+                        if len(columns) > 8:
+                            # Append CPU usage (9th column) and RES memory (6th column) to the respective lists
+                            cpu_usage.append(columns[8])
+                            memory_usage.append(columns[5])
+            except FileNotFoundError as e:
+                output.console_log(f"CPU profiling data file not found: {e}")
+                return None
+            except Exception as e:
+                output.console_log(f"Unexpected error reading CPU profiling data: {e}")
+                return None
+
+            # Evaluate performance using Deepeval
+            try:
+                task_type = context.run_variation['task_type']
+                input_size = context.run_variation['input_size']
+                prompt = prompts[task_type][input_size]
+                retrieval_context = [prompt['content']]
+
+                if task_type == 'question_answering' and 'expected_output' in prompt:
+                    expected_output = prompt['expected_output']
+                    test_case = LLMTestCase(
+                        input=prompt['content'],
+                        actual_output=self.run_data["output_text"],
+                        expected_output=expected_output,  # Correctly provide expected output
+                        retrieval_context=retrieval_context
+                    )
+                    metric = GEval(
+                        name="Correctness",
+                        model="gpt-4",
+                        evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
+                        evaluation_steps=[
+                            "Check whether the facts in 'actual output' contradict any facts in 'expected_output'"
+                        ]
+                    )
+                elif task_type == 'generation':
+                    test_case = LLMTestCase(
+                        input=prompt['content'],
+                        actual_output=self.run_data["output_text"],
+                        retrieval_context=retrieval_context
+                    )
+                    metric = ContextualRelevancyMetric(
+                        threshold=0.7,
+                        model="gpt-4",
+                    )
+                elif task_type == 'summarization':
+                    test_case = LLMTestCase(
+                        input=prompt['content'],
+                        actual_output=self.run_data["output_text"],
+                        retrieval_context=retrieval_context
+                    )
+                    metric = SummarizationMetric(
+                        threshold=0.5,
+                        model="gpt-4",
+                        assessment_questions=[
+                            "Is the coverage score based on a percentage of 'yes' answers?",
+                            "Does the score ensure the summary's accuracy with the source?",
+                            "Does a higher score mean a more comprehensive summary?"
+                        ]
+                    )
+                else:
+                    raise ValueError(f"Unknown task type: {task_type}")
+
+                # Measuring the metric score
+                metric.measure(test_case)
+                self.run_data["performance_score"] = metric.score
+
+            except KeyError as e:
+                output.console_log(f"KeyError when accessing prompts or run data: {e}")
+                return None
+            except ValueError as e:
+                output.console_log(f"ValueError in performance evaluation: {e}")
+                return None
+            except Exception as e:
+                output.console_log(f"Unexpected error during performance evaluation: {e}")
+                return None
+
+            # Return run data
+            try:
+                return {
+                    "cpu_utilization": cpu_usage,
+                    "ram_usage": memory_usage,
+                    "gpu_utilization": gpu_utilization,
+                    "vram_usage": vram_usage,
+                    "response_time": self.run_data['response_time'],
+                    "performance_score": self.run_data['performance_score'],
+                    "energy_consumption": power_df['Total Power'].to_list() if 'Total Power' in power_df.columns else []
+                }
+            except KeyError as e:
+                output.console_log(f"KeyError when preparing run data to return: {e}")
+                return None
+            except Exception as e:
+                output.console_log(f"Unexpected error preparing run data: {e}")
+                return None
+
+        except Exception as e:
+            import traceback
+            error_message = f"Error populating run data: {e}\n{traceback.format_exc()}"
+            output.console_log(error_message)
+            return None
+
+
 
     def after_experiment(self) -> None:
         experiment_end_time = time.time()
