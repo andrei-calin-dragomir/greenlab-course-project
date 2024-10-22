@@ -6,6 +6,7 @@ import json
 import shlex
 import signal
 import torch
+import gc
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from EventManager.Models.RunnerEvents import RunnerEvents
 from EventManager.EventSubscriptionController import EventSubscriptionController
@@ -27,7 +28,6 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
 if not HUGGINGFACE_API_TOKEN:
     raise ValueError("HUGGINGFACE_API_TOKEN is not set. Please set it as an environment variable.")
-
 
 if os.geteuid() != 0:
     raise PermissionError("This script must be run as root (with sudo) to use powerjoular.")
@@ -128,7 +128,7 @@ class CustomLLM(DeepEvalBaseLLM):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             device_map="auto",
-            trust_remote_code=True  # Ensuring the custom code from the model's repository is trusted.
+            trust_remote_code=True  
         )
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
 
@@ -186,38 +186,65 @@ class RunnerConfig:
         output.console_log("Custom config loaded")
 
 
+    def load_gemma_model(self, model_name: str, tokenizer_name: str):
+        torch.cuda.empty_cache()
+        gc.collect()
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            device_map="auto",
+            torch_dtype=torch.float16
+        )
+        model.gradient_checkpointing = True
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+        return model, tokenizer
+
+    def load_mistral_model(self, model_name: str, tokenizer_name: str):
+        torch.cuda.empty_cache()
+        gc.collect()
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            device_map="auto",
+            torch_dtype=torch.float16
+        )
+        model.gradient_checkpointing = True
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+        return model, tokenizer
+
+
+    def load_qwen_model(self, model_name: str, tokenizer_name: str):
+        torch.cuda.empty_cache()
+        gc.collect()
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            trust_remote_code=True,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            offload_buffers=True
+        )
+        model.gradient_checkpointing = True
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
+        return model, tokenizer
+
+
     def load_model(self, context: RunnerContext):
         run_variation = context.run_variation["model_version"]
+
         if run_variation in model_configs:
             model_name = model_configs[run_variation]["model_name"]
             tokenizer_name = model_configs[run_variation]["tokenizer_name"]
-            device = model_configs[run_variation]["device"]
-            print(f"Loading model: {model_name}, tokenizer: {tokenizer_name} on device: {device}")
-            try:
-                model = AutoModelForCausalLM.from_pretrained(
-                    model_name,
-                    token=HUGGINGFACE_API_TOKEN,
-                    trust_remote_code=True,  # Added this line to avoid the need for user input
-                    device_map="auto",
-                    torch_dtype=torch.bfloat16
-                )
-                tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, token=HUGGINGFACE_API_TOKEN, trust_remote_code=True)
-                return model, tokenizer
-            except RuntimeError as e:
-                if "CUDA out of memory" in str(e):
-                    output.console_log("CUDA out of memory error. Trying CPU fallback...")
-                    model = AutoModelForCausalLM.from_pretrained(
-                        model_name,
-                        token=HUGGINGFACE_API_TOKEN,
-                        trust_remote_code=True
-                    ).to("cpu")
-                    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, token=HUGGINGFACE_API_TOKEN, trust_remote_code=True)
-                    return model, tokenizer
-                else:
-                    raise RuntimeError(f"Failed to load model/tokenizer: {e}")
+            print(f"Loading model: {model_name}, tokenizer: {tokenizer_name} on GPU")
+
+            if "gemma" in run_variation:
+                return self.load_gemma_model(model_name, tokenizer_name)
+            elif "mistral" in run_variation:
+                return self.load_mistral_model(model_name, tokenizer_name)
+            elif "qwen" in run_variation:
+                return self.load_qwen_model(model_name, tokenizer_name)
+            else:
+                raise ValueError(f"Model family not recognized for run variation: {run_variation}")
+
         else:
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
-
 
     def create_run_table_model(self) -> RunTableModel:
         main_factor = FactorModel("model_version", list(model_configs.keys()))
@@ -259,35 +286,44 @@ class RunnerConfig:
             'sudo', '/usr/bin/powerjoular', '-l', '-f', str(context.run_dir / "powerjoular.csv")
         ]
         cpu_profiler_cmd = [
-            'sudo', 'top', '-b', '-d', '1', '-p', os.getpid(), '|', 'grep', f"\'{os.getpid()}\'", '--line-buffered'
+            'sudo', 'top', '-b', '-d', '1', '-p', str(os.getpid()), '|', 'grep', f"\'{os.getpid()}\'", '--line-buffered'
         ]
 
         try:
             gpu_output_file = open(context.run_dir / "nvidia-smi.csv", "w")
-
-            # There's no need to open the file for power joular because the -f flag set above tells it to save data in the csv file specified automatically
-            # power_output_file = open(context.run_dir / "powerjoular.csv", "w")
-            cpu_output_file = open(context.run_dir / "top-output.txt", "w")
-
             self.gpu_profiler = subprocess.Popen(
                 gpu_profiler_cmd, stdout=gpu_output_file, stderr=subprocess.DEVNULL
             )
+            output.console_log("GPU profiler started successfully.")
+        except Exception as e:
+            output.console_log(f"Error starting GPU profiler: {e}")
+            self.cleanup()
+
+        try:
             self.power_profiler = subprocess.Popen(
                 power_profiler_cmd, stderr=subprocess.DEVNULL
             )
-            self.cpu_profiler = subprocess.Popen(
-                cpu_profiler_cmd, stdout=cpu_output_file, stderr=subprocess.DEVNULL
-            )
+            output.console_log("Power profiler started successfully.")
         except Exception as e:
-            output.console_log(f"Error starting profilers: {e}")
+            output.console_log(f"Error starting power profiler: {e}")
             self.cleanup()
+
+        try:
+            cpu_output_file = open(context.run_dir / "top-output.txt", "w")
+            self.cpu_profiler = subprocess.Popen(
+                cpu_profiler_cmd, stdout=cpu_output_file, stderr=subprocess.DEVNULL, shell=True
+            )
+            output.console_log("CPU profiler started successfully.")
+        except Exception as e:
+            output.console_log(f"Error starting CPU profiler: {e}")
+            self.cleanup()
+
 
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
 
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
-        inputs = self.tokenizer(input_text, return_tensors="pt", padding=True)
-
+        inputs = self.tokenizer(input_text, return_tensors="pt", padding=False)
 
         device = next(self.model.parameters()).device
         inputs = inputs.to(device)
@@ -308,6 +344,8 @@ class RunnerConfig:
 
         except RuntimeError as e:
             output.console_log(f"RuntimeError during generation: {e}")
+
+
 
     def stop_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_measurement called!")
@@ -363,7 +401,6 @@ class RunnerConfig:
             except FileNotFoundError:
                 output.console_log("CPU profiling data file not found.")
 
-            # Performance evaluation using custom model
             try:
                 task_type = context.run_variation['task_type']
                 input_size = context.run_variation['input_size']
@@ -375,12 +412,10 @@ class RunnerConfig:
                     retrieval_context=[prompt['content']]
                 )
 
-                # Use the CustomLLM for evaluation instead of GPT-4
                 model_name = model_configs[context.run_variation['model_version']]["model_name"]
                 tokenizer_name = model_configs[context.run_variation['model_version']]["tokenizer_name"]
                 custom_llm = CustomLLM(model_name, tokenizer_name)
 
-                # Choose the appropriate metric and evaluate
                 if task_type == 'generation':
                     metric = ContextualRelevancyMetric(model=custom_llm, threshold=0.7)
                 else:
