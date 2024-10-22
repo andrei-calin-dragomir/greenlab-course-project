@@ -18,7 +18,6 @@ from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
 from deepeval.metrics import ContextualRelevancyMetric, SummarizationMetric
 from deepeval.test_case import LLMTestCase
-from deepeval.models import DeepEvalBaseLLM
 from typing import Dict, Optional
 from pathlib import Path
 from pydantic import BaseModel
@@ -121,38 +120,6 @@ prompts = {
         },
     },
 }
-
-
-class CustomLLM(DeepEvalBaseLLM):
-    def __init__(self, model_name: str, tokenizer_name: str):
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            device_map="auto",
-            trust_remote_code=True  
-        )
-        self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
-
-    def load_model(self):
-        return self.model
-
-    def generate(self, prompt: str, schema: Optional[BaseModel] = None) -> str:
-        gen_pipeline = pipeline(
-            "text-generation",
-            model=self.model,
-            tokenizer=self.tokenizer,
-            device_map="auto",
-            max_length=250,
-            num_return_sequences=1
-        )
-
-        output = gen_pipeline(prompt)[0]["generated_text"]
-        return output
-
-    async def a_generate(self, prompt: str, schema: Optional[BaseModel] = None) -> str:
-        return self.generate(prompt)
-
-    def get_model_name(self):
-        return "Custom LLM"
     
 class RunnerConfig:
     ROOT_DIR = Path("../data/")
@@ -323,7 +290,8 @@ class RunnerConfig:
         output.console_log("Config.interact() called!")
 
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
-        inputs = self.tokenizer(input_text, return_tensors="pt", padding=False)
+        inputs = self.tokenizer(input_text, return_tensors="pt", padding=False, truncation=True)
+
 
         device = next(self.model.parameters()).device
         inputs = inputs.to(device)
@@ -401,32 +369,54 @@ class RunnerConfig:
             except FileNotFoundError:
                 output.console_log("CPU profiling data file not found.")
 
-            try:
-                task_type = context.run_variation['task_type']
-                input_size = context.run_variation['input_size']
-                prompt = prompts[task_type][input_size]
+            # Load the Hugging Face model
+            model_name = model_configs[context.run_variation['model_version']]["model_name"]
+            tokenizer_name = model_configs[context.run_variation['model_version']]["tokenizer_name"]
 
-                test_case = LLMTestCase(
-                    input=prompt['content'],
-                    actual_output=self.run_data["output_text"],
-                    retrieval_context=[prompt['content']]
-                )
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                device_map="auto",
+                trust_remote_code=True
+            )
+            tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
 
-                model_name = model_configs[context.run_variation['model_version']]["model_name"]
-                tokenizer_name = model_configs[context.run_variation['model_version']]["tokenizer_name"]
-                custom_llm = CustomLLM(model_name, tokenizer_name)
+            # Generate the output
+            task_type = context.run_variation['task_type']
+            input_size = context.run_variation['input_size']
+            prompt = prompts[task_type][input_size]
 
-                if task_type == 'generation':
-                    metric = ContextualRelevancyMetric(model=custom_llm, threshold=0.7)
-                else:
-                    metric = SummarizationMetric(model=custom_llm, threshold=0.5)
+            inputs = tokenizer(prompt['content'], return_tensors="pt", padding=False, truncation=True)
+            device = next(model.parameters()).device
+            inputs = inputs.to(device)
 
-                metric.measure(test_case)
-                self.run_data["performance_score"] = metric.score
+            start_time = time.time()
+            outputs = model.generate(
+                inputs['input_ids'],
+                attention_mask=inputs.get('attention_mask', None),
+                max_new_tokens=100
+            )
+            end_time = time.time()
 
-            except Exception as e:
-                output.console_log(f"Unexpected error during performance evaluation: {e}")
-                return None
+            generated_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+            self.run_data["response_time"] = end_time - start_time
+            self.run_data["output_text"] = generated_output
+
+            # Use DeepEval Metrics
+            test_case = LLMTestCase(
+                input=prompt['content'],
+                actual_output=generated_output,
+                retrieval_context=[prompt['content']]
+            )
+
+            # Use the loaded Hugging Face model in DeepEval's metrics.
+            # Directly passing model and tokenizer.
+            if task_type == 'generation':
+                metric = ContextualRelevancyMetric(model=model, tokenizer=tokenizer, threshold=0.7)
+            else:
+                metric = SummarizationMetric(model=model, tokenizer=tokenizer, threshold=0.5)
+
+            metric.measure(test_case)
+            self.run_data["performance_score"] = metric.score
 
             return {
                 "cpu_utilization": cpu_usage,
