@@ -1,4 +1,6 @@
-deepeval
+evaluate 
+jsonschema
+lm-format-enforcer
 torch>=1.12
 transformers>=4.10.0
 accelerate
@@ -13,3 +15,7 @@ pandas
 tabulate
 dill
 jsonpickle
+rouge_score
+absl-py
+nltk
+sentencepiece
