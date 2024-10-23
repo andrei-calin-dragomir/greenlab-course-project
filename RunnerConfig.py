@@ -16,11 +16,11 @@ from ConfigValidator.Config.Models.RunnerContext import RunnerContext
 from ConfigValidator.Config.Models.OperationType import OperationType
 from ExtendedTyping.Typing import SupportsStr
 from ProgressManager.Output.OutputProcedure import OutputProcedure as output
-from deepeval.metrics import ContextualRelevancyMetric, SummarizationMetric
-from deepeval.test_case import LLMTestCase
 from typing import Dict, Optional
 from pathlib import Path
 from pydantic import BaseModel
+from evaluate import load
+
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
@@ -33,26 +33,6 @@ if os.geteuid() != 0:
 
 
 model_configs = {
-    "qwen-v1": {
-        "model_name": "Qwen/Qwen-7B",
-        "tokenizer_name": "Qwen/Qwen-7B",
-        "device": "cuda"
-    },
-    "qwen-v1.5": {
-        "model_name": "Qwen/Qwen1.5-7B",
-        "tokenizer_name": "Qwen/Qwen1.5-7B",
-        "device": "cuda"
-    },
-    "qwen-v2": {
-        "model_name": "Qwen/Qwen2-7B",
-        "tokenizer_name": "Qwen/Qwen2-7B",
-        "device": "cuda"
-    },
-    "qwen-v2.5": {
-        "model_name": "Qwen/Qwen2.5-7B",
-        "tokenizer_name": "Qwen/Qwen2.5-7B",
-        "device": "cuda"
-    },
     "gemma-v1": {
         "model_name": "google/gemma-2b-it",
         "tokenizer_name": "google/gemma-2b-it",
@@ -81,6 +61,26 @@ model_configs = {
     "mistral-v0.3": {
         "model_name": "mistralai/Mistral-7B-Instruct-v0.3",
         "tokenizer_name": "mistralai/Mistral-7B-Instruct-v0.3",
+        "device": "cuda"
+    },
+    "qwen-v1": {
+        "model_name": "Qwen/Qwen-7B",
+        "tokenizer_name": "Qwen/Qwen-7B",
+        "device": "cuda"
+    },
+    "qwen-v1.5": {
+        "model_name": "Qwen/Qwen1.5-7B",
+        "tokenizer_name": "Qwen/Qwen1.5-7B",
+        "device": "cuda"
+    },
+    "qwen-v2": {
+        "model_name": "Qwen/Qwen2-7B",
+        "tokenizer_name": "Qwen/Qwen2-7B",
+        "device": "cuda"
+    },
+    "qwen-v2.5": {
+        "model_name": "Qwen/Qwen2.5-7B",
+        "tokenizer_name": "Qwen/Qwen2.5-7B",
         "device": "cuda"
     },
 }
@@ -126,7 +126,7 @@ class RunnerConfig:
     name: str = "test_runner_experiment"
     results_output_path: Path = ROOT_DIR / 'experiments'
     operation_type: OperationType = OperationType.AUTO
-    time_between_runs_in_ms: int = 1000 * 60
+    time_between_runs_in_ms: int = 1000 * 20
     repetitions: int = 30
 
     def __init__(self):
@@ -143,7 +143,8 @@ class RunnerConfig:
         ])
         self.run_table_model = None
         self.run_data = {}
-
+        self.bleu_metric = load("bleu")
+        self.rouge_metric = load("rouge")
         self.model = None
         self.tokenizer = None
         self.power_profiler = None
@@ -159,10 +160,15 @@ class RunnerConfig:
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             device_map="auto",
-            torch_dtype=torch.float16
+            torch_dtype=torch.float16,
+            token=os.getenv("HUGGINGFACE_API_TOKEN")
         )
         model.gradient_checkpointing = True
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_name,
+            token=os.getenv("HUGGINGFACE_API_TOKEN"),
+        trust_remote_code=True
+)
         return model, tokenizer
 
     def load_mistral_model(self, model_name: str, tokenizer_name: str):
@@ -171,10 +177,15 @@ class RunnerConfig:
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             device_map="auto",
-            torch_dtype=torch.float16
+            torch_dtype=torch.float16,
+            token=os.getenv("HUGGINGFACE_API_TOKEN")
         )
         model.gradient_checkpointing = True
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_name,
+            token=os.getenv("HUGGINGFACE_API_TOKEN"),
+        trust_remote_code=True
+)
         return model, tokenizer
 
 
@@ -336,7 +347,6 @@ class RunnerConfig:
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
-
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
         try:
             # Power profiling
@@ -369,9 +379,17 @@ class RunnerConfig:
             except FileNotFoundError:
                 output.console_log("CPU profiling data file not found.")
 
-            # Load the Hugging Face model
-            model_name = model_configs[context.run_variation['model_version']]["model_name"]
-            tokenizer_name = model_configs[context.run_variation['model_version']]["tokenizer_name"]
+            run_variation = context.run_variation.get("model_version")
+            if not run_variation or run_variation not in model_configs:
+                raise ValueError(f"Model configuration not found for run variation: {run_variation}")
+
+            model_name = model_configs[run_variation].get("model_name")
+            tokenizer_name = model_configs[run_variation].get("tokenizer_name")
+
+            if model_name is None or tokenizer_name is None:
+                raise ValueError(f"Invalid model or tokenizer configuration for run variation: {run_variation}")
+
+            output.console_log(f"Model name: {model_name}, Tokenizer name: {tokenizer_name}")
 
             model = AutoModelForCausalLM.from_pretrained(
                 model_name,
@@ -380,14 +398,12 @@ class RunnerConfig:
             )
             tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
 
-            # Generate the output
             task_type = context.run_variation['task_type']
             input_size = context.run_variation['input_size']
             prompt = prompts[task_type][input_size]
 
-            inputs = tokenizer(prompt['content'], return_tensors="pt", padding=False, truncation=True)
             device = next(model.parameters()).device
-            inputs = inputs.to(device)
+            inputs = tokenizer(prompt['content'], return_tensors="pt", padding=False, truncation=True).to(device)
 
             start_time = time.time()
             outputs = model.generate(
@@ -401,22 +417,22 @@ class RunnerConfig:
             self.run_data["response_time"] = end_time - start_time
             self.run_data["output_text"] = generated_output
 
-            # Use DeepEval Metrics
-            test_case = LLMTestCase(
-                input=prompt['content'],
-                actual_output=generated_output,
-                retrieval_context=[prompt['content']]
-            )
+            expected_output = prompt.get('expected_output', None)
 
-            # Use the loaded Hugging Face model in DeepEval's metrics.
-            # Directly passing model and tokenizer.
-            if task_type == 'generation':
-                metric = ContextualRelevancyMetric(model=model, tokenizer=tokenizer, threshold=0.7)
+            if expected_output:
+                if task_type == 'generation' or task_type == 'summarization':
+                    # Using ROUGE for generation or summarization tasks
+                    rouge_result = self.rouge_metric.compute(predictions=[generated_output], references=[expected_output])
+                    self.run_data["performance_score"] = rouge_result['rougeL'].fmeasure
+                    output.console_log(f"ROUGE score: {rouge_result['rougeL'].fmeasure:.4f}")
+                elif task_type == 'question_answering':
+                    # Using BLEU for QA tasks
+                    bleu_result = self.bleu_metric.compute(predictions=[generated_output], references=[[expected_output]])
+                    self.run_data["performance_score"] = bleu_result['bleu']
+                    output.console_log(f"BLEU score: {bleu_result['bleu']:.4f}")
             else:
-                metric = SummarizationMetric(model=model, tokenizer=tokenizer, threshold=0.5)
-
-            metric.measure(test_case)
-            self.run_data["performance_score"] = metric.score
+                output.console_log("No expected output found for evaluation. Skipping performance score calculation.")
+                self.run_data["performance_score"] = None  # Set to None if no expected output is available
 
             return {
                 "cpu_utilization": cpu_usage,
