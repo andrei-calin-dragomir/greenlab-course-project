@@ -21,17 +21,19 @@ from pathlib import Path
 from pydantic import BaseModel
 from evaluate import load
 
-
+# Set environment variable for CUDA memory allocation settings
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 
+# Load Huggingface API token from environment variables
 HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
 if not HUGGINGFACE_API_TOKEN:
     raise ValueError("HUGGINGFACE_API_TOKEN is not set. Please set it as an environment variable.")
 
+# Check if script is run as root for powerjoular profiling
 if os.geteuid() != 0:
     raise PermissionError("This script must be run as root (with sudo) to use powerjoular.")
 
-
+# Model configurations for various versions of Gemma, Mistral, and Qwen models
 model_configs = {
     "gemma-v1": {
         "model_name": "google/gemma-2b-it",
@@ -85,7 +87,7 @@ model_configs = {
     },
 }
 
-# List of prompts
+# Prompts for different NLP tasks (generation, question-answering, summarization)
 prompts = {
     "generation": {
         "short": {
@@ -120,16 +122,18 @@ prompts = {
         },
     },
 }
-    
+
 class RunnerConfig:
+    # Class for runner configuration, including paths, event subscriptions, and metrics
     ROOT_DIR = Path("../data/")
     name: str = "test_runner_experiment"
     results_output_path: Path = ROOT_DIR / 'experiments'
     operation_type: OperationType = OperationType.AUTO
-    time_between_runs_in_ms: int = 1000 * 20
-    repetitions: int = 30
+    time_between_runs_in_ms: int = 1000 * 60  # Delay between runs
+    repetitions: int = 30  # Number of experiment repetitions
 
     def __init__(self):
+        # Subscribe to multiple runner events
         EventSubscriptionController.subscribe_to_multiple_events([
             (RunnerEvents.BEFORE_EXPERIMENT, self.before_experiment),
             (RunnerEvents.BEFORE_RUN, self.before_run),
@@ -141,6 +145,7 @@ class RunnerConfig:
             (RunnerEvents.POPULATE_RUN_DATA, self.populate_run_data),
             (RunnerEvents.AFTER_EXPERIMENT, self.after_experiment)
         ])
+        # Initialize models and profiling variables
         self.run_table_model = None
         self.run_data = {}
         self.bleu_metric = load("bleu")
@@ -153,7 +158,7 @@ class RunnerConfig:
 
         output.console_log("Custom config loaded")
 
-
+    # Load Gemma model based on the provided model and tokenizer names
     def load_gemma_model(self, model_name: str, tokenizer_name: str):
         torch.cuda.empty_cache()
         gc.collect()
@@ -163,14 +168,15 @@ class RunnerConfig:
             torch_dtype=torch.float16,
             token=os.getenv("HUGGINGFACE_API_TOKEN")
         )
-        model.gradient_checkpointing = True
+        model.gradient_checkpointing = True  # Enable gradient checkpointing
         tokenizer = AutoTokenizer.from_pretrained(
             tokenizer_name,
             token=os.getenv("HUGGINGFACE_API_TOKEN"),
-        trust_remote_code=True
-)
+            trust_remote_code=True
+        )
         return model, tokenizer
 
+    # Load Mistral model
     def load_mistral_model(self, model_name: str, tokenizer_name: str):
         torch.cuda.empty_cache()
         gc.collect()
@@ -184,11 +190,11 @@ class RunnerConfig:
         tokenizer = AutoTokenizer.from_pretrained(
             tokenizer_name,
             token=os.getenv("HUGGINGFACE_API_TOKEN"),
-        trust_remote_code=True
-)
+            trust_remote_code=True
+        )
         return model, tokenizer
 
-
+    # Load Qwen model
     def load_qwen_model(self, model_name: str, tokenizer_name: str):
         torch.cuda.empty_cache()
         gc.collect()
@@ -203,7 +209,7 @@ class RunnerConfig:
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
         return model, tokenizer
 
-
+    # Load model based on context and model version
     def load_model(self, context: RunnerContext):
         run_variation = context.run_variation["model_version"]
 
@@ -224,6 +230,7 @@ class RunnerConfig:
         else:
             raise ValueError(f"Model configuration not found for run variation: {run_variation}")
 
+    # Create the run table model based on experiment factors
     def create_run_table_model(self) -> RunTableModel:
         main_factor = FactorModel("model_version", list(model_configs.keys()))
         blocking_factor_1 = FactorModel("task_type", ['generation', 'question_answering', 'summarization'])
@@ -239,6 +246,7 @@ class RunnerConfig:
         )
         return self.run_table_model
 
+    # Event methods
     def before_experiment(self) -> None:
         output.console_log("Config.before_experiment() called!")
         self.experiment_start_time = time.time()
@@ -247,6 +255,7 @@ class RunnerConfig:
     def before_run(self) -> None:
         output.console_log("Config.before_run() called!")
 
+    # Start a run, load model, and initialize profiling
     def start_run(self, context: RunnerContext) -> None:
         self.run_start_time = time.time()
         self.run_data = {}
@@ -256,6 +265,7 @@ class RunnerConfig:
     def start_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.start_measurement() called!")
 
+        # Start profiling commands for GPU, power, and CPU
         gpu_profiler_cmd = [
             'sudo', 'nvidia-smi', '--query-gpu=utilization.gpu,memory.used',
             '--format=csv,nounits', '-l', '1'
@@ -268,6 +278,7 @@ class RunnerConfig:
         ]
 
         try:
+            # Start GPU profiler
             gpu_output_file = open(context.run_dir / "nvidia-smi.csv", "w")
             self.gpu_profiler = subprocess.Popen(
                 gpu_profiler_cmd, stdout=gpu_output_file, stderr=subprocess.DEVNULL
@@ -277,6 +288,7 @@ class RunnerConfig:
             output.console_log(f"Error starting GPU profiler: {e}")
             self.cleanup()
 
+        # Start power profiler
         try:
             self.power_profiler = subprocess.Popen(
                 power_profiler_cmd, stderr=subprocess.DEVNULL
@@ -286,6 +298,7 @@ class RunnerConfig:
             output.console_log(f"Error starting power profiler: {e}")
             self.cleanup()
 
+        # Start CPU profiler
         try:
             cpu_output_file = open(context.run_dir / "top-output.txt", "w")
             self.cpu_profiler = subprocess.Popen(
@@ -296,18 +309,18 @@ class RunnerConfig:
             output.console_log(f"Error starting CPU profiler: {e}")
             self.cleanup()
 
-
+    # Interact with the loaded model using a prompt
     def interact(self, context: RunnerContext) -> None:
         output.console_log("Config.interact() called!")
 
         input_text = prompts[context.run_variation['task_type']][context.run_variation['input_size']]['content']
         inputs = self.tokenizer(input_text, return_tensors="pt", padding=False, truncation=True)
 
-
         device = next(self.model.parameters()).device
         inputs = inputs.to(device)
 
         try:
+            # Generate output and calculate response time
             start_time = time.time()
             outputs = self.model.generate(
                 inputs['input_ids'],
@@ -324,8 +337,7 @@ class RunnerConfig:
         except RuntimeError as e:
             output.console_log(f"RuntimeError during generation: {e}")
 
-
-
+    # Stop measurement and terminate profiling processes
     def stop_measurement(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_measurement called!")
         try:
@@ -335,6 +347,7 @@ class RunnerConfig:
         except Exception as e:
             output.console_log(f"Error stopping profilers: {e}")
 
+    # Stop a run, clean up resources, and log run completion time
     def stop_run(self, context: RunnerContext) -> None:
         output.console_log("Config.stop_run() called!")
         run_end_time = time.time()
@@ -347,16 +360,17 @@ class RunnerConfig:
         output.console_log(f"Run completed in {total_run_time:.2f} seconds.")
         output.console_log(f"Estimated total time to completion: {estimated_total_time:.2f} hours")
 
+    # Populate run data with profiling results and compute performance metrics
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, SupportsStr]]:
         try:
-            # Power profiling
+            # Power profiling data
             try:
                 power_df = pd.read_csv(context.run_dir / "powerjoular.csv")
             except FileNotFoundError:
                 output.console_log("Power profiling data not found.")
                 power_df = pd.DataFrame()
 
-            # GPU profiling
+            # GPU profiling data
             try:
                 gpu_df = pd.read_csv(context.run_dir / "nvidia-smi.csv")
                 gpu_df.columns = gpu_df.columns.str.strip()
@@ -366,7 +380,7 @@ class RunnerConfig:
                 output.console_log("GPU profiling data not found.")
                 gpu_utilization, vram_usage = [], []
 
-            # CPU profiling
+            # CPU profiling data
             cpu_usage = []
             memory_usage = []
             try:
@@ -383,6 +397,7 @@ class RunnerConfig:
             if not run_variation or run_variation not in model_configs:
                 raise ValueError(f"Model configuration not found for run variation: {run_variation}")
 
+            # Load model and tokenizer for evaluation
             model_name = model_configs[run_variation].get("model_name")
             tokenizer_name = model_configs[run_variation].get("tokenizer_name")
 
@@ -398,6 +413,7 @@ class RunnerConfig:
             )
             tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, trust_remote_code=True)
 
+            # Get task type and input size, and prepare prompt
             task_type = context.run_variation['task_type']
             input_size = context.run_variation['input_size']
             prompt = prompts[task_type][input_size]
@@ -405,6 +421,7 @@ class RunnerConfig:
             device = next(model.parameters()).device
             inputs = tokenizer(prompt['content'], return_tensors="pt", padding=False, truncation=True).to(device)
 
+            # Generate output and calculate response time
             start_time = time.time()
             outputs = model.generate(
                 inputs['input_ids'],
@@ -417,6 +434,7 @@ class RunnerConfig:
             self.run_data["response_time"] = end_time - start_time
             self.run_data["output_text"] = generated_output
 
+            # Evaluate performance using BLEU or ROUGE depending on task type
             expected_output = prompt.get('expected_output', None)
 
             if expected_output:
@@ -434,6 +452,7 @@ class RunnerConfig:
                 output.console_log("No expected output found for evaluation. Skipping performance score calculation.")
                 self.run_data["performance_score"] = None  # Set to None if no expected output is available
 
+            # Return collected run data for reporting
             return {
                 "cpu_utilization": cpu_usage,
                 "ram_usage": memory_usage,
@@ -448,7 +467,7 @@ class RunnerConfig:
             output.console_log(f"Error populating run data: {e}")
             return None
 
-
+    # After experiment is completed, log the total experiment duration
     def after_experiment(self) -> None:
         experiment_end_time = time.time()
         total_experiment_duration = experiment_end_time - self.experiment_start_time
@@ -457,6 +476,7 @@ class RunnerConfig:
         output.console_log(f"Total experiment duration: {int(hours)} hours and {int(minutes)} minutes.")
         output.console_log("Config.after_experiment() called!")
 
+    # Cleanup method to terminate profiling processes if needed
     def cleanup(self):
         try:
             for profiler in [self.power_profiler, self.gpu_profiler, self.cpu_profiler]:
@@ -464,7 +484,8 @@ class RunnerConfig:
                     profiler.terminate()
         except Exception as e:
             output.console_log(f"Error during cleanup: {e}")
-            
+
+# Main script entry point
 if __name__ == "__main__":
     try:
         config = RunnerConfig()
