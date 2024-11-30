@@ -41,10 +41,7 @@ We automated the experiment using the following framework: [Experiment-Runner](h
     - [top](https://linux.die.net/man/1/top) : **CPU Utilization (%), Memory Utilization (Bytes/%)**
     - [nvidia-smi](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf) : **GPU Utilization (%), GPU VMemory (Bytes/%)**
 - Model Performance:
-    - [DeepEval](https://docs.confident-ai.com/):
-        - [**Contextual Relevancy (0-1 Score)**](https://docs.confident-ai.com/docs/metrics-contextual-relevancy)
-        - [**Answer Correctness (0-1 Score)**](https://docs.confident-ai.com/docs/guides-answer-correctness-metric)
-        - [**Summarization Completeness (0-1 Score)**](https://docs.confident-ai.com/docs/metrics-summarization)
+    - [evaluate](https://huggingface.co/docs/evaluate/en/index) : **Model Performance Scores**
 
 ## Running the Experiment
 
@@ -55,8 +52,6 @@ cd ./greenlab-course-project
 python3 -m venv venv
 source ./venv/bin/activate
 pip install -r requirements.txt
-cd ./experiment-runner
-pip install -r requirements.txt
 ```
 
 ### Execution
@@ -65,15 +60,3 @@ python3 -m venv venv
 cd ./experiment-runner
 python experiment-runner/ ../RunnerConfig.py
 ```
-
-### Execution Flow
-The workflow of the experiment is defined as:
-1. BEFORE_EXPERIMENT
-2. BEFORE_RUN
-3. START_RUN
-4. START_MEASUREMENT
-5. INTERACT
-6. STOP_MEASUREMENT
-7. STOP_RUN
-8. POPULATE_RUN_DATA
-9. AFTER_EXPERIMENT
