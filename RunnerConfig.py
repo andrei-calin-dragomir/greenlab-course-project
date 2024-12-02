@@ -111,7 +111,7 @@ class RunnerConfig:
 
     """The time Experiment Runner will wait after a run completes.
     This can be essential to accommodate for cooldown periods on some systems."""
-    time_between_runs_in_ms:    int             = 1000 #60000
+    time_between_runs_in_ms:    int             = 60000
 
     # Dynamic configurations can be one-time satisfied here before the program takes the config as-is
     # e.g. Setting some variable based on some criteria
@@ -205,9 +205,7 @@ class RunnerConfig:
         }
         self.models = ["llama2", "llama3", "llama3.1", "mistral:v0.1", "mistral:v0.2", "mistral:v0.3", "qwen:7b", "qwen2", "qwen2.5", "phi", "phi3", "phi3.5", "gemma", "gemma2"]
         
-        self.warmup_time                : int   = 10 #60    # Seconds
-        self.post_warmup_cooldown_time  : int   = 10 #30   # Seconds
-        self.metric_capturing_interval  : int   = 100 #Miliseconds
+        self.metric_capturing_interval  : int   = 200 # Miliseconds
 
         self.gpu_clock : int = 300 #Mhz
         self.gpu_power_cap : int = 100 #Watts
@@ -222,7 +220,7 @@ class RunnerConfig:
         co_factor = FactorModel("input_size", ['short', 'long'])
         self.run_table_model = RunTableModel(
             factors=[main_factor, blocking_factor_1, co_factor],
-            repetitions=1, #20
+            repetitions=20,
             data_columns=[
                 'GPU0_MEMORY_USED', 'GPU0_USAGE', 'USED_MEMORY', 'USED_SWAP',
                 'DRAM_ENERGY (J)', 'PACKAGE_ENERGY (J)', 'PP0_ENERGY (J)', 'PP1_ENERGY (J)', 'GPU0_POWER (mWatts)',
@@ -255,15 +253,6 @@ class RunnerConfig:
             machine_output = ssh.stdout.readline()
             output.console_log(f'Installation: {machine_output}...')
         output.console_log_OK('Model installation process completed!')
-        
-        #Run machine warmup based on specified interval for both CPU and GPU
-        output.console_log(f'Warming up machine using warmup script for {self.warmup_time}s...')
-        ssh.execute_remote_command(f'./{self.project_name}/warmup.sh {self.warmup_time}')
-
-        #Wait for warmup to finish and then cooldown machine
-        time.sleep(self.warmup_time)
-        output.console_log_OK('Warmup complete.')
-        time.sleep(self.post_warmup_cooldown_time)
 
     def before_run(self) -> None:
         """Perform any activity required before starting a run.

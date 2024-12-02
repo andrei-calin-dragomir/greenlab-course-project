@@ -14,6 +14,9 @@ is_model_installed() {
 if [ -z "$1" ]; then
     echo "Usage: $0 model1:version,model2:version,model3:version,..."
     exit 1
+
+# Parse and clean the input models list
+INPUT_MODELS=$(echo "$1" | tr ',' '\n' | sort -u)
 fi
 
 # Fetch the list of installed models
