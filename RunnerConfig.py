@@ -79,12 +79,11 @@ def parse_energibridge_output(file_path):
 
     return dict(averages.items() | deltas.items())
 
-def score_inference_output(task_type : str, inference_output : str, expected_outputs : List[str]):
-    evaluation = load_evaluation(task_type)
-
+def score_inference_output(score_type : str, inference_output : str, expected_outputs : List[str]):
+    evaluation = load_evaluation(score_type)
     scores = evaluation.compute(predictions=[inference_output], references=[expected_outputs])
 
-    score = scores[task_type] if task_type == 'bleu' else scores['rouge1']
+    score = next(iter(scores.values()))
 
     if score <= 0.4:
         output.console_log_FAIL(f"Performance Score: {score:.4f}")
@@ -170,7 +169,7 @@ class RunnerConfig:
                 "long": {
                     "instruction": "Analyze the provided context to generate an accurate and well-structured answer.",
                     "content": "Climate change is driven by the accumulation of greenhouse gases in the atmosphere, with carbon dioxide being the most significant contributor due to fossil fuel combustion. Other gases like methane and nitrous oxide also play substantial roles. What are the primary sources of these emissions, and how do they vary across different industries?",
-                    "metric": "rouge",
+                    "metric": "bleu",
                     "output_length": 150,
                     "expected_outputs": [
                         "Greenhouse gases primarily come from energy production, agriculture, transportation, and industrial processes, with variations based on regional energy systems and practices.",
@@ -183,7 +182,7 @@ class RunnerConfig:
                 "short": {
                     "instruction": "Summarize the main points from the following brief article.",
                     "content": "The rise of artificial intelligence (AI) in healthcare has opened new frontiers in diagnostics and treatment planning. Machine learning models trained on medical datasets can now predict patient outcomes with unprecedented accuracy. However, challenges remain, including ethical concerns about data privacy, potential biases in AI algorithms, and the need for robust regulatory frameworks. Addressing these issues is crucial for integrating AI into mainstream clinical practice.",
-                    "metric": "rouge",
+                    "metric": "bleu",
                     "output_length": 50,
                     "expected_outputs": [
                         "AI in healthcare enhances diagnostics and treatment with accurate predictions but faces challenges in ethics, bias, and regulation.",
@@ -194,7 +193,7 @@ class RunnerConfig:
                 "long": {
                     "instruction": "Provide a concise summary of the key insights from the provided technical paper.",
                     "content": "The adoption of renewable energy sources has been a cornerstone of global strategies to combat climate change. Solar and wind power have seen remarkable growth due to technological advancements and decreasing costs. However, the intermittency of these sources poses a challenge for energy systems, necessitating the development of energy storage technologies and grid integration strategies. Policymakers have implemented incentives, such as tax credits and feed-in tariffs, to accelerate the transition. Nevertheless, achieving carbon neutrality will require a holistic approach, incorporating energy efficiency, sustainable infrastructure development, and international collaboration.",
-                    "metric": "rouge",
+                    "metric": "bleu",
                     "output_length": 50,
                     "expected_outputs": [
                         "Renewable energy growth has been driven by lower costs and technology, but challenges like intermittency require storage and grid strategies. Policies like tax credits help, and carbon neutrality needs global collaboration.",
@@ -204,7 +203,7 @@ class RunnerConfig:
                 }
             }
         }
-        self.models = ["qwen:7b", "qwen2:7b", "qwen2.5:7b", "mistral:v0.1", "mistral:v0.2", "mistral:v0.3", "qwen:7b", "qwen2", "qwen2.5"]
+        self.models = ["llama2", "llama3", "llama3.1", "mistral:v0.1", "mistral:v0.2", "mistral:v0.3", "qwen:7b", "qwen2", "qwen2.5", "phi", "phi3", "phi3.5", "gemma", "gemma2"]
         
         self.warmup_time                : int   = 10 #60    # Seconds
         self.post_warmup_cooldown_time  : int   = 10 #30   # Seconds
@@ -240,16 +239,19 @@ class RunnerConfig:
         output.console_log(f'Setting up GPU frequency at {self.gpu_clock}Mhz and maximum power draw at {self.gpu_power_cap}W...')
         # Set persistence 
         ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo -S nvidia-smi -i 0 -pm 1")
+        output.console_log(ssh.stdout.readline())
         # Set GPU frequency during usage
         ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo -S nvidia-smi -i 0 -lgc {self.gpu_clock}")
+        output.console_log(ssh.stdout.readline())
         # Set GPU maximum power draw
         ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo -S nvidia-smi -i 0 -pl {self.gpu_power_cap}")
+        output.console_log(ssh.stdout.readline())
         output.console_log_OK(f'GPU configuration completed!')
 
         output.console_log('Installing models...')
         ssh.execute_remote_command(f"./{self.project_name}/install_models.sh {','.join(self.models)}")
-        machine_output = None
-        while not machine_output == 'Model installation process completed!':
+        machine_output = ''
+        while 'Model installation process completed!' not in machine_output:
             machine_output = ssh.stdout.readline()
             output.console_log(f'Installation: {machine_output}...')
         output.console_log_OK('Model installation process completed!')
@@ -259,8 +261,9 @@ class RunnerConfig:
         ssh.execute_remote_command(f'./{self.project_name}/warmup.sh {self.warmup_time}')
 
         #Wait for warmup to finish and then cooldown machine
-        time.sleep(self.warmup_time + self.post_warmup_cooldown_time)
+        time.sleep(self.warmup_time)
         output.console_log_OK('Warmup complete.')
+        time.sleep(self.post_warmup_cooldown_time)
 
     def before_run(self) -> None:
         """Perform any activity required before starting a run.
@@ -284,8 +287,8 @@ class RunnerConfig:
         output.console_log(f'Run directory on experimental machine: {self.external_run_dir}')
 
         # Loading the model of the run
-        ssh.execute_remote_command(f"ollama run {context.run_variation['model_version']}")
-        output.console_log_bold(f'Loaded model: {context.run_variation['model_version']}')
+        ssh.execute_remote_command(f"echo Respond with LOADED | ollama run qwen2.5")
+        output.console_log_bold(f"{ssh.stdout.readline().strip()} model: {context.run_variation['model_version']}")
 
     def start_measurement(self, context: RunnerContext) -> None:
         """Perform any activity required for starting measurements."""
@@ -310,15 +313,16 @@ class RunnerConfig:
         maximum_output_prompt = f"You must respond in {prompting_data['output_length']} word(s)."
 
         prompt = prompting_data['instruction'] + prompting_data['content'] + maximum_output_prompt
-
+        output.console_log(prompt)
         ssh = ExternalMachineAPI()
         # Running inference task
         start_time = time.time()
-        ssh.execute_remote_command(f"echo {prompt} | ollama run qwen:7b")
+        ssh.execute_remote_command(f"echo '{prompt}' | ollama run qwen:7b")
         raw_output = ssh.stdout.readlines()
         self.inference_time = time.time() - start_time
         self.inference_output = ''.join(raw_output)
-        output.console_log_OK(f"Inference finished in {self.auxiliary_data['inference_time']}!")
+        output.console_log(self.inference_output)
+        output.console_log_OK(f"Inference finished in {self.inference_time}s")
 
 
     def stop_measurement(self, context: RunnerContext) -> None:
@@ -355,16 +359,20 @@ class RunnerConfig:
         task_type = context.run_variation['task_type']
         expected_outputs = self.input_prompts[task_type][context.run_variation['input_size']]['expected_outputs']
 
-        inference_scores = score_inference_output(task_type, self.inference_output, expected_outputs)
+        inference_scores = score_inference_output(self.input_prompts[task_type][context.run_variation['input_size']]['metric'], 
+                                                  self.inference_output, expected_outputs)
+        
         load_data = parse_energibridge_output(f'{context.run_dir}/energibridge.csv')
 
-        return dict(load_data.items() | {'inference_time' : self.inference_time, 'performance_scores' : inference_scores})
+        return dict(load_data.items() | {'inference_time' : self.inference_time, 'performance_scores' : inference_scores}.items())
 
     def after_experiment(self) -> None:
         """Perform any activity required after stopping the experiment here
         Invoked only once during the lifetime of the program."""
 
-        # Reset GPU with sudo nvidia-smi -i 0 -rgc and sudo nvidia-smi -pl 200
+        ssh = ExternalMachineAPI()
+        ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo nvidia-smi -i 0 -rgc")
+        ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo nvidia-smi -pl 200")
 
         output.console_log("Config.after_experiment() called!")
 

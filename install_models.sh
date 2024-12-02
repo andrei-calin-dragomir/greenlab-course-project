@@ -21,9 +21,7 @@ INSTALLED_MODELS=$(ollama list 2>/dev/null | awk '{print $1}')
 if [ -z "$INSTALLED_MODELS" ]; then
     echo "No models installed currently or unable to fetch installed models list."
 else
-    echo "Currently installed models:"
-    echo "$INSTALLED_MODELS"
-    echo
+    echo "Currently installed models: $INSTALLED_MODELS"
 fi
 
 # Parse and clean the input models list
