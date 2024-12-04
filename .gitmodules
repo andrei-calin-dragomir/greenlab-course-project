@@ -1,3 +1,6 @@
 [submodule "experiment-runner"]
 	path = experiment-runner
 	url = https://github.com/S2-group/experiment-runner.git
+[submodule "EnergiBridge"]
+	path = EnergiBridge
+	url = https://github.com/tdurieux/EnergiBridge.git

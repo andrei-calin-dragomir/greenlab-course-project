@@ -55,9 +55,12 @@ class ExternalMachineAPI:
         print(f"Copied {remote_path} to {local_path}")
 
     def __del__(self):
-        self.stdin.close()
-        self.stdout.close()
-        self.stderr.close()
+        if self.stdin:
+            self.stdin.close()
+        if self.stdout:
+            self.stdout.close()
+        if self.stderr:
+            self.stderr.close()
         self.ssh.close()
 
 def parse_energibridge_output(file_path):
@@ -67,7 +70,7 @@ def parse_energibridge_output(file_path):
     ] + [f'CPU_USAGE_{i}' for i in range(32)]
 
     delta_target_columns = [
-        'DRAM_ENERGY (J)', 'PACKAGE_ENERGY (J)', 'PP0_ENERGY (J)', 'PP1_ENERGY (J)', 'GPU0_POWER (mWatts)'
+        'DRAM_ENERGY (J)', 'PACKAGE_ENERGY (J)', 'PP0_ENERGY (J)', 'PP1_ENERGY (J)', 'GPU0_ENERGY (mJ)'
     ]
 
     # Read the file into a pandas DataFrame
@@ -99,7 +102,7 @@ class RunnerConfig:
 
     # ================================ USER SPECIFIC CONFIG ================================
     """The name of the experiment."""
-    name:                       str             = "llm_inference_experiment"
+    name:                       str             = "inference_experiment"
 
     """The path in which Experiment Runner will create a folder with the name `self.name`, in order to store the
     results from this experiment. (Path does not need to exist - it will be created if necessary.)
@@ -135,8 +138,7 @@ class RunnerConfig:
                 "short": {
                     "instruction": "Generate a coherent and contextually appropriate completion for the sentence.",
                     "content": "Artificial intelligence has transformed industries by improving...",
-                    "metric": "bleu",
-                    "output_length": 50,
+                    "output_length": 100,
                     "expected_outputs": [
                         "Artificial intelligence has transformed industries by improving efficiency and enabling new innovations in fields like healthcare and transportation.",
                         "Industries have been transformed by artificial intelligence, which has boosted efficiency and innovation across various sectors.",
@@ -146,8 +148,7 @@ class RunnerConfig:
                 "long": {
                     "instruction": "Expand upon the given paragraph with logical, evidence-based details or related concepts.",
                     "content": "The Industrial Revolution marked a pivotal moment in human history, with profound impacts on economies, societies, and the environment. One of the lasting consequences of this era is the rise in greenhouse gas emissions, contributing to global warming. Over the years, various international efforts, such as the Kyoto Protocol and the Paris Agreement, have aimed to address this issue. Continuing this discussion, provide a summary of the economic and technological advancements that have emerged as part of the response to climate change.",
-                    "metric": "bleu",
-                    "output_length": 50,
+                    "output_length": 150,
                     "expected_outputs": [
                         "Economic advancements include growth in renewable energy industries, innovations in carbon capture technologies, and green jobs. Technological progress includes breakthroughs in solar power, wind energy, and sustainable transport solutions.",
                         "The response to climate change has spurred technological advancements such as renewable energy systems and energy storage, alongside economic measures like carbon pricing and green infrastructure investment.",
@@ -159,7 +160,6 @@ class RunnerConfig:
                 "short": {
                     "instruction": "Provide a precise answer to the following factual question.",
                     "content": "What are the capitals of all european countries?",
-                    "metric": "bleu",
                     "output_length": 150,
                     "expected_outputs": ['''The capitals of European countries are:
                                         Andorra - Andorra la Vella, Albania - Tirana, Austria - Vienna, Belarus - Minsk, Belgium - Brussels, Bosnia and Herzegovina - Sarajevo, Bulgaria - Sofia, Croatia - Zagreb, Cyprus - Nicosia, Czechia - Prague, Denmark - Copenhagen, Estonia - Tallinn, Finland - Helsinki, France - Paris.
@@ -169,8 +169,7 @@ class RunnerConfig:
                 "long": {
                     "instruction": "Analyze the provided context to generate an accurate and well-structured answer.",
                     "content": "Climate change is driven by the accumulation of greenhouse gases in the atmosphere, with carbon dioxide being the most significant contributor due to fossil fuel combustion. Other gases like methane and nitrous oxide also play substantial roles. What are the primary sources of these emissions, and how do they vary across different industries?",
-                    "metric": "bleu",
-                    "output_length": 150,
+                    "output_length": 200,
                     "expected_outputs": [
                         "Greenhouse gases primarily come from energy production, agriculture, transportation, and industrial processes, with variations based on regional energy systems and practices.",
                         "Key sources include fossil fuel combustion in energy production, methane emissions in agriculture, and transportation emissions from vehicles. Industrial processes also contribute, varying regionally.",
@@ -181,9 +180,8 @@ class RunnerConfig:
             "summarization": {
                 "short": {
                     "instruction": "Summarize the main points from the following brief article.",
-                    "content": "The rise of artificial intelligence (AI) in healthcare has opened new frontiers in diagnostics and treatment planning. Machine learning models trained on medical datasets can now predict patient outcomes with unprecedented accuracy. However, challenges remain, including ethical concerns about data privacy, potential biases in AI algorithms, and the need for robust regulatory frameworks. Addressing these issues is crucial for integrating AI into mainstream clinical practice.",
-                    "metric": "bleu",
                     "output_length": 50,
+                    "content": "The adoption of renewable energy sources has been a cornerstone of global strategies to combat climate change. Solar and wind power have seen remarkable growth due to technological advancements and decreasing costs. However, the intermittency of these sources poses a challenge for energy systems, necessitating the development of energy storage technologies and grid integration strategies. Policymakers have implemented incentives, such as tax credits and feed-in tariffs, to accelerate the transition. Nevertheless, achieving carbon neutrality will require a holistic approach, incorporating energy efficiency, sustainable infrastructure development, and international collaboration.",
                     "expected_outputs": [
                         "AI in healthcare enhances diagnostics and treatment with accurate predictions but faces challenges in ethics, bias, and regulation.",
                         "Machine learning in healthcare improves outcome prediction but raises ethical, bias, and privacy concerns needing regulation.",
@@ -192,9 +190,8 @@ class RunnerConfig:
                 },
                 "long": {
                     "instruction": "Provide a concise summary of the key insights from the provided technical paper.",
-                    "content": "The adoption of renewable energy sources has been a cornerstone of global strategies to combat climate change. Solar and wind power have seen remarkable growth due to technological advancements and decreasing costs. However, the intermittency of these sources poses a challenge for energy systems, necessitating the development of energy storage technologies and grid integration strategies. Policymakers have implemented incentives, such as tax credits and feed-in tariffs, to accelerate the transition. Nevertheless, achieving carbon neutrality will require a holistic approach, incorporating energy efficiency, sustainable infrastructure development, and international collaboration.",
-                    "metric": "bleu",
-                    "output_length": 50,
+                    "content": "Artificial intelligence (AI), in its broadest sense, is intelligence exhibited by machines, particularly computer systems.  It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize their chances of achieving defined goals.[1] Such machines may be called AIs. Some high-profile applications of AI include advanced web search engines (e.g., Google Search); recommendation systems (used by YouTube, Amazon, and Netflix); interacting via human speech (e.g., Google Assistant, Siri, and Alexa); autonomous vehicles (e.g., Waymo); generative and creative tools (e.g., ChatGPT, and AI art); and superhuman play and analysis in strategy games (e.g., chess and Go). However, many AI applications are not perceived as AI: A lot of cutting edge AI has filtered into general applications, often without being called AI because once something becomes useful enough and common enough its not labeled AI anymore.[2][3] The various subfields of AI research are centered around particular goals and the use of particular tools. The traditional goals of AI research include reasoning, knowledge representation, planning, learning, natural language processing, perception, and support for robotics.[a] General intelligence—the ability to complete any task performable by a human on an at least equal level—is among the fields long-term goals.[4] To reach these goals, AI researchers have adapted and integrated a wide range of techniques, including search and mathematical optimization, formal logic, artificial neural networks, and methods based on statistics, operations research, and economics.[b] AI also draws upon psychology, linguistics, philosophy, neuroscience, and other fields.[5] Artificial intelligence was founded as an academic discipline in 1956,[6] and the field went through multiple cycles of optimism,[7][8] followed by periods of disappointment and loss of funding, known as AI winter.[9][10] Funding and interest vastly increased after 2012 when deep learning outperformed previous AI techniques.[11] This growth accelerated further after 2017 with the transformer architecture,[12] and by the early 2020s hundreds of billions of dollars were being invested in AI (known as the AI boom). The widespread use of AI in the 21st century exposed several unintended consequences and harms in the present and raised concerns about its risks and long-term effects in the future, prompting discussions about regulatory policies to ensure the safety and benefits of the technology.",
+                    "output_length": 200,
                     "expected_outputs": [
                         "Renewable energy growth has been driven by lower costs and technology, but challenges like intermittency require storage and grid strategies. Policies like tax credits help, and carbon neutrality needs global collaboration.",
                         "Solar and wind energy are growing but require solutions for intermittency, such as storage and integration. Incentives like feed-in tariffs support this, while carbon neutrality demands international action.",
@@ -258,7 +255,7 @@ class RunnerConfig:
         """Perform any activity required before starting a run.
         No context is available here as the run is not yet active (BEFORE RUN)"""
         output.console_log("Config.before_run() called!")
-        self.inference_time = 0,
+        self.inference_time = 0
         self.inference_output = ''
         
 
@@ -276,7 +273,7 @@ class RunnerConfig:
         output.console_log(f'Run directory on experimental machine: {self.external_run_dir}')
 
         # Loading the model of the run
-        ssh.execute_remote_command(f"echo Respond with LOADED | ollama run qwen2.5")
+        ssh.execute_remote_command(f"echo Respond with LOADED | ollama run {context.run_variation['model_version']}")
         output.console_log_bold(f"{ssh.stdout.readline().strip()} model: {context.run_variation['model_version']}")
 
     def start_measurement(self, context: RunnerContext) -> None:
@@ -285,7 +282,8 @@ class RunnerConfig:
 
         # Run the energibridge command in the background
         ssh = ExternalMachineAPI()
-        ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo -S energibridge --interval {self.metric_capturing_interval} --output {self.external_run_dir}/energibridge.csv sleep 600 & echo $!")
+        energibridge_path = f'./{self.project_name}/EnergiBridge/target/release/energibridge'
+        ssh.execute_remote_command(f"echo {getenv('PASSWORD')} | sudo -S {energibridge_path} -g --interval {self.metric_capturing_interval} --output {self.external_run_dir}/energibridge.csv sleep 600 & echo $!")
         self.energibridge_pid = int(ssh.stdout.readline())
 
         output.console_log(f"Energibridge collection for inference started...")
@@ -306,7 +304,7 @@ class RunnerConfig:
         ssh = ExternalMachineAPI()
         # Running inference task
         start_time = time.time()
-        ssh.execute_remote_command(f"echo '{prompt}' | ollama run qwen:7b")
+        ssh.execute_remote_command(f'echo "{prompt}" | ollama run {context.run_variation["model_version"]}')
         raw_output = ssh.stdout.readlines()
         self.inference_time = time.time() - start_time
         self.inference_output = ''.join(raw_output)
@@ -348,12 +346,15 @@ class RunnerConfig:
         task_type = context.run_variation['task_type']
         expected_outputs = self.input_prompts[task_type][context.run_variation['input_size']]['expected_outputs']
 
-        inference_scores = score_inference_output(self.input_prompts[task_type][context.run_variation['input_size']]['metric'], 
-                                                  self.inference_output, expected_outputs)
+        bleu_scores = score_inference_output('bleu', self.inference_output, expected_outputs)
+        rouge_scores = score_inference_output('rouge', self.inference_output, expected_outputs)
         
-        load_data = parse_energibridge_output(f'{context.run_dir}/energibridge.csv')
+        run_data = parse_energibridge_output(f'{context.run_dir}/energibridge.csv')
+        run_data['inference_time'] = self.inference_time
+        run_data['rouge_scores'] = rouge_scores
+        run_data['bleu_scores'] = bleu_scores
 
-        return dict(load_data.items() | {'inference_time' : self.inference_time, 'performance_scores' : inference_scores}.items())
+        return run_data
 
     def after_experiment(self) -> None:
         """Perform any activity required after stopping the experiment here
