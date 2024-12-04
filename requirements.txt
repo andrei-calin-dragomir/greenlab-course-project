@@ -2,7 +2,7 @@ paramiko
 scp
 python-dotenv
 evaluate
-rouge_score
+rouge-score
 
 pandas
 psutil
