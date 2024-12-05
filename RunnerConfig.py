@@ -43,7 +43,7 @@ class ExternalMachineAPI:
             else:
                 self.ssh.exec_command(command)
         except paramiko.SSHException:
-            print('Failed to send run command to machine!')
+            print('Failed to send command to machine!')
         except TimeoutError:
             print('Timeout reached while waiting for command output.')
 
@@ -89,11 +89,11 @@ def score_inference_output(score_type : str, inference_output : str, expected_ou
     score = next(iter(scores.values()))
 
     if score <= 0.4:
-        output.console_log_FAIL(f"Performance Score: {score:.4f}")
+        output.console_log_FAIL(f"Performance ({score_type}) Score: {score:.4f}")
     elif 0.4 < score <= 0.8:
-        output.console_log_bold(f"Performance Score: {score:.4f}")
+        output.console_log_bold(f"Performance ({score_type}) Score: {score:.4f}")
     else:
-        output.console_log_OK(f"Performance Score: {score:.4f}")
+        output.console_log_OK(f"Performance ({score_type}) Score: {score:.4f}")
 
     return scores
 
@@ -114,7 +114,7 @@ class RunnerConfig:
 
     """The time Experiment Runner will wait after a run completes.
     This can be essential to accommodate for cooldown periods on some systems."""
-    time_between_runs_in_ms:    int             = 60000
+    time_between_runs_in_ms:    int             = 30000
 
     # Dynamic configurations can be one-time satisfied here before the program takes the config as-is
     # e.g. Setting some variable based on some criteria
@@ -222,7 +222,7 @@ class RunnerConfig:
         
         self.metric_capturing_interval  : int   = 200 # Miliseconds
 
-        self.gpu_clock : int = 300 #Mhz
+        self.gpu_clock : int = 600 #Mhz
         self.gpu_power_cap : int = 100 #Watts
 
         output.console_log("Custom config loaded")
@@ -235,11 +235,12 @@ class RunnerConfig:
         co_factor = FactorModel("input_size", ['short', 'long'])
         self.run_table_model = RunTableModel(
             factors=[main_factor, blocking_factor_1, co_factor],
+            shuffle=True,
             repetitions=20,
             data_columns=[
                 'GPU0_MEMORY_USED', 'GPU0_USAGE', 'USED_MEMORY', 'USED_SWAP',
-                'DRAM_ENERGY (J)', 'PACKAGE_ENERGY (J)', 'PP0_ENERGY (J)', 'PP1_ENERGY (J)', 'GPU0_POWER (mWatts)',
-                ] + [f'CPU_USAGE_{i}' for i in range(32)] + ['performance_scores', 'inference_time']
+                'DRAM_ENERGY (J)', 'PACKAGE_ENERGY (J)', 'PP0_ENERGY (J)', 'PP1_ENERGY (J)', 'GPU0_ENERGY (mJ)',
+                ] + [f'CPU_USAGE_{i}' for i in range(32)] + ['rouge_scores', 'bleu_scores', 'inference_time']
         )
         return self.run_table_model
 
