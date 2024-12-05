@@ -31,7 +31,7 @@ class ExternalMachineAPI:
         self.stderr = None
         
         try:
-            self.ssh.connect(hostname=getenv('HOSTNAME'), username=getenv('USERNAME'), password=getenv('PASSWORD'))
+            self.ssh.connect(hostname=getenv('HOSTNAME'), username=getenv('EXPERIMENTAL_MACHINE_USER'), password=getenv('PASSWORD'))
         except paramiko.SSHException:
             print('Failed to send run command to machine!')
 
