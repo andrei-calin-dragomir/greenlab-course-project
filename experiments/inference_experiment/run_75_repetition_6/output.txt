@@ -1,0 +1,34 @@
+## Primary Sources of Greenhouse Gas Emissions Across Industries
+
+**Carbon Dioxide (CO2)**
+
+* **Power generation:** 40% of global emissions – coal-fired power plants being major contributors.
+* **Transportation:** 24% of emissions – vehicles using fossil fuels for fuel.
+* **Industrial processes:** 17% of emissions – manufacturing and production processes relying on fossil fuels.
+* **Residential and commercial buildings:** 14% of emissions – energy use for heating, cooling, and lighting.
+
+
+**Methane (CH4)**
+
+* **Agriculture:** 37% of emissions – livestock digestion and manure management.
+* **Waste management:** 20% of emissions – anaerobic decomposition of organic materials in landfills.
+* **Energy production:** 17% of emissions – natural gas leaks and incomplete combustion.
+
+**Nitrous Oxide (N2O)**
+
+* **Agriculture:** 65% of emissions – soil management practices and animal waste.
+* **Chemical manufacturing:** 18% of emissions – production of fertilizers and other chemicals.
+
+**Variations Across Industries:**
+
+* **High-emitting industries:** Power generation, transportation, and industrial processes contribute significantly to overall CO2 emissions.
+* **Agriculture:** Major source of methane and nitrous oxide emissions.
+* **Waste management:** Significant methane emissions, particularly from landfills.
+* **Chemical manufacturing:** Major nitrous oxide emitter.
+
+**Additional Considerations:**
+
+* Emissions vary geographically, with developing countries experiencing rapid increases in emissions due to industrialization.
+* Technological advancements and policy interventions can influence emission reduction across industries.
+* Carbon capture and storage technologies are potential solutions for high-emitting industries.
+

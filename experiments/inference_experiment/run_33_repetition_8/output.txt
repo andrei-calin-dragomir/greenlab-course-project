@@ -1,0 +1,10 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into several sectors. The Power & Energy sector, which includes coal, oil, and natural gas power plants, is the largest contributor to carbon dioxide (CO2) emissions, accounting for about 40% of global CO2 emissions in 2019. Industrial processes such as steel, cement, and chemical production are also significant sources, contributing around 22%.
+
+   Methane, a potent GHG with over 25 times the warming potential of CO2 on a 100-year time horizon, is primarily emitted from agriculture (40%) and fossil fuel extraction and use (36%). Agriculture contributes to methane emissions through activities like rice cultivation, livestock rearing, and manure management. In contrast, the oil & gas industry releases methane during exploration, production, processing, transmission, and storage of natural gas.
+
+   Nitrous oxide (N2O), another long-lived GHG, is primarily emitted from agricultural practices (79%). This includes nitrogen fertilizers used in crop production and manure management. The industrial sector contributes around 18% of global N2O emissions.
+
+   Across different industries, the sources of emissions vary significantly. For instance, the transportation sector mainly emits CO2 through fuel combustion in vehicles, while the construction industry is a significant contributor to CH4 and N2O emissions due to use of nitrogen fertilizers and energy consumption from fossil fuels during building processes.
+
+   Understanding these sources of GHG emissions across different industries is crucial for developing effective strategies to mitigate climate change by reducing greenhouse gas emissions and promoting sustainable practices in relevant sectors.
+

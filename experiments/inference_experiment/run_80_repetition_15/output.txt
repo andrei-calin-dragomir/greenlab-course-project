@@ -1,0 +1,64 @@
+Here are the capitals of all European countries, categorized by continent and region:
+
+**Western Europe:**
+
+* **Andorra:** Andorra la Vella
+* **Austria:** Vienna
+* **Belgium:** Brussels
+* **France:** Paris
+* **Germany:** Berlin
+* **Ireland:** Dublin
+* **Liechtenstein:** Vaduz
+* **Luxembourg:** Luxembourg City
+* **Monaco:** Monaco
+* **Netherlands:** Amsterdam
+* **Switzerland:** Bern
+* **United Kingdom:** London
+
+**Northern Europe:**
+
+* **Denmark:** Copenhagen
+* **Estonia:** Tallinn
+* **Finland:** Helsinki
+* **Iceland:** Reykjavik
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+
+**Southern Europe:**
+
+* **Albania:** Tirana
+* **Andorra:** Andorra la Vella
+* **Bosnia and Herzegovina:** Sarajevo
+* **Croatia:** Zagreb
+* **Cyprus:** Nicosia
+* **Greece:** Athens
+* **Italy:** Rome
+* **Malta:** Valletta
+* **Montenegro:** Podgorica
+* **Portugal:** Lisbon
+* **San Marino:** San Marino
+* **Serbia:** Belgrade
+* **Slovenia:** Ljubljana
+* **Spain:** Madrid
+* **Vatican City:** Vatican City
+
+**Eastern Europe:**
+
+* **Belarus:** Minsk
+* **Bulgaria:** Sofia
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+* **Moldova:** Chișinău
+* **Poland:** Warsaw
+* **Romania:** Bucharest
+* **Russia:** Moscow
+* **Slovakia:** Bratislava
+* **Ukraine:** Kyiv
+
+**Note:**  The definition of Europe can vary slightly depending on geographical and political perspectives. This list reflects a widely accepted view.
+
+
+
+

@@ -1,0 +1,14 @@
+Climate change is primarily driven by anthropogenic activities that result in the release of greenhouse gases (GHGs) such as carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O) into Earth's atmosphere. These GHG emissions contribute to global warming by trapping heat, thereby altering the planet’s climate systems significantly over time. The primary sources of these emissions are diverse across various industries:
+
+
+The burning of fossil fuels for electricity generation is a dominant source of CO₂, accounting for about 73% of global GHG emissions as per data from the Intergovernmental Panel on Climate Change (IPCC). Industrial processes and waste also contribute significantly to these emissions. Power plants burning coal or natural gas release large amounts of carbon dioxide into the atmosphere, which is then trapped in our climate system for centuries at a time due its long atmospheric lifetime.
+
+
+The agricultural sector contributes approximately 24% of global GHG emissions with sources like livestock and rice production being significant contributors to methane emission while the use of synthetic fertilizers is responsible for nitrous oxide release from soils, which are potent in their warming effect.
+
+
+Transportation accounts for about 14% of GHG emissions with CO₂ as its main component released by burning fuels like gasoline and diesel in cars, trucks, airplanes, ships, etc., while the industry sector contributes around 20%, mostly through energy-intensive production processes. Deforestation is also a contributing factor, releasing carbon diox06 into the atmosphere as trees are burned or decay without their CO₂ being absorbed by new plant growth to offset it – an estimated annual loss of forests in 25% since deforestation began around ten thousand years ago contributes directly and indirectly about 15% GHG emissions annually.
+
+
+It is crucial that policy measures are put into place at the industry level, as mitigating actions like transitioning to renewable energy sources in power production or implementing more sustainable agricultural practices can significantly reduce these industrial sector's impact on global warming and climate change overall.
+

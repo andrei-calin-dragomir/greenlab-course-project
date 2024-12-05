@@ -1,0 +1,7 @@
+
+The technical paper provides an overview of artificial intelligence (AI), its various applications, and subfields of research. The ultimate goal of AI research is general intelligence, which allows machines to complete any task that a human can do at least equally well. To achieve this, AI researchers use a wide range of techniques such as search and mathematical optimization, formal logic, artificial neural networks, and methods based on statistics, operations research, and economics.
+
+The paper highlights the evolution of AI as an academic discipline, going through cycles of optimism followed by disappointment and loss of funding known as "AI winter." However, funding and interest increased significantly after 2012 when deep learning outperformed previous AI techniques, and this growth accelerated further with the transformer architecture.
+
+The widespread use of AI in the 21st century has exposed several unintended consequences and harms, prompting discussions about regulatory policies to ensure its safety and benefits.
+

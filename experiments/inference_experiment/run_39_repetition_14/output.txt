@@ -1,0 +1,14 @@
+Climate change's primary drivers are emissions of greenhouse gases, primarily carbon dioxide (CO2), but also methane (CH4) and nitrous oxide (N2O). 
+
+Fossil fuel combustion, industrial processes, agriculture, and waste management are the main sources of these emissions. 
+
+1. Fossil Fuels: The burning of coal, oil, and natural gas releases a significant amount of CO2 into the atmosphere.
+
+2. Industrial Processes: Manufacturing activities, particularly those involving chemical reactions or metal processing, can emit greenhouse gases.
+
+3. Agriculture: Livestock breeding and manure management contribute to greenhouse气体 emissions through enteric fermentation (methane) and manure decomposition (CO2).
+
+4. Waste Management: Landfills are significant sources of methane emissions due to the breakdown of organic waste in the absence of oxygen.
+
+The emission profiles vary significantly across different industries. For instance, the transportation sector, particularly diesel vehicles, contributes heavily to CO2 emissions. In contrast, the energy sector, including power plants and renewable energy facilities, has both opportunities and challenges in reducing greenhouse gas emissions.
+

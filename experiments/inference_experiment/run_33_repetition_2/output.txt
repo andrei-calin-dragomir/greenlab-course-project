@@ -1,0 +1,12 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into several major sectors: Energy, Industry, Agriculture, Land Use, and Waste.
+
+1. Energy Sector: This is the largest source of global GHG emissions, largely due to the burning of fossil fuels for electricity, heat, and transportation. Coal, oil, and natural gas are used extensively in power generation worldwide. The Intergovernmental Panel on Climate Change (IPCC) reports that the energy sector accounted for about 64% of total global CO2 emissions in 2019.
+
+2. Industry: This sector includes manufacturing industries such as steel, cement, chemicals, and pulp & paper production. These industries use large amounts of energy and often emit significant quantities of process-related GHGs like CO2, methane (CH4), and nitrous oxide (N2O). According to the IPCC, the industry sector accounted for about 21% of total global CO2 emissions in 2019.
+
+3. Agriculture: This sector is responsible for around 24% of global GHG emissions. Agricultural activities such as livestock farming and rice cultivation produce methane, while fertilizer use generates nitrous oxide. The decomposition of organic waste in landfills also contributes to CH4 and CO2 emissions, which falls under the Waste sector.
+
+4. Land Use: Changes in land use, such as deforestation and reforestation, can significantly impact GHG emissions. Deforestation releases carbon stored in trees into the atmosphere as CO2, while reforestation absorbs CO2 from the atmosphere. According to the IPCC, the Land Use sector accounted for about 10% of total global CO2 emissions in 2019.
+
+The distribution of GHG emissions across different industries varies by region due to differences in industrial structure, energy mix, and agricultural practices. However, it is crucial to note that no single sector can be singled out as the sole contributor; all sectors play significant roles in climate change. Reducing emissions from all sectors will be essential for addressing global warming effectively.
+

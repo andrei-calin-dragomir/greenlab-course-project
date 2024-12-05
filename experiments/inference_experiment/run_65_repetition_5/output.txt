@@ -1,0 +1,5 @@
+The technical paper highlights AI as a multifaceted field that empowers machines with learning capabilities through perception, reasoning, knowledge representation, planning, etc., to achieve human-like intelligence and perform tasks traditionally requiring human intellect. Notably applied in search engines, recommendation systems, voice assistants, autonomous vehicles, generative AI tools, and strategic games like chess or Go—AI's ubiquity is often unacknowledged due to its integration into everyday technologies.
+
+
+With historical peaks of excitement (e.g., 1956-2012) followed by funding declines known as AI winter, the field resurged with deep learning and transformer architectures post-2017, leading to an investment surge in early 2020s—referred to as the AI boom. Despite this growth, unintended consequences have emerged such as privacy concerns, loss of jobs due to automation, potential misinformation spread, and ethical considerations regarding autonomous systems' decision-making processes; these issues sparked global dialogue on regulating AI for safety assurance while harnessing its benefits.
+

@@ -1,0 +1,16 @@
+ Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in the Earth's atmosphere. Among these gases, carbon dioxide (CO2) is the most significant contributor, accounting for about 76% of global GHG emissions from human activities as of 2019 (IPCC, 2019). The primary sources of CO2 emissions include power generation (34%), industry (25%), transportation (24%), buildings (18%), and agriculture (11%) (EIA, 2021).
+
+Fossil fuel combustion is the leading cause of CO2 emissions. In electricity production, coal-fired power plants are the largest contributors, generating around 39% of global electricity-related CO2 emissions (IEA, 2020). The transportation sector is the second-largest contributor to global CO2 emissions, with cars and trucks accounting for about 17% of total emissions (EIA, 2021).
+
+Methane (CH4) and nitrous oxide (N2O), although less abundant than CO2, are also potent greenhouse gases with global warming potentials 28 and 265 times greater than CO2 over a 100-year timeframe, respectively (EPA, 2022). Agriculture is the primary source of methane emissions, contributing about 43% of the total emissions due to livestock farming and rice cultivation (IPCC, 2019). Nitrous oxide emissions are primarily from agricultural activities, specifically fertilizer use and manure management in livestock production.
+
+Industrial processes such as manufacturing and mining account for a significant portion of methane and nitrous oxide emissions. For instance, methane is released during coal mining and natural gas extraction while nitrous oxide is produced during the manufacture of nitrogen fertilizers (EPA, 2022).
+
+The energy sector's shift towards renewable sources and the adoption of more efficient practices have led to a decrease in CO2 emissions in some industries. For example, the global CO2 emissions from electricity generation have remained relatively stable since 2014 due to the growth in renewable energy capacity (IEA, 2020). However, achieving significant reductions in methane and nitrous oxide emissions will require targeted efforts in agriculture and industry, including the promotion of sustainable farming practices and the adoption of cleaner industrial processes.
+
+References:
+- IPCC (Intergovernmental Panel on Climate Change) (2019). Global Warming of 1.5°C. Retrieved from https://www.ipcc.ch/sr15/
+- EIA (U.S. Energy Information Administration) (2021). Greenhouse Gas Emissions from a Representative Set of Industries: 1990 to 2019. Retrieved from https://www.eia.gov/environment/emissions/ggreenh/industry.php
+- IEA (International Energy Agency) (2020). CO2 Emissions from Fuel Combustion 2019. Retrieved from https://www.iea.org/reports/co2emissionsfromfuelcombustion2019
+- EPA (U.S. Environmental Protection Agency) (2022). Greenhouse Gases: Methane and Nitrous Oxide. Retrieved from https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions.
+

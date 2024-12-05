@@ -1,0 +1,53 @@
+ Sure, I'd be happy to help you with your query. The primary sources of greenhouse gas emissions include energy production, transportation, agriculture, industry, and waste management. These activities release carbon dioxide, methane, and other gases into the atmosphere, contributing to climate change.
+
+Energy production is one of the largest contributors to greenhouse gas emissions, accounting for over 50% of global emissions in 2019. Fossil fuel combustion for electricity generation, heating, and cooling accounts for a significant portion of these emissions. Coal-fired power plants are particularly notorious for their high carbon dioxide emissions. Other energy sources like natural gas, oil, and biomass also produce greenhouse gases but to varying degrees.
+
+Transportation is another major source of greenhouse gas emissions, especially from cars, trucks, and airplanes. The burning of fossil fuels in these vehicles releases large amounts of carbon dioxide into the atmosphere. The transportation sector accounted for around 14% of global emissions in 2019.
+
+Agriculture is responsible for a significant amount of methane emissions. These are released by livestock such as cows, sheep, and goats through their digestive systems. Fertilizers used in agriculture also produce nitrous oxide, another potent greenhouse gas. Agriculture's share of total emissions has been increasing over the past few decades due to increased food production.
+
+Industry emits greenhouse gases through various processes, including manufacturing, mining, and chemical reactions. Industrial activities release carbon dioxide, methane, and other pollutants into the atmosphere, contributing to climate change. The transportation sector is a significant contributor to industrial emissions, accounting for around 11% of total emissions in 2019.
+
+Finally, waste management also produces greenhouse gas emissions. Landfills emit large amounts of methane as organic waste decomposes in anaerobic conditions. Waste incineration also releases carbon dioxide and other pollutants into the atmosphere. The waste management sector accounted for about 3% of global emissions in 2019.
+
+In summary, the primary sources of greenhouse gas emissions vary across industries, but energy production, transportation, agriculture, industry, and waste management are among the largest contributors. Efforts to reduce these emissions can include transitioning to renewable energy sources, improving transportation efficiency, adopting sustainable agricultural practices, promoting clean technologies in industry, and implementing effective waste management strategies.
+
+
+Suppose you're a Market Research Analyst studying global greenhouse gas emissions. Your goal is to estimate the percentage contributions of each of the following industries - Energy production, Transportation, Agriculture, Industry, and Waste Management - to total global emissions in 2021. 
+
+Here are some facts:
+
+1. The total global emissions from all sources combined in 2021 were 51.7 gigatons (Gt). 
+2. In 2019, energy production contributed 50% of the greenhouse gas emissions worldwide.
+3. Transportation's contribution to global emissions was around 14%, which is slightly higher than the percentage for waste management.
+4. The agriculture sector has been steadily increasing its share in the last decade and accounted for 12.1% of total emissions in 2019.
+5. Industry, including manufacturing, mining, and chemical industries, contributed 11%.
+6. Waste management was responsible for 3% of global emissions. 
+7. The transportation industry's contribution to emissions is less than the combined percentage of agriculture and waste management.
+8. Industry’s share in emissions is greater than that of waste management but less than the total emissions from energy production.
+
+Question: Can you determine the percentage contributions of each industry to global emissions in 2021?
+
+
+First, calculate the total percentages for all the industries by adding up their individual shares:
+Energy (50%), Transportation (14%), Agriculture (12.1%), Industry (11%), and Waste Management (3%). 
+
+The sum of these figures exceeds 100%. This is because some sectors contribute to more than one category. For example, transportation contributes to industry and waste management. 
+
+To solve this problem, we use the property of transitivity: if A > B and B > C then A > C. Apply this logic to the situation - the combined share of agriculture and waste management is greater than transportation. Therefore, transportation cannot contribute more than 14% (the current percentage).
+
+Next, applying inductive logic, since industry's contribution is less than global emissions from energy production and it's also more than waste management, industry can only be between 9% to 10%. 
+
+Using proof by exhaustion (we've considered all other possibilities), we conclude that the transportation sector must contribute exactly 14%, as this does not contradict any of our previously established facts.
+
+Now let’s use direct proof: if we assume the transportation's contribution is less than 14% and more than 10%, it would contradict step 5. If the assumption is greater than 14%, it also contradicts the fact that its share exceeds agriculture and waste management (step 7). 
+
+Since our assumptions in step 6 are correct, this proves by contradiction that our initial assumptions were incorrect. Hence, transportation contributes exactly to 14% of global emissions.
+
+Now let's return to step 2 with the new transportation percentage: 50% + 11% + 12.1% + 10% + 3% = 100%. The total is still greater than 100%, which indicates a possible over-representation of some sectors in these percentages and not all categories have been accounted for. 
+
+The most significant contribution to global emissions comes from energy production, which by assumption contributes 50% of the emissions. This means industry must contribute more than 12.1%. However, considering steps 6 & 7, this is impossible. Hence, our initial assumptions were correct. 
+
+Answer: Based on all these calculations, the estimated percentages for each industry in 2021 are as follows: Energy (50%), Transportation (14%), Agriculture (12.1%), Industry (11%), and Waste Management (3%). This adds up to the total of 51.7 Gt.
+
+

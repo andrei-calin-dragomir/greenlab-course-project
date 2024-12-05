@@ -1,0 +1,12 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into three main sectors: Energy, Industry, and Agriculture.
+
+1. Energy Sector: This sector is the largest source of global GHG emissions due to fossil fuel combustion for electricity, heat, and transportation. Coal, oil, and natural gas are burned in power plants and vehicles, releasing significant amounts of carbon dioxide (CO2). According to the International Energy Agency, the energy sector accounted for 64% of global CO2 emissions in 2019.
+
+2. Industry Sector: This includes manufacturing, construction, mining, and other industrial processes. In this sector, CO2 is released during the production, use, and disposal of goods. For example, cement production, steel manufacture, and chemical industries emit large amounts of CO2 as a byproduct. Industrial processes such as deforestation for agriculture or infrastructure also result in GHG emissions due to the destruction of carbon sinks.
+
+3. Agriculture Sector: This sector is responsible for around 24% of global GHG emissions. Methane (CH4) and nitrous oxide (N2O), two potent greenhouse gases, are primarily emitted from agriculture activities such as livestock farming (enteric fermentation and manure management) and rice cultivation for CH4; while fertilizer use in agriculture contributes to N2O emissions.
+
+Within these sectors, the specific industries contributing to GHG emissions can vary significantly. For example, within energy, electricity and heat production account for around 75% of CO2 emissions from fuel combustion, while transportation accounts for about a fifth. In industry, steel, iron, and cement industries are among the top contributors to global CO2 emissions. In agriculture, rice cultivation and livestock farming are significant sources of methane emissions, while nitrous oxide emissions are primarily associated with fertilizer use in crop production.
+
+Understanding these sources and variations across industries is crucial for developing effective strategies to mitigate climate change by reducing GHG emissions.
+

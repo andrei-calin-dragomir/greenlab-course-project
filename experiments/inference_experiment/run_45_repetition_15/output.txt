@@ -1,0 +1,10 @@
+Climate change results from an increase in greenhouse gases (GHGs) concentration in Earth's atmosphere, with carbon dioxide being the predominant contributor due to human activities primarily involving fossil fuel combustion. Other significant GHGs include methane and nitrous oxide. Fossil fuels like coal, oil, and natural gas are burnt for energy production in power plants and industrial processes, causing large-scale CO2 emissions. In transportation sectors, motor vehicles using gasoline or diesel release significant amounts of carbon dioxide when fueled.
+
+Agriculture significantly contributes to GHG emissions through various sources like livestock farming, which emits methane from animal digestion and manure management. Rice paddies also contribute by releasing methane into the atmosphere due to its anaerobic decomposition process. Nitrous oxide is mainly emitted from agricultural activities involving nitrogen fertilizers use and soil management.
+
+The industrial sector involves energy-intensive processes that are responsible for considerable CO2 emissions, such as cement production, steel making, and aluminum smelting. Other industries contribute by emitting GHGs during operations like chemical processing, pulp and paper manufacturing, food processing, etc.
+
+Forestry practices can either mitigate or increase carbon in the atmosphere, depending on activities carried out like deforestation which releases stored carbon into the air through burning trees before they decompose, while afforestation can reduce atmospheric CO2 levels by increasing forest cover that absorbs carbon dioxide. 
+
+In summary, fossil fuel combustion is the primary source of CO2 emissions across most industries. Agriculture contributes via livestock and rice paddies for methane emission, and industrial processes contribute to CO2 and nitrous oxide emissions through energy-intensive activities like cement production. Forestry management impacts carbon levels depending on whether it involves deforestation or afforestation practices.
+

@@ -1,0 +1,40 @@
+The capital cities of all European countries can be found by examining the official首都 listed for each member state within Europe.
+
+Europe consists of 47 countries, but only 26 of them have their capital city located within their own country. These are:
+
+1. Austria - Vienna
+2. Belgium - Brussels
+3. Bulgaria - Sofia
+4. Croatia - Zagreb
+5. Cyprus - Nicosia
+6. Czech Republic - Prague
+7. Denmark - Copenhagen
+8. Estonia - Tallinn
+9. Finland - Helsinki
+10. France - Paris
+11. Germany - Berlin
+12. Greece - Athens
+13. Hungary - Budapest
+14. Iceland - Reykjavik
+15. Ireland - Dublin
+16. Italy - Rome
+17. Latvia - Riga
+18. Lithuania - Vilnius
+19. Luxembourg - Luxembourg City
+20. Malta - Valletta
+
+The remaining 21 European countries have their capitals located in neighboring countries or overseas regions:
+
+1. Netherlands - Amsterdam (part of the Dutch Kingdom)
+2. Norway - Oslo
+3. Portugal - Lisbon
+4. Romania - Bucharest
+5. Slovakia - Bratislava
+6. Slovenia - Ljubljana
+7. Spain - Madrid
+8. Sweden - Stockholm
+9. Switzerland - Bern
+10. United Kingdom (including Northern Ireland) - London, Belfast, Edinburgh
+
+This list covers all the capital cities of European countries, taking into account both EU member states and non-member countries with European roots.
+

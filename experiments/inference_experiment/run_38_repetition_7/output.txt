@@ -1,0 +1,31 @@
+The capital cities of all European countries can be found by examining the political and administrative divisions within Europe. Here is a comprehensive list, including official首都 names:
+
+1. Austria - Vienna
+2. Belgium - Brussels
+3. Cyprus - Nicosia
+4. Estonia - Tallinn
+5. Finland - Helsinki
+6. France - Paris
+7. Germany - Berlin
+8. Greece - Athens
+9. Hungary - Budapest
+10. Iceland - Reykjavik
+11. Ireland - Dublin
+12. Italy - Rome
+13. Latvia - Riga
+14. Lithuania - Vilnius
+15. Luxembourg - Luxembourg City
+16. Malta - Valletta
+17. Netherlands - Amsterdam
+18. Norway - Oslo
+19. Poland - Warsaw
+20. Portugal - Lisbon
+21. Romania - Bucharest
+22. Slovakia - Bratislava
+23. Slovenia - Ljubljana
+24. Spain - Madrid
+25. Sweden - Stockholm
+26. Switzerland - Bern
+
+Please note that the capital of a country can also be its largest city, as seen in some cases for countries like Belgium or Luxembourg.
+

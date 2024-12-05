@@ -1,0 +1,67 @@
+ Thank you for your inquiry! The capital cities of most European countries can be found in a variety of locations, depending on each nation's history and culture. Here is a list of the capital cities of Europe's 25 member states:
+
+1. Åland Islands - Helsinki
+2. Albania – Tirana 
+3. Andorra – Andorra la Vella 
+4. Austria – Vienna 
+5. Belarus – Minsk 
+6. Belgium – Brussels 
+7. Bosnia and Herzegovina – Sarajevo 
+8. Bulgaria – Sofia 
+9. Croatia – Zagreb 
+10. Cyprus – Nicosia 
+11. Czech Republic - Prague 
+12. Denmark – Copenhagen 
+13. Estonia – Tallinn 
+14. Finland – Helsinki 
+15. France – Paris 
+16. Germany – Berlin 
+17. Greece – Athens 
+18. Hungary – Budapest 
+19. Iceland – Reykjavik 
+20. Ireland – Dublin 
+21. Italy - Rome 
+22. Kosovo – Pristina 
+23. Liechtenstein – Vaduz 
+24. Lithuania – Vilnius 
+25. Luxembourg – Luxembourg City 
+26. Malta – Valletta 
+27. Netherlands – Amsterdam 
+28. North Macedonia – Skopje 
+29. Norway – Oslo 
+30. Poland – Warsaw 
+31. Portugal – Lisbon 
+32. Romania – Bucharest 
+33. Russia – Moscow 
+34. San Marino - City of San Marino 
+35. Slovakia - Bratislava 
+36. Slovenia - Ljubljana 
+37. Spain – Madrid 
+38. Sweden - Stockholm 
+39. Switzerland - Bern 
+40. Ukraine - Kyiv 
+41. United Kingdom - London 
+42. Vatican City - City of the Holy See (a.k.a. Vatican City)
+
+It is important to note that there are some European countries, such as Liechtenstein and Vatican City, which do not have a country-wide capital city. Instead, they have smaller cities designated as their capital. Additionally, some European countries may have multiple capitals, depending on the historical or cultural significance of each location.
+
+I hope this information is helpful! If you have any further questions, please don't hesitate to ask.
+
+
+
+Rules:
+- Each country in Europe has a unique code that corresponds to its name in uppercase. 
+- The codes are represented as alphanumeric strings with the first character being a letter and all other characters being numbers. For example, 'A12345' is the code for Albania (A1).
+- The sum of all the codes represents the total capital cities' number in Europe.
+- You need to find which European country's name has the highest coded value.
+
+Question: Which country has the highest coded value?
+
+
+First, we calculate the code for each country by summing up the values represented in the alphanumeric strings. 
+
+Then, compare all codes and identify which one is the highest. If two or more countries have the same highest code, then they both are considered to be tied for first place.
+
+Answer: The answer depends on the calculated numerical values of each country's name. You can find it by calculating these values and comparing them. 
+
+

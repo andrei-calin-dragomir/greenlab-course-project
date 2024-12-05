@@ -1,0 +1,12 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into four main sectors: Energy, Industry, Agriculture, and Land Use & Forestry.
+
+1. **Energy Sector**: This is the largest contributor to global GHG emissions, primarily due to the combustion of fossil fuels for electricity, heat, and transportation. Coal, oil, and natural gas are burned in power plants, industrial processes, and vehicles, resulting in high carbon dioxide (CO2) emissions.
+
+2. **Industry**: This sector includes manufacturing industries like steel, cement, chemicals, and pulp & paper. These industries emit a significant amount of CO2 due to their energy use and chemical processes. They also contribute to methane (CH4) emissions through activities such as coal mining and the production and treatment of waste.
+
+3. **Agriculture**: Agricultural activities are another major source of GHG emissions, primarily because of livestock farming, rice cultivation, and fertilizer use. The main GHGs emitted by agriculture are methane (from livestock and rice fields) and nitrous oxide (from agricultural soils due to the use of synthetic fertilizers).
+
+4. **Land Use & Forestry**: This sector includes deforestation, reforestation, afforestation, and the management of forests. Deforestation leads to carbon dioxide emissions as trees are cut down and decompose. On the other hand, forests absorb CO2 through photosynthesis when they grow, so reforestation and afforestation can help mitigate climate change.
+
+The emission patterns across these sectors vary greatly. The energy sector is the largest emitter globally, accounting for around 75% of total GHG emissions in 2018 (International Energy Agency). The industry sector accounts for about 23%, while agriculture and land use & forestry account for approximately 24% and -5% (net absorption), respectively. However, regional variations can be significant due to differences in industrialization levels, agricultural practices, and deforestation rates.
+

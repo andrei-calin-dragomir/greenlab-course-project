@@ -1,0 +1,14 @@
+ The primary sources of greenhouse gas emissions can be categorized into several key sectors, each with varying contributions depending on the specific industry:
+
+1. Energy Sector: This is the largest source of global greenhouse gas emissions, primarily due to the combustion of fossil fuels for electricity, heat, and transportation. Coal, oil, and natural gas are burned in power plants, industries, and vehicles to generate energy, releasing substantial amounts of carbon dioxide (CO2) into the atmosphere. Methane (CH4) is also emitted during coal mining, natural gas extraction, and oil drilling operations.
+
+2. Industry Sector: Industries such as manufacturing, construction, and mining contribute significantly to greenhouse gas emissions, particularly CO2 from energy use in production processes, and methane and nitrous oxide (N2O) from activities like steel production, chemical manufacturing, and waste management.
+
+3. Agriculture, Forestry, and Other Land Use: This sector is responsible for around a quarter of global greenhouse gas emissions. Agricultural practices like livestock farming (particularly ruminants), rice cultivation, and fertilizer use release methane and N2O. Deforestation contributes to CO2 emissions due to the decay of trees and their conversion into carbon dioxide.
+
+4. Transport: Road transportation, including cars, trucks, airplanes, and ships, is a major source of CO2 emissions. Rail transport and aviation also contribute substantially to methane emissions through the burning of fossil fuels for propulsion.
+
+5. Residential/Commercial Buildings: Energy consumption for heating, cooling, lighting, and appliances in buildings results in significant CO2 emissions. In some cases, methane leaks may occur from natural gas infrastructure serving these buildings.
+
+Different industries vary in their greenhouse gas emission profiles based on factors like the intensity of energy use, types of processes employed, and agricultural practices followed. For example, heavy manufacturing industries tend to have higher emissions than the service sector, while transportation emissions depend on the prevalence of fuel-intensive modes of transport. Globally, the energy and industry sectors combined account for more than 70% of greenhouse gas emissions.
+

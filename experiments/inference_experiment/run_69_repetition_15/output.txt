@@ -1,0 +1,16 @@
+Climate change is primarily driven by greenhouse gas (GHG) accumulation resulting from human activities such as fossil fuel combustion. Carbon dioxide, methane, and nitrous oxide are the principal culprits of this environmental challenge with distinct sources across various industries:
+
+1. **Carbon Dioxide (CO2):** Accounts for about 76% of all greenhouse gas emissions worldwide according to the Environmental Protection Agency (EPA). The primary source is energy production, where burning fossil fuels like coal and oil generates electricity—a sector responsible for a significant portion of CO2 release. This occurs in power plants that supply vast swaths of human activities with heat or electrical current; transportation also contributes heavily through vehicles running on gasoline and diesel engines.
+
+   **Industries Affected:** Energy, Transport (personal cars & trucks), Manufacturing industries for steel production—another high CO2 emitter due to the energy-intensive nature of steelmaking processes in blast furnaces used primarily within sectors like construction and machinery.
+   
+2. **Methane:** Makes up approximately 16% of greenhouse gas emission, with significant releases from agricultural activities (enteric fermentation by livestock) being the main source followed closely by leakages during oil extraction processes known as fugitive emissions in energy production and transport sectors.
+   
+   **Industries Affected:** Agriculture—particularly ruminant farming like cows, pigs or sheep; Energy (natural gas industry); Waste Management where landfill sites release methane when organic waste decomposes anaerobically without oxygen. 
+   
+3. **Nitrous Oxide:** Comprises about 6% of GHG emissions, predominantly arising from agricultural soil management—especially through the application and use of synthetic fertilizers in crop production that can release N2O when nitro0gen-fixing bacteria break down these chemicals.
+   
+   **Industries Affected:** Agriculture (particularly livestock farming)—in addition to enteric fermentation, the use of synthetic fertilizers in crops releases N2O when microbes convert excess nitrogen into gases; Industrial activities such as chemical production and combustion.
+   
+In summary, while all industries contribute significantly through their GHG emissions at varying degrees—most notably energy generation (coal-fired plants), transportation fuels by-products of burning fossil fuel for personal vehicles or heavy machinery; agriculture due to livestock and fertilizer usage; there are specific sectors within these broader categories that stand out. It's imperative not only industries but also governments, communities, consumers, investors make informed choices towards sustainable practices such as renewable energy sources adoption or reduced meat consumption to mitigate their carbon footprint and combat climate change effectively.
+

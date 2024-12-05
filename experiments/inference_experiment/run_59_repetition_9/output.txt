@@ -1,0 +1,3 @@
+ AI is the ability for machines or software programs to perceive their environment and learn from it to achieve defined goals. It has been developed as a subfield of computer science and draws upon techniques such as natural language processing, reasoning, and machine learning. Despite being around since 1956, AI went through periods of optimism followed by disappointment due to funding issues. The field experienced a significant boost in the 
+
+

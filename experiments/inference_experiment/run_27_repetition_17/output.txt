@@ -1,0 +1,12 @@
+ The primary sources of greenhouse gas emissions, particularly carbon dioxide (CO2), can be attributed to human activities, with fossil fuel combustion being the largest contributor. According to the Intergovernmental Panel on Climate Change (IPCC), the following industries account for the majority of global greenhouse gas emissions:
+
+1. Energy Industry: The energy sector is responsible for the largest share of global greenhouse gas emissions, mainly due to the combustion of coal, oil, and natural gas for electricity, heat, and transportation. Coal-fired power plants are the single largest source of CO2 emissions, accounting for approximately 40% of total global emissions from the energy sector.
+
+2. Industry: The industrial sector is the second-largest contributor to greenhouse gas emissions, with significant contributions coming from steel, cement production, and chemical manufacturing. These industries rely heavily on energy-intensive processes that emit large quantities of CO2 as a byproduct.
+
+3. Agriculture: The agricultural sector is responsible for approximately 14% of global greenhouse gas emissions. Livestock farming, particularly beef and dairy production, generates significant amounts of methane and nitrous oxide through the digestive processes of animals and manure management. Rice cultivation and other forms of agriculture contribute to CO2 emissions due to the use of fossil fuels for irrigation and fertilizer production.
+
+4. Transportation: The transportation sector accounts for around 15% of global greenhouse gas emissions, with road transport being the largest contributor. Emissions from this sector are primarily due to the combustion of fossil fuels in vehicles, including cars, trucks, buses, and aircraft.
+
+It is important to note that these industries' emission profiles can vary significantly depending on regional circumstances, such as energy mix, industrial composition, and agricultural practices. However, the above mentioned sectors remain the primary contributors to global greenhouse gas emissions, particularly carbon dioxide.
+

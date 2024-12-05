@@ -1,0 +1,35 @@
+ The article highlights the importance of renewable energy sources in reducing greenhouse gas emissions. Solar and wind power have advanced significantly due to technological progress. However, their intermittent nature poses challenges for energy systems. Solutions include energy storage technologies and grid integration strategies. Incentives from policymakers like tax credits and feed-in tariffs are also effective. Achieving carbon neutrality requires a comprehensive approach involving energy efficiency, sustainable infrastructure, and international collaboration.
+
+
+Imagine that we have three countries - Solaris (S), Windia (W) and Hydroland (H) who all want to adopt more renewable energy sources. They each choose one - solar power (Solaris - S), wind power (Windia - W) or hydroelectric power (Hydroland - H).
+
+Country S has less than 100 MW of potential for each of these three types of renewables, but the combined potential is over 300 MW. Country W has a more balanced capacity, with an equal potential for all three types, while Hydroland has significantly more potential for solar and hydroelectric power but limited wind power due to geographical constraints.
+
+Given that:
+1. Solaris's renewable energy potential is twice that of Windia.
+2. Hydroland's potentials are only one-third of S's.
+3. The combined total of their capacities must not exceed 1200 MW.
+
+Question: How much potential (in MW) does each country have for each type of renewable?
+
+
+First, we need to understand the given information: 
+Country S has more solar and hydroelectric power than wind power. 
+Country W's capacity is equal across all types.
+Country H has higher potentials in solar and hydroelectric but less in wind energy due to geographical constraints.
+
+We can make an assumption about each country’s potential based on the given information:
+Let S, W, and H be represented by the following: 
+S - Solar (in MW): 2W
+W - Wind: 1MW
+H - Hydro: 1/3S.
+But we know that the total energy production should not exceed 1200 MW. So, 
+2W + 1M + 1/3S = 1200.
+
+Now let's solve this equation for W and S: 
+The first step is to make W equal to 0 (since it's already 1MW). Then we get 2(0) + 1/3S = 1200 => 1/3S=1200. Hence, S=3600 MW. Now that we know the solar potential of S, we can calculate the wind and hydro energy production: 
+W - Wind = 1MW (from step1). H - Hydro = 1/3 * 3600 = 1200 MW.
+
+Answer: Country Solaris has 3600 MW for solar power, 0 MW for wind, and 1000 MW for hydroelectricity. Country Windia has 0 MW of solar potential, 1000 MW for wind, and 0 MW for hydroelectric power. And Country Hydroland has 1000 MW for all three types of renewable energy sources.
+
+

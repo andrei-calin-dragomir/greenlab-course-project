@@ -1,0 +1,22 @@
+Greenhouse gas emissions stem from diverse human activities across various industries.  
+
+**Carbon dioxide (CO₂):** The dominant source originates from **burning fossil fuels** for electricity generation, transportation, and industrial processes. 
+
+* **Electricity & Heat Production:** Coal-fired power plants are major emitters.
+* **Transportation:** Cars, trucks, airplanes, and ships rely heavily on gasoline and diesel.
+* **Industry:** Manufacturing processes often utilize fossil fuels for energy and feedstock.
+
+**Methane (CH₄):** 
+
+* **Agriculture:** Livestock farming (especially cattle) releases methane through digestion. Rice cultivation and manure management also contribute.
+* **Natural Gas Production & Distribution:** Leaks during extraction, processing, and transportation release methane into the atmosphere.
+
+**Nitrous Oxide (N₂O):**
+
+* **Agriculture:** Fertilizers applied to crops release nitrous oxide as nitrogen cycles in the soil.
+* **Industrial Processes:** Certain chemical manufacturing processes emit nitrous oxide as a byproduct.
+
+
+Understanding these emission sources is crucial for developing targeted strategies to mitigate climate change.  Focusing on transitioning to renewable energy, improving energy efficiency, and adopting sustainable agricultural practices are key steps towards reducing greenhouse gas emissions across all sectors. 
+
+

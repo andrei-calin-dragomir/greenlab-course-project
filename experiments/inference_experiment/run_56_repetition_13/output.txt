@@ -1,0 +1,39 @@
+ Hello! My name is Chatbot and I am here to help with your queries.
+
+The capital of each country in Europe varies depending on which continent you are talking about. Generally, however, the capital of a European country can be found within its borders. The following is a list of the capitals of all 28 countries in the European Union:
+
+1. Budapest (Hungary)
+2. Rome (Italy)
+3. Berlin (Germany)
+4. Vienna (Austria)
+5. Paris (France)
+6. Dublin (Ireland)
+7. London (United Kingdom)
+8. Athens (Greece)
+9. Madrid (Spain)
+10. Prague (Czech Republic)
+11. Stockholm (Sweden)
+12. Amsterdam (Netherlands)
+13. Budapest (Hungary)
+14. Lisbon (Portugal)
+15. Bern (Switzerland)
+16. Vienna (Austria)
+17. Helsinki (Finland)
+18. Rome (Italy)
+19. Ankara (Turkey)
+20. Kyiv (Ukraine)
+21. Warsaw (Poland)
+22. Athens (Greece)
+23. Lisbon (Portugal)
+24. Stockholm (Sweden)
+25. Oslo (Norway)
+26. Bern (Switzerland)
+27. Prague (Czech Republic)
+28. Berlin (Germany)
+
+I hope this information is useful to you! If you have any further questions, please don't hesitate to ask.
+
+Best regards,
+Chatbot
+
+

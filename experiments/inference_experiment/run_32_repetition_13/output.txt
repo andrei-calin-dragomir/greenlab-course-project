@@ -1,0 +1,43 @@
+ Here is a list of the capitals of most European countries, though there are a few exceptions due to the complexities of Europe's political landscape:
+
+1. Austria - Vienna (Wien)
+2. Belgium - Brussels (Brussel)
+3. Bosnia and Herzegovina - Sarajevo (Sarajevo) [Shared between entities]
+4. Bulgaria - Sofia (София)
+5. Croatia - Zagreb (Zagrebačka nagleđena uprava)
+6. Czech Republic - Prague (Praha)
+7. Denmark - Copenhagen (København)
+8. Estonia - Tallinn (Tallinna linn)
+9. Finland - Helsinki (Helsingfors)
+10. France - Paris (Paris)
+11. Georgia - Tbilisi (თბილისი)
+12. Germany - Berlin (Berlin)
+13. Greece - Athens (Αθήνα)
+14. Hungary - Budapest (Budapest)
+15. Iceland - Reykjavik (Reykjavíkurhreppur)
+16. Ireland - Dublin (Baile Átha Cliath)
+17. Italy - Rome (Roma)
+18. Kosovo - Pristina (Prishtinë/Priština) [Recognized by 99 out of 193 UN member states]
+19. Latvia - Riga (Rīga)
+20. Liechtenstein - Vaduz (Vaduz) [No administrative capital, de facto capital is Vaduz]
+21. Lithuania - Vilnius (Vilniai)
+22. Luxembourg - Luxembourg City (Luxembourg-Stadt)
+23. North Macedonia - Skopje (Скопје)
+24. Malta - Valletta (Il-Belt)
+25. Montenegro - Podgorica (Podgorica)
+26. Netherlands - Amsterdam (Amsterdam)
+27. Norway - Oslo (Oslo)
+28. Poland - Warsaw (Warszawa)
+29. Portugal - Lisbon (Lisboa)
+30. Romania - Bucharest (București)
+31. Russia - Moscow (Moskva)
+32. Serbia - Belgrade (Beograd)
+33. Slovakia - Bratislava (Bratislava)
+34. Slovenia - Ljubljana (Ljubljana)
+35. Spain - Madrid (Madrid)
+36. Sweden - Stockholm (Stockholm)
+37. Switzerland - Bern (Berne) [Federal City]
+38. Turkey - Ankara (Ankara)
+39. Ukraine - Kyiv (Київ)
+40. United Kingdom - London (Londres)
+

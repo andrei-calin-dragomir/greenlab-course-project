@@ -1,0 +1,10 @@
+Artificial intelligence (AI) is a field that revolves around creating intelligent machines capable of tasks typically performed by humans. From advanced web search engines like Google Search, to recommendation systems used by platforms like Amazon or Netflix, AI is permeating various aspects of our lives.
+
+In terms of research goals, traditional AI aims at achieving key objectives such as reasoning, knowledge representation, planning, learning, natural language processing, perception, and supporting robotics. The long-term goal for general intelligence, which would enable a machine to perform any human task equally well, remains an active area of research.
+
+AI's rapid development over the past decade has been driven by advancements in techniques such as deep learning, neural networks, search algorithms, statistical analysis, and optimization methods. These techniques have enabled AI systems to outperform traditional methods in tasks like image recognition, speech translation, and complex decision-making.
+
+However, AI's increasing presence raises concerns about potential negative consequences. Unintended biases can be incorporated into AI systems, leading to unfair treatment of certain groups. Privacy issues也可能出现, as AI systems often require large amounts of data for their operations.
+
+Regulatory policies are being developed to address these concerns and ensure the safe and beneficial use of AI technology. These policies may include guidelines for algorithm transparency, data protection laws, and mechanisms for addressing biases in AI systems.
+

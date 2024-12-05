@@ -1,0 +1,63 @@
+Here are the capital cities of all European countries, organized by region:
+
+**Western Europe:**
+
+* **Andorra:** Andorra la Vella
+* **Austria:** Vienna
+* **Belgium:** Brussels
+* **France:** Paris
+* **Germany:** Berlin
+* **Ireland:** Dublin
+* **Liechtenstein:** Vaduz
+* **Luxembourg:** Luxembourg City
+* **Monaco:** Monaco
+* **Netherlands:** Amsterdam
+* **Switzerland:** Bern
+* **United Kingdom:** London
+
+**Northern Europe:**
+
+* **Denmark:** Copenhagen
+* **Estonia:** Tallinn
+* **Finland:** Helsinki
+* **Iceland:** Reykjavík
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+
+**Southern Europe:**
+
+* **Albania:** Tirana
+* **Andorra:** Andorra la Vella
+* **Bosnia and Herzegovina:** Sarajevo
+* **Croatia:** Zagreb
+* **Cyprus:** Nicosia
+* **Greece:** Athens
+* **Italy:** Rome
+* **Malta:** Valletta
+* **Montenegro:** Podgorica
+* **Portugal:** Lisbon
+* **San Marino:** San Marino City
+* **Serbia:** Belgrade
+* **Slovenia:** Ljubljana
+* **Spain:** Madrid
+* **Vatican City:** Vatican City
+
+**Eastern Europe:**
+
+* **Belarus:** Minsk
+* **Bulgaria:** Sofia
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+* **Moldova:** Chișinău
+* **Poland:** Warsaw
+* **Romania:** Bucharest
+* **Russia:** Moscow (Note: Russia spans both Europe and Asia)
+* **Ukraine:** Kyiv
+
+
+This list reflects the widely recognized geographical classification of Europe. 
+
+Please note that there are some territories with disputed sovereignty, which may have their own claimed capitals but are not universally recognized as independent countries.
+

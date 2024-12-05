@@ -1,0 +1,49 @@
+## Primary Sources of Greenhouse Gas Emissions
+
+**Carbon Dioxide (CO2)**
+
+* **Power generation:** 40%, primarily from coal and natural gas plants.
+* **Transportation:** 24%, from vehicle exhaust.
+* **Industrial processes:** 21%, including steelmaking, cement production, and chemical manufacturing.
+* **Residential and commercial buildings:** 14%, from heating and cooling systems.
+
+
+**Methane (CH4)**
+
+* **Agriculture:** 37%, from livestock digestion and manure management.
+* **Waste management:** 24%, from landfills and wastewater treatment plants.
+* **Energy production:** 8%, from natural gas leaks and incomplete combustion.
+
+
+**Nitrous Oxide (N2O)**
+
+* **Agriculture:** 65%, from soil management and fertilizer use.
+* **Waste management:** 20%, from anaerobic decomposition of organic matter.
+* **Chemical production:** 15%, from industrial processes like nitric acid production.
+
+
+**Variations Across Industries:**
+
+**Energy:**
+
+* Coal-fired power plants emit the highest CO2 per unit of energy produced.
+* Natural gas and renewable energy sources emit less CO2.
+
+**Transportation:**
+
+* Vehicles using diesel fuel emit more CO2 than those using gasoline.
+* Electric vehicles emit no tailpipe emissions.
+
+**Agriculture:**
+
+* Methane emissions from livestock are significant.
+* Nitrous oxide emissions from agriculture are primarily due to fertilizer use.
+
+**Waste Management:**
+
+* Landfills emit methane, while composting and anaerobic digestion reduce methane production.
+
+**Building and Manufacturing:**
+
+* Emissions vary widely depending on the technology used for heating and cooling, building materials, and manufacturing processes.
+

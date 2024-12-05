@@ -1,0 +1,38 @@
+The primary sources of greenhouse gas (GHG) emissions include fossil fuel combustion, industrial processes, land use changes, and agricultural activities. Fossil fuel combustion is the largest contributor to GHG emissions, accounting for around 65% of total emissions.
+
+**Fossil Fuel Combustion:**
+
+*   Electricity generation (42%)
+*   Transportation (23%), including passenger vehicles, aviation, and shipping
+*   Industrial processes (15%)
+
+**Industrial Processes:**
+
+*   Cement production (8%)
+*   Steel manufacturing (5%)
+*   Chemical processing (3%)
+
+**Agricultural Activities:**
+
+*   Livestock farming (14%)
+*   Rice cultivation (10%)
+
+**Land Use Changes:**
+
+*   Deforestation and land degradation (15%)
+*   Agricultural expansion (5%)
+
+The variability of emissions across different industries is significant. For example, while the electricity sector accounts for a substantial share of GHG emissions, transportation is another major contributor due to the increasing number of vehicles on the road.
+
+**Sectoral Breakdown:**
+
+| Sector | Emissions Share |
+| --- | --- |
+| Electricity Generation | 42% |
+| Transportation | 23% |
+| Industrial Processes | 15% |
+| Agriculture | 13% |
+| Land Use Changes | 15% |
+
+Understanding these sectoral breakdowns is essential for developing effective strategies to mitigate climate change.
+

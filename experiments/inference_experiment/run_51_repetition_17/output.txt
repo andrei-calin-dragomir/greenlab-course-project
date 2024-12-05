@@ -1,0 +1,12 @@
+The primary sources of greenhouse gas emissions, particularly carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O), vary significantly across different sectors. The energy sector is the largest contributor to CO₂ emissions, primarily due to fossil fuel combustion in electricity generation, transportation, industrial processes, and heating. According to the Intergovernmental Panel on Climate Change (IPCC), this sector accounts for about 76% of global CO₂ emissions from fuel combustion.
+
+The agricultural sector is a significant source of methane and nitrous oxide. Methane is mainly emitted during livestock digestion and manure management, while nitrous oxide results primarily from synthetic fertilizer use and manure management in agriculture. Additionally, rice cultivation also contributes to methane emissions.
+
+Forestry and land use changes are another substantial source of greenhouse gases. Deforestation releases CO₂ into the atmosphere as trees are cut down or burned. Furthermore, changes in land use can alter the carbon balance of ecosystems, leading to both positive (carbon sequestration) and negative (emissions release) effects on atmospheric CO₂ levels.
+
+Industry also contributes significantly, particularly through energy-intensive processes like cement production, metals refining, and chemical manufacturing, which emit various greenhouse gases including CO₂, CH₄, and N₂O. 
+
+Transportation, especially road transport, is a major source of greenhouse gas emissions due to the burning of fossil fuels in vehicles. It also contributes significantly to methane emissions through fugitive emissions from fuel systems.
+
+Understanding these sources helps tailor specific mitigation strategies for each sector, aiming to reduce emissions effectively and adapt to climate change impacts.
+

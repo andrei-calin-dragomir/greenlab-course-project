@@ -1,0 +1,59 @@
+Here is a list of the capital cities of European countries:
+
+**Western Europe:**
+
+1. Albania - Tirana
+2. Andorra - Andorra la Vella
+3. Austria - Vienna (Wien)
+4. Belgium - Brussels (Bruxelles)
+5. Denmark - Copenhagen (København)
+6. Finland - Helsinki
+7. France - Paris
+8. Germany - Berlin
+9. Gibraltar - Gibraltar
+10. Greece - Athens (Athína)
+11. Iceland - Reykjavík
+12. Ireland - Dublin
+13. Italy - Rome (Roma)
+14. Liechtenstein - Vaduz
+15. Luxembourg - Luxembourg City (Luxembourg)
+16. Malta - Valletta
+17. Monaco - Monaco City (Monaco)
+18. Netherlands - Amsterdam
+19. Norway - Oslo
+20. Portugal - Lisbon (Lisboa)
+21. San Marino - San Marino
+22. Spain - Madrid
+23. Sweden - Stockholm
+24. Switzerland - Bern
+25. United Kingdom - London
+
+**Eastern Europe:**
+
+1. Belarus - Minsk
+2. Bosnia and Herzegovina - Sarajevo
+3. Bulgaria - Sofia (Sofia)
+4. Croatia - Zagreb
+5. Czech Republic - Prague (Praha)
+6. Estonia - Tallinn
+7. Hungary - Budapest
+8. Kosovo - Pristina
+9. Latvia - Riga
+10. Lithuania - Vilnius
+11. Macedonia (FYROM) - Skopje
+12. Moldova - Chișinău
+13. Montenegro - Podgorica
+14. Poland - Warsaw (Warszawa)
+15. Romania - Bucharest (București)
+16. Russia - Moscow (Moskva)
+17. Serbia - Belgrade (Beograd)
+18. Slovakia - Bratislava
+19. Slovenia - Ljubljana
+
+**Northern Europe:**
+
+1. Albania is sometimes considered part of the Balkans or Southern Europe, but geographically it's often included in Eastern Europe.
+2. The list only includes sovereign countries recognized by the United Nations.
+
+Note that this list does not include dependencies and territories, such as Gibraltar, which are not internationally recognized as independent states.
+

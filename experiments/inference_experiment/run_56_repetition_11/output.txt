@@ -1,0 +1,104 @@
+ The capital city of each European country can be found on their respective Wikipedia pages. Here is a list of the cities and their corresponding countries:
+
+1. Capital City: Paris, Country: France
+2. Capital City: Berlin, Country: Germany
+3. Capital City: Madrid, Country: Spain
+4. Capital City: Rome, Country: Italy
+5. Capital City: Athens, Country: Greece
+6. Capital City: Warsaw, Country: Poland
+7. Capital City: Dublin, Country: Ireland
+8. Capital City: Stockholm, Country: Sweden
+9. Capital City: Lisbon, Country: Portugal
+10. Capital City: Copenhagen, Country: Denmark
+11. Capital City: Brussels, Country: Belgium
+12. Capital City: The Hague, Country: The Netherlands
+13. Capital City: Oslo, Country: Norway
+14. Capital City: Edinburgh, Country: United Kingdom
+15. Capital City: Lisbon, Country: Portugal
+16. Capital City: Dublin, Country: Ireland
+17. Capital City: London, Country: United Kingdom
+18. Capital City: Paris, Country: France
+19. Capital City: Amsterdam, Country: The Netherlands
+20. Capital City: Brussels, Country: Belgium
+21. Capital City: Vienna, Country: Austria
+22. Capital City: Geneva, Country: Switzerland
+23. Capital City: Sofia, Country: Bulgaria
+24. Capital City: Prague, Country: Czech Republic
+25. Capital City: Warsaw, Country: Poland
+26. Capital City: Tallinn, Country: Estonia
+27. Capital City: Stockholm, Country: Sweden
+28. Capital City: Helsinki, Country: Finland
+29. Capital City: Bern, Country: Switzerland
+30. Capital City: Athens, Country: Greece
+31. Capital City: Kyiv, Country: Ukraine
+32. Capital City: Belgrade, Country: Serbia
+33. Capital City: Moscow, Country: Russia
+34. Capital City: Ankara, Country: Turkey
+35. Capital City: Budapest, Country: Hungary
+36. Capital City: Lisbon, Country: Portugal
+37. Capital City: Warsaw, Country: Poland
+38. Capital City: Oslo, Country: Norway
+39. Capital City: Stockholm, Country: Sweden
+40. Capital City: The Hague, Country: The Netherlands
+41. Capital City: Madrid, Country: Spain
+42. Capital City: Bratislava, Country: Slovakia
+43. Capital City: Paris, Country: France
+44. Capital City: Vienna, Country: Austria
+45. Capital City: Tallinn, Country: Estonia
+46. Capital City: Oslo, Country: Norway
+47. Capital City: Athens, Country: Greece
+48. Capital City: Helsinki, Country: Finland
+49. Capital City: Belgrade, Country: Serbia
+50. Capital City: Moscow, Country: Russia
+51. Capital City: Ankara, Country: Turkey
+52. Capital City: Budapest, Country: Hungary
+53. Capital City: Warsaw, Country: Poland
+54. Capital City: Stockholm, Country: Sweden
+55. Capital City: The Hague, Country: The Netherlands
+56. Capital City: Madrid, Country: Spain
+57. Capital City: Vienna, Country: Austria
+58. Capital City: Tallinn, Country: Estonia
+59. Capital City: Oslo, Country: Norway
+60. Capital City: Athens, Country: Greece
+61. Capital City: Helsinki, Country: Finland
+62. Capital City: Belgrade, Country: Serbia
+63. Capital City: Moscow, Country: Russia
+64. Capital City: Ankara, Country: Turkey
+65. Capital City: Budapest, Country: Hungary
+66. Capital City: Paris, Country: France
+67. Capital City: Vienna, Country: Austria
+68. Capital City: Tallinn, Country: Estonia
+69. Capital City: Oslo, Country: Norway
+70. Capital City: Athens, Country: Greece
+71. Capital City: Helsinki, Country: Finland
+72. Capital City: Belgrade, Country: Serbia
+73. Capital City: Moscow, Country: Russia
+74. Capital City: Ankara, Country: Turkey
+75. Capital City: Budapest, Country: Hungary
+76. Capital City: Stockholm, Country: Sweden
+77. Capital City: The Hague, Country: The Netherlands
+78. Capital City: Madrid, Country: Spain
+79. Capital City: Vienna, Country: Austria
+80. Capital City: Tallinn, Country: Estonia
+81. Capital City: Oslo, Country: Norway
+82. Capital City: Athens, Country: Greece
+83. Capital City: Helsinki, Country: Finland
+84. Capital City: Belgrade, Country: Serbia
+85. Capital City: Moscow, Country: Russia
+86. Capital City: Ankara, Country: Turkey
+87. Capital City: Budapest, Country: Hungary
+88. Capital City: Paris, Country: France
+89. Capital City: Vienna, Country: Austria
+90. Capital City: Tallinn, Country: Estonia
+91. Capital City: Oslo, Country: Norway
+92. Capital City: Athens, Country: Greece
+93. Capital City: Helsinki, Country: Finland
+94. Capital City: Belgrade, Country: Serbia
+95. Capital City: Moscow, Country: Russia
+96. Capital City: Ankara, Country: Turkey
+97. Capital City: Budapest, Country: Hungary
+98. Capital City: Stockholm, Country: Sweden
+99. Capital City: The Hague, Country: The Netherlands
+100. Capital City: Madrid, Country: Spain
+
+

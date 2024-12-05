@@ -1,0 +1,13 @@
+ Climate change is caused by an increase in the concentration of greenhouse gases in the Earth's atmosphere, which traps heat from the sun and leads to a gradual rise in global temperatures. The primary sources of these emissions are human activities, such as burning fossil fuels for energy, deforestation, agriculture, and industrial processes.
+
+Carbon dioxide (CO2) is the most significant contributor to climate change, accounting for more than 80% of all greenhouse gas emissions. The burning of coal, oil, and natural gas for energy production is the primary source of CO2 emissions. Other industries such as transportation, electricity generation, and manufacturing also contribute to CO2 emissions.
+
+Methane (CH4) is a powerful greenhouse gas that is 20-36 times more potent than carbon dioxide in terms of its warming potential. It is released during the production and transport of coal, oil, and natural gas, as well as from livestock and other agricultural activities.
+
+Nitrous oxide (N2O) is another potent greenhouse gas that contributes to climate change. The primary sources of N2O emissions are agricultural practices such as fertilizers and manure management, as well as industrial processes like the production of nitrogen-based fertilizers and waste incineration.
+
+In terms of industry, energy and transportation sectors contribute to a significant portion of these emissions. According to the International Energy Agency, around 70% of global CO2 emissions come from energy use in the form of electricity, heat, and fuels. The transportation sector is another major source of greenhouse gas emissions, accounting for 24% of total emissions according to the World Energy Outlook 2021 report.
+
+In conclusion, while all industries contribute to climate change through their emissions of greenhouse gases, some are more significant than others. Carbon dioxide remains the most critical contributor due to its widespread use in energy production and transportation, while methane and nitrous oxide emissions come primarily from agriculture, energy, and industrial sectors. Reducing greenhouse gas emissions is essential to mitigate the effects of climate change and ensure a sustainable future for all.
+
+

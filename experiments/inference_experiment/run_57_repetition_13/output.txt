@@ -1,0 +1,28 @@
+ Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in the atmosphere. These GHGs trap heat and cause global temperatures to rise. The most significant contributor to this phenomenon is carbon dioxide, which is released when we burn fossil fuels such as coal, oil, and natural gas for energy production or transportation. Methane is another major GHG that is produced by agriculture, landfills, and the extraction of fossil fuels. Nitrous oxide emissions come from sources like fertilizers, industrial processes, and combustion of fossil fuels.
+
+The primary sources of these emissions vary across different industries. The energy sector is a significant contributor to carbon dioxide emissions, accounting for about 70% of total global emissions in 2019. Transportation, including cars, trucks, airplanes, and shipping, also contributes significantly to GHG emissions, with the International Energy Agency estimating that transportation accounted for 14% of global CO2 emissions in 2018.
+
+Agriculture is another industry that produces significant methane and nitrous oxide emissions. Livestock farming, especially cattle, produces large amounts of methane, which has a potent effect on climate change. Nitrogen fertilizers used in agriculture are also a source of nitrous oxide emissions. The industrial sector contributes to GHG emissions through various processes, including the use of fossil fuels for energy and manufacturing activities that produce CH4 or N2O.
+
+In summary, the primary sources of GHG emissions vary across different industries. Energy production, transportation, agriculture, and industry are some of the most significant contributors to greenhouse gas emissions. To mitigate climate change, it is essential to reduce our dependence on fossil fuels and transition towards renewable energy sources like solar, wind, and hydroelectric power. Additionally, improving transportation systems, adopting sustainable agricultural practices, and implementing policies that promote energy efficiency in industries can also contribute to reducing GHG emissions.
+
+
+Suppose there are three sectors: Energy (E), Transportation (T) and Agriculture (A). Each sector releases different types of GHGs: carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) respectively. The following information is given:
+1. Transportation emits half as much CH4 than the Energy Sector.
+2. The Agricultural Sector does not emit the most N2O. 
+3. If the Energy Sector emits more CO2 than N2O, the Agricultural Sector must also emit less CO2 than N2O.
+
+Question: What is the relationship between the GHG emissions of each sector?
+
+
+Use inductive logic to infer from information 1 and 2 that Transportation does not emit as much CH4 or N2O as the Energy and Agriculture sectors do, since they are two-thirds of the total global emissions of CO2. Therefore, Transportation emits only one type of GHG.
+
+By applying proof by exhaustion (testing all possibilities), we consider the relationship between the Energy, Transportation, and Agricultural GHG emissions. The only way that fits all the information is if Transportation does not emit any GHG because it can't have more than one. This means that the other two sectors are responsible for 100% of the total greenhouse gas emissions.
+
+Using tree of thought reasoning, we can conclude from step 2 that since the Transportation sector doesn't emit any GHG, and considering the fact that the Agricultural Sector does not produce the most N2O (which leaves Carbon Dioxide as their only option), it means that the Energy Sector emits both CH4 and N2O.
+
+Lastly, by applying proof by contradiction we can conclude from information 3: If the Energy sector emits more CO2 than N2O, then the Agricultural sector must emit less CO2 than N2O. But this contradicts our findings in step 2 where we concluded that Transportation does not emit any GHG which implies they do not have a direct relationship with CO2 and N2O emissions. Hence the claim made in Information 3 is incorrect.
+
+Answer: The Energy Sector emits both Carbon Dioxide (CO2) and Methane (CH4), while the Agricultural Sector emits Nitrous Oxide (N2O). Transportation does not emit any GHG.
+
+

@@ -1,0 +1,12 @@
+The accumulation of greenhouse gases in the atmosphere, primarily driven by climate change, is predominantly sourced from fossil fuel combustion. Carbon dioxide (CO2) emerges as the most significant contributor to this process, mainly through the burning of coal, oil, and natural gas for energy generation, transportation, industrial processes and even residential heating purposes. These activities are largely carried out in the energy sector which includes power production facilities and vehicles.
+
+Methane and nitrous oxide also significantly contribute to greenhouse emissions. Methane is primarily emitted from agriculture (livestock farming), landfills where organic waste decomposes without adequate aeration, and natural gas extraction and processing. The agricultural source comes mainly from enteric fermentation in livestock such as cows and sheep producing methane through digestion processes.
+
+Nitrous oxide emissions stem mainly from the use of synthetic fertilizers, which can lead to its release during both production and application stages when conditions like temperature increase or soil moisture change are not optimal for nutrient uptake by plants. Industrial activities involving chemical manufacturing also contribute significantly to nitrous oxide emission due to accidental releases or intentional use as a propellant.
+
+The transport sector is another significant emitter of carbon dioxide mainly from vehicles, particularly gasoline and diesel-fueled cars, buses, and trucks used worldwide daily. The industrial sector also emits substantial amounts of greenhouse gases across various industries like cement production (carbon dioxide), coal mining (methane) or chemical manufacturing (both CO2 and nitrous oxide).
+
+Agricultural activities contribute not just to methane but CO2 emissions from livestock manure decomposition or soil management practices that increase carbon release. The waste sector, especially landfills, is a notable source of both methane and CO2 due to organic waste decomposition.
+
+In conclusion, fossil fuel combustion dominates the major sources of greenhouse gas emissions contributing heavily to climate change across different industries worldwide. However, various human activities like agriculture, industrial processes, transport, and waste management also play significant roles, necessitating comprehensive strategies for reduction and mitigation efforts.
+

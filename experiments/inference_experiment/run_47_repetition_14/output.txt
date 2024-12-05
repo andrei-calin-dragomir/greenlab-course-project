@@ -1,0 +1,6 @@
+Artificial intelligence (AI) is a field that explores computer systems capable of performing tasks requiring human-like intelligence. These tasks include perception, learning, reasoning, knowledge representation, planning, natural language processing, learning from experience, and supporting robotics. AI's ultimate goal includes developing general intelligence for any task as good or better than humans. Techniques like search optimization, formal logic, artificial neural networks, and statistics are used to achieve these goals.
+
+AI has expanded beyond its initial academic roots in 1956, experiencing several cycles of optimism followed by disappointment ("AI winters"). The field's renaissance began in 2012 with deep learning surpassing previous AI methods. Further growth from the transformer architecture since 2017 saw massive investments, with hundreds of billions poured into AI by early 2020s.
+
+Widespread use exposed unintended consequences and harms, including biases, lack of transparency, and potential misuse of data. These issues have sparked discussions on regulatory policies to ensure AI's safety and benefits while addressing its risks and future implications.
+

@@ -1,0 +1,4 @@
+The paper provides an overview of artificial intelligence (AI), detailing how machines exhibit intelligent behavior through perception, learning, planning, natural language processing, reasoning, knowledge representation, support for robotics and other skills. Key applications span advanced search engines to AI art generation and autonomous vehicles like Waymo; while human-interactive tools such as Google Assistant are also highlighted. Despite the significant advancements facilitated by deep learning techniques since 2012—such as transformers in language tasks, neural networks for vision—the paper underscores AI's journey from optimism to periods of reduced funding known as 'AI winter.' Post-2017 breakthroughs resulted in an investment boom by the early 2020s. The ubiquitous nature of this technology has, however, led to unintended consequences and sparked discussions on regulatory measures for safety assurance while considering its long-term implications.
+
+
+

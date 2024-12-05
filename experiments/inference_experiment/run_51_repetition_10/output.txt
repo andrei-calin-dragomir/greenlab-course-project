@@ -1,0 +1,18 @@
+Climate change is primarily driven by greenhouse gas (GHG) emissions, with carbon dioxide (CO₂) being the most prevalent due to extensive fossil fuel use. Other significant GHGs include methane (CH₄) and nitrous oxide (N₂O). These gases accumulate in the atmosphere, enhancing the Earth's natural greenhouse effect, leading to global warming.
+
+The primary sources of these emissions vary across different industries:
+
+1. **Energy Sector**: This sector is the largest contributor to CO₂ emissions, accounting for about 76% globally. It includes burning coal, oil, and natural gas for electricity generation, heating, and transportation.
+
+2. **Agriculture**: Methane and nitrous oxide are major contributors here, with methane mainly from enteric fermentation in livestock and manure management. Nitrous oxide is released from the use of synthetic fertilizers.
+
+3. **Industry**: This sector contributes about 25% of global GHG emissions, primarily through fuel combustion, industrial processes (like cement and steel production), and waste processing.
+
+4. **Transportation**: Accounts for around 16% of total CO₂ emissions globally. It includes road transport (cars, trucks), aviation, shipping, and rail.
+
+5. **Waste Management**: Decomposition in landfills produces methane, contributing about 3-5% of global GHG emissions.
+
+6. **Forestry and Land Use Changes**: These activities lead to deforestation and changes in land use, which can release carbon stored in forests and reduce the planet’s capacity for carbon sequestration.
+
+Understanding these sources is crucial for developing targeted strategies to mitigate climate change impacts through policy interventions, technological advancements, and sustainable practices across various sectors.
+

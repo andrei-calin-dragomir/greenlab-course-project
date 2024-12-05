@@ -1,0 +1,48 @@
+There are 47 European countries, and each has its own capital city. Here is a list of all the capital cities of European countries:
+1. Albania: Tirana
+2. Andorra: Andorra la Vella
+3. Austria: Vienna
+4. Belarus: Minsk
+5. Belgium: Brussels
+6. Bosnia and Herzegovina: Sarajevo
+7. Bulgaria: Sofia
+8. Croatia: Zagreb
+9. Cyprus: Nicosia
+10. Czech Republic: Prague
+11. Denmark: Copenhagen
+12. Estonia: Tallinn
+13. Finland: Helsinki
+14. France: Paris
+15. Germany: Berlin
+16. Greece: Athens
+17. Hungary: Budapest
+18. Iceland: Reykjavik
+19. Ireland: Dublin
+20. Italy: Rome
+21. Kosovo: Pristina
+22. Latvia: Riga
+23. Liechtenstein: Vaduz
+24. Lithuania: Vilnius
+25. Luxembourg: Luxembourg City
+26. Malta: Valletta
+27. Moldova: Chisinau
+28. Monaco: Monaco
+29. Montenegro: Podgorica
+30. Netherlands: Amsterdam
+31. North Macedonia: Skopje
+32. Norway: Oslo
+33. Poland: Warsaw
+34. Portugal: Lisbon
+35. Romania: Bucharest
+36. Russia: Moscow
+37. San Marino: San Marino
+38. Serbia: Belgrade
+39. Slovakia: Bratislava
+40. Slovenia: Ljubljana
+41. Spain: Madrid
+42. Sweden: Stockholm
+43. Switzerland: Bern
+44. Ukraine: Kiev
+45. United Kingdom: London
+46. Vatican City: Vatican City
+

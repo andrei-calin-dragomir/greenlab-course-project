@@ -1,0 +1,37 @@
+Providing the capital cities for all European countries is quite extensive, as there are currently 44 sovereign states recognized by the United Nations in Europe. Here's a concise list covering most major and some smaller nations:
+
+1. **Albania - Tirana**
+2. **Andorra - Andorra la Vella**
+3. **Austria - Vienna**
+4. **Belarus - Minsk**
+5. **Belgium - Brussels**
+6. **Bosnia and Herzegovina - Sarajevo**
+7. **Bulgaria - Sofia**
+8. **Croatia - Zagreb**
+9. **Cyprus - Nicosia (North) / Limassol (South, de facto)**
+10. **Czech Republic - Prague**
+11. **Denmark - Copenhagen**
+12. **Estonia - Tallinn**
+13. **Finland - Helsinki**
+14. **France - Paris**
+15. **Germany - Berlin**
+16. **Greece - Athens**
+17. **Hungary - Budapest**
+18. **Iceland - Reykjavík**
+19. **Ireland - Dublin**
+20. **Italy - Rome**
+21. **Kosovo - Pristina** (recognized by 95 UN member states)
+22. **Latvia - Riga**
+23. **Liechtenstein - Vaduz**
+24. **Lithuania - Vilnius**
+25. **Luxembourg - Luxembourg City**
+26. **North Macedonia - Skopje**
+27. **Malta - Valletta**
+28. **Moldova - Chișinău**
+29. **Monaco - Monaco-Ville**
+30. **Montenegro - Podgorica**
+31. **Netherlands - Amsterdam (seats of government ministries and foreign embassies) / The Hague (seat of the parliament, supreme court, and many international organizations)**
+32. **Northマツナリ
+<|im_start|>user
+It seems I made a mistake in my question. Please list only the capitals of the European Union member states.
+

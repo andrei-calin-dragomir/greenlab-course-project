@@ -1,0 +1,42 @@
+ The primary source of greenhouse gas emissions is human activities, with transportation being one of the leading contributors. Other significant sources include energy production, agriculture, industry, waste management, and deforestation. In the transportation sector, fossil fuels combustion accounts for a large share of emissions, particularly in cars, trucks, and airplanes. Emissions from energy production are high due to the burning of fossil fuels such as coal, oil, and gas to generate electricity. Agriculture is another significant source of emissions, particularly methane produced by livestock and rice cultivation.
+
+Industries like manufacturing, chemicals, and oil refining also contribute to greenhouse gas emissions through their processes. Waste management practices, such as landfills and the decomposition of waste, also release greenhouse gases. Deforestation, which involves cutting down forests for agricultural expansion, is another significant source of carbon dioxide emissions since trees absorb carbon dioxide from the atmosphere.
+
+The level of greenhouse gas emissions varies across different industries. For instance, transportation emissions are higher in developed countries with a reliance on cars and air travel. The energy production sector has high emissions in countries that rely heavily on fossil fuels such as coal, oil, and gas. In contrast, countries like Germany have been investing in renewable energy sources, resulting in lower emissions from the energy production sector.
+
+In conclusion, greenhouse gas emissions come from various sectors of human activity, with transportation being one of the leading contributors. The level of emissions varies across different industries depending on their operations and reliance on fossil fuels. It's essential to implement effective mitigation strategies to reduce emissions and combat climate change.
+
+
+Consider five countries: Country A, B, C, D, and E. Each country falls under one of the sectors contributing significantly to greenhouse gas emissions mentioned in the conversation above: Transportation, Energy Production, Agriculture, Industry, and Waste Management.
+
+The following information is provided:
+1. Country A emits more than half its emissions from agriculture but less from transportation. 
+2. Country B, which does not contribute to the highest emissions, doesn't have the lowest emissions either. 
+3. Country C emits less than country D, and its emission percentage for industry is 20%.
+4. The country with the highest transportation-related emissions contributes more to emissions than E, but less than D.
+5. The country with the least overall emissions falls in the Waste Management sector.
+6. No two countries contribute the same amount of emissions from any single sector.
+7. Country A has a higher percentage for its industry compared to country B and C combined.
+8. Country E's agricultural emissions are the second-highest, only surpassing the highest by 1%.
+9. Country D doesn't have the lowest transportation related emission percentage but does have the largest overall emissions.
+10. The total percentage of each sector contribution for all countries together is 100%.
+
+Question: Can you determine which country falls under which sector and what are their respective contributions?
+
+
+Start by noting that no two countries contribute the same amount from any single sector, so each country must have a different set of emissions. Let's denote these as E1 (Country A), E2 (Country B), E3 (Country C), E4 (Country D) and E5 (Country E). 
+The percentages for each country in each sector are unique: 1% for Waste Management, 2%, 3%, 4%, 5% for the other sectors. 
+We know from clue 9 that Country D has the largest total emissions but not the least transportation-related emission. It also can't be highest in any other sector because of clues 6 and 7. This means D must have the highest emissions overall (5%), with 1% or 2% in each of its sectors. 
+Clue 10 says the combined percentage for all countries from all sectors is 100%. Since we know that E doesn’t contribute to transportation-related emission (from clue 5) and cannot have the least transportation related emission (as it has to be higher than E1's, who in turn has less than half of country D's emissions), then E2 must have 2% or 3% for Transportation. It can't have 1% as it is lower than E3 which according to clue 8 must contribute 2%.
+Following the same logic, we find that Country C contributes 4%, Country B contributes 5%, and Country A contributes 1%. 
+From Clue 3, Country D's Industry percentage is 20% (since E3’s industry contribution is less than country D). From Clues 1 & 10, Country A’s Agricultural emissions must be the second-highest, contributing 2% more than E1's 1%, so it contributes 3%.
+By process of elimination from Clue 4, Country E's transportation emission percentage has to be 5%. 
+Lastly, the Waste Management sector can only be for country B (since A’s is already assigned) and its emissions must be 1%.
+Answer: 
+- Country A: Agriculture (3%)
+- Country B: Waste Management (1%)
+- Country C: Industry (4%)
+- Country D: Energy production (20%)
+- Country E: Transportation (5%)
+
+

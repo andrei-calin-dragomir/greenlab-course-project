@@ -1,0 +1,6 @@
+Artificial intelligence (AI) has rapidly evolved since its establishment as a discipline in 1956. The field经历了多次技术的兴衰，包括2012年深度学习的突破，以及2017年的Transformer架构。
+
+近年来，AI的应用广泛且深入，从搜索引擎优化、推荐系统到语音识别和自动驾驶。然而，AI的发展也带来了一系列问题和挑战，如隐私保护、算法公正性、就业结构变化等。
+
+面对这些挑战，政府和相关机构正积极寻求监管政策，以确保AI的安全性，促进其有益的广泛应用，以及帮助社会适应这一技术快速发展的时代。
+

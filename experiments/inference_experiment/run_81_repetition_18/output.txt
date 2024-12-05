@@ -1,0 +1,14 @@
+Greenhouse gas emissions stem from diverse sources, varying significantly across industries.
+
+**Fossil Fuel Combustion:** This sector dominates global emissions, accounting for roughly 75%. Power plants burning coal, oil, and natural gas release massive amounts of carbon dioxide (CO₂), the primary culprit in climate change. Transportation, heavily reliant on gasoline and diesel, is another major contributor. Industries like manufacturing, construction, and agriculture also utilize fossil fuels for energy, further amplifying emissions.
+
+**Agriculture:** Livestock farming generates significant methane (CH₄) through enteric fermentation (digestive processes). Rice paddies release methane during their waterlogged growth cycles. Agricultural practices like fertilizer use produce nitrous oxide (N₂O), a potent greenhouse gas. Deforestation exacerbates climate change by removing carbon-absorbing trees and releasing stored carbon.
+
+**Industrial Processes:** Cement production, chemical manufacturing, and steelmaking release substantial CO₂, CH₄, and N₂O.  
+
+**Waste Management:** Decomposing organic waste in landfills produces methane. 
+
+
+Addressing climate change requires a multifaceted approach, targeting emissions reduction across all sectors through technological advancements, sustainable practices, and policy interventions. 
+
+

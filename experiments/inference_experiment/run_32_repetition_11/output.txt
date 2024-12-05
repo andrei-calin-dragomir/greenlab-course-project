@@ -1,0 +1,40 @@
+ Here is a list of capital cities for most European countries:
+
+1. Austria - Vienna (Wien)
+2. Belgium - Brussels (Brussel)
+3. Bosnia and Herzegovina - Sarajevo
+4. Bulgaria - Sofia
+5. Croatia - Zagreb
+6. Czech Republic - Prague (Praha)
+7. Denmark - Copenhagen (København)
+8. Estonia - Tallinn
+9. Finland - Helsinki (Helsingfors)
+10. France - Paris
+11. Germany - Berlin
+12. Greece - Athens (Athena)
+13. Hungary - Budapest (Budapest)
+14. Iceland - Reykjavik
+15. Ireland - Dublin
+16. Italy - Rome (Roma)
+17. Latvia - Riga
+18. Lithuania - Vilnius
+19. Luxembourg - Luxembourg City (Luxemburg)
+20. Malta - Valletta
+21. Netherlands - Amsterdam
+22. North Macedonia - Skopje
+23. Norway - Oslo
+24. Poland - Warsaw (Warszawa)
+25. Portugal - Lisbon (Lisboa)
+26. Romania - Bucharest (București)
+27. Russia (partly in Europe) - Moscow (Moskva)
+28. Serbia - Belgrade (Beograd)
+29. Slovakia - Bratislava
+30. Slovenia - Ljubljana
+31. Spain - Madrid
+32. Sweden - Stockholm (Stockholm)
+33. Switzerland - Bern
+34. Turkey (European part) - Ankara
+35. Ukraine - Kiev (Kyiv)
+
+Some European countries do not have a defined capital city, such as the United Kingdom (England, Scotland, Wales, and Northern Ireland each have their own administrations but London is the seat of government for England), Vatican City (the Pope resides in the Vatican but it's not considered a country by many definitions), and Montenegro (Podgorica is considered the administrative center).
+

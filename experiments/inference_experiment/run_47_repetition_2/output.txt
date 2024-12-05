@@ -1,0 +1,6 @@
+The technical paper discusses Artificial Intelligence (AI), which refers to intelligence exhibited by machines that can learn from their environment and make decisions using reasoning, knowledge representation, planning, learning, natural language processing, perception, and more. AI applications range widely, from web search engines and recommendation systems to autonomous vehicles and generative art tools. The field uses techniques such as search optimization, formal logic, neural networks, statistics, operations research, economics, psychology, linguistics, philosophy, neuroscience, and others.
+
+AI was established in the late 1950s, experiencing periods of optimism followed by disappointment (AI winter), with funding and interest increasing significantly after 2012 due to deep learning's superior performance over previous techniques. The transformer architecture further accelerated growth post-2017, leading to substantial investments totaling hundreds of billions of dollars by the early 2020s.
+
+The extensive use of AI has revealed unintended consequences and harms, as well as concerns about its risks and future effects, prompting discussions on regulatory policies to ensure safety and benefits. The widespread adoption of AI underscores the need for responsible innovation and ethical considerations in its development and deployment.
+

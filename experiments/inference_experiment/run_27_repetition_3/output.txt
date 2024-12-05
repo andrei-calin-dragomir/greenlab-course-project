@@ -1,0 +1,20 @@
+ Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in the Earth's atmosphere, with carbon dioxide (CO2) being the most significant contributor. According to the Intergovernmental Panel on Climate Change (IPCC), human activities are responsible for a 76% increase in CO2 emissions since the pre-industrial era, with fossil fuel combustion being the largest source of these emissions (approximately 63%).
+
+Methane (CH4) and nitrous oxide (N2O) are other potent greenhouse gases that contribute significantly to climate change. Methane is approximately 25 times more effective at trapping heat in the atmosphere than CO2 over a 100-year time frame, while nitrous oxide has a global warming potential about 300 times greater than CO2 over the same period.
+
+The primary sources of methane emissions include agriculture (40%), particularly from livestock production and rice cultivation; natural gas and oil systems (26%); and waste disposal (15%). In contrast, nitrous oxide emissions are mainly derived from agricultural practices (approximately 78%), primarily due to the use of nitrogen-based fertilizers.
+
+Industries with particularly high greenhouse gas emissions include:
+
+1. Energy production: The extraction, processing, and combustion of fossil fuels for electricity, heat, and transportation are major contributors to greenhouse gas emissions. Coal-fired power plants are the largest single source of global CO2 emissions.
+
+2. Agriculture: As mentioned earlier, agriculture contributes significantly to methane and nitrous oxide emissions through livestock production, rice cultivation, and the use of nitrogen-based fertilizers.
+
+3. Manufacturing: The production of steel, cement, chemicals, and other manufactured goods results in substantial greenhouse gas emissions, primarily due to energy consumption and the use of fossil fuels.
+
+4. Transportation: The transportation sector is responsible for a significant portion of global greenhouse gas emissions, particularly CO2 from the combustion of gasoline and diesel fuel.
+
+5. Waste disposal: Landfills are a major source of methane emissions due to the decomposition of organic waste. Additionally, agricultural practices such as livestock production and rice cultivation can produce significant amounts of methane and nitrous oxide emissions when managed improperly.
+
+To mitigate these emissions, it is essential to transition towards cleaner energy sources, improve energy efficiency, and promote sustainable agricultural practices that reduce the need for fossil fuels and minimize greenhouse gas emissions from livestock production, rice cultivation, and nitrogen-based fertilizer use.
+

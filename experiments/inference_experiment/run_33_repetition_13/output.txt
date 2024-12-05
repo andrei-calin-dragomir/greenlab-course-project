@@ -1,0 +1,10 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into three main sectors: Energy, Industry, and Agriculture.
+
+1. Energy Sector: This sector is the largest contributor to GHG emissions, particularly carbon dioxide (CO2), due to the burning of fossil fuels for electricity, heat, and transportation. According to the U.S. Environmental Protection Agency, coal, natural gas, and petroleum were responsible for 79% of total energy-related CO2 emissions in 2018.
+
+2. Industry Sector: This sector includes manufacturing industries like steel, cement, and chemicals, which also rely heavily on fossil fuels for their operations. Additionally, industrial processes such as the production of synthetic materials (e.g., plastics) contribute significantly to methane emissions. According to the International Energy Agency, the industry sector accounted for around 21% of global CO2 emissions in 2019.
+
+3. Agriculture Sector: This sector is responsible for a significant portion of methane and nitrous oxide emissions. Methane emissions primarily come from rice cultivation, livestock (especially ruminants like cows and sheep), and manure management. Nitrous oxide emissions are largely attributable to agricultural activities such as fertilizer use and manure management. The Food and Agriculture Organization of the United Nations reports that agriculture, forestry, and other land-use activities accounted for 24% of total global GHG emissions in 2010.
+
+The distribution of emissions across these sectors varies geographically due to differences in economic structure, energy mix, industrial composition, and agricultural practices. For instance, countries with a high reliance on coal for electricity generation tend to have higher CO2 emissions from the energy sector, while those with extensive agriculture or livestock production may have higher methane and nitrous oxide emissions from agriculture. However, it's essential to note that all sectors contribute GHG emissions in nearly every country worldwide, with some industries being more significant contributors than others depending on economic specialization.
+

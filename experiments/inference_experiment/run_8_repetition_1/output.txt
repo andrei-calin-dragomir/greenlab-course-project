@@ -1,0 +1,54 @@
+Here is the list of European country capitals:
+
+1. Albania - Tirana
+2. Andorra - Andorra la Vella
+3. Armenia - Yerevan (partially in Asia)
+4. Austria - Vienna
+5. Belarus - Minsk
+6. Belgium - Brussels
+7. Bosnia and Herzegovina - Sarajevo
+8. Bulgaria - Sofia
+9. Croatia - Zagreb
+10. Cyprus - Nicosia
+11. Czech Republic - Prague
+12. Denmark - Copenhagen
+13. Estonia - Tallinn
+14. Finland - Helsinki
+15. France - Paris
+16. Georgia - Tbilisi (partially in Asia)
+17. Germany - Berlin
+18. Greece - Athens
+19. Hungary - Budapest
+20. Iceland - Reykjavik
+21. Ireland - Dublin
+22. Italy - Rome
+23. Kazakhstan (partially in Europe) - Astana (nominally in Asia, but has a significant portion of its territory in Eastern Europe)
+24. Kosovo - Pristina
+25. Latvia - Riga
+26. Liechtenstein - Vaduz
+27. Lithuania - Vilnius
+28. Luxembourg - Luxembourg City
+29. Malta - Valletta
+30. Moldova - Chișinău
+31. Monaco - Monaco-Ville
+32. Montenegro - Podgorica
+33. Netherlands - Amsterdam
+34. North Macedonia - Skopje
+35. Norway - Oslo
+36. Poland - Warsaw
+37. Portugal - Lisbon
+38. Romania - Bucharest
+39. Russia (partially in Europe) - Moscow
+40. San Marino - San Marino City
+41. Serbia - Belgrade
+42. Slovakia - Bratislava
+43. Slovenia - Ljubljana
+44. Spain - Madrid
+45. Sweden - Stockholm
+46. Switzerland - Bern
+47. Turkey (partially in Asia, but has a significant portion of its territory in Southeastern Europe) - Ankara
+48. Ukraine - Kyiv
+49. United Kingdom - London
+
+Note that some countries have territories or dependencies not listed here. Additionally, the definition of Europe can vary depending on the context, with some sources including parts of Western Asia as European.
+

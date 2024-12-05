@@ -1,0 +1,10 @@
+The technical paper offers an overview of Artificial Intelligence (AI), a field within computer science that enables machines to exhibit intelligence by perceiving their environment and learning from experience. AI applications range widely, including web search engines, recommendation systems, human speech interaction tools, autonomous vehicles, generative content creation, and superhuman game analysis. However, not all AI applications are perceived as such due to common use and integration into daily technology.
+
+AI goals encompass reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics support, with general intelligence among its long-term aims. Techniques like search algorithms, formal logic, artificial neural networks, statistics, operations research, economics, psychology, linguistics, philosophy, neuroscience, and others are integrated in AI research to achieve these goals.
+
+AI was established as an academic discipline in 1956 but has faced cycles of optimism followed by setbacks ("AI winters") due to funding loss. This changed with the resurgence of deep learning techniques after 2012 and a further acceleration via the transformer architecture by 2017, leading to substantial investment and growth in AI (often called the "AI boom"). 
+
+The widespread adoption of AI has brought unintended consequences such as privacy issues, job displacement, bias, and ethical concerns. These challenges have spurred discussions on regulatory policies aimed at ensuring AI safety and benefits for society.
+
+In summary, AI offers immense potential but also poses significant risks that need balanced consideration by researchers, policymakers, and society at large to harness its full potential while mitigating its downsides.
+

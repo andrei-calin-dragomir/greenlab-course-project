@@ -1,0 +1,41 @@
+ The Industrial Revolution brought about significant changes in many aspects of society, including the economy and technology. As industries grew and expanded, there was an increase in energy consumption and the burning of fossil fuels, leading to a rise in greenhouse gas emissions that have contributed to climate change. However, this crisis has also spurred the development of new technologies and economic policies aimed at mitigating its effects.
+
+One such technological advancement is renewable energy, which has seen significant growth in recent years. Solar and wind power are becoming increasingly common sources of electricity, with more efficient and affordable technology making these options more accessible to consumers. Additionally, advancements in battery storage have made it possible for renewable energy to be stored for use when the sun isn't shining or the wind isn't blowing, reducing our reliance on fossil fuels.
+
+In terms of economic policies, many countries have implemented carbon pricing schemes, which incentivize companies to reduce their greenhouse gas emissions by making them pay for every tonne of carbon dioxide they emit. This has led to an increase in investment in clean energy and a shift towards more sustainable practices. Additionally, the development of electric vehicles (EVs) has also contributed to reducing greenhouse gas emissions from transportation.
+
+While there is still much work to be done in addressing climate change, these advancements offer hope for a brighter future. By continuing to invest in renewable energy, improving battery storage technology, and implementing effective carbon pricing schemes, we can make significant progress towards mitigating the effects of global warming. It will take a concerted effort from governments, businesses, and individuals to bring about real change, but with continued innovation and cooperation, we can create a more sustainable future for ourselves and future generations.
+
+
+Let's say you are an Operations Research Analyst in a leading company that has been asked to help design an economic policy to reduce the company's greenhouse gas emissions. Your goal is to implement carbon pricing in such a way that it encourages the most significant reduction in emissions. 
+
+In this scenario, there are three main sources of emissions: manufacturing (M), transportation (T) and office equipment (O). The current emission rates per unit of product from these three sources are as follows: M- 1 tonne/unit, T- 2 tonnes/unit, O- 0.5 tonnes/unit
+
+The company is considering four possible policies: Policy A – Increase the cost for each unit of emissions by $1, Policy B - Decrease the cost per unit of energy consumed in manufacturing, Policy C - Offer a discount on transportation costs per mile travelled and Policy D - Implement an office equipment recycling program. 
+
+Each policy will affect two sources, but not all policies may lead to reduction in each source's emissions by the same percentage:
+1. Policy A leads to a 10% reduction in manufacturing emissions.
+2. Policy B results in 5% decrease in transportation emissions.
+3. Policy C causes no change in emissions from office equipment.
+4. Policy D reduces emissions from office equipment by 20%. 
+
+Question: What should be the most effective policy for each source to achieve maximum greenhouse gas emission reduction?
+
+
+First, calculate how much each of the four policies can reduce emissions per unit cost. For example, if Policy A increases the price per unit by $1 but leads to a 10% decrease in emissions from manufacturing (which is 1 tonne/unit), then it reduces the cost per unit by roughly 9 cents while reducing emissions.
+
+Next, compare the reduction rates for each policy across all three sources of emission: Manufacturing, Transportation and Office Equipment (M, T, O). 
+
+If a policy reduces emissions in more than one source, consider which source has the highest current rate of emissions per unit. This will help you determine if the cost-effectiveness of the policy is greater for that particular source.
+
+Once you've identified the policies that could potentially reduce emissions from each source, select the ones with the greatest potential reduction across all three sources (M, T, O). 
+
+If more than one policy can achieve this, consider which policy is most cost-effective in terms of the dollar-per-tonne reduced. This will help determine if there's a tradeoff between reducing emissions and keeping costs low.
+
+To ensure we have covered all possibilities, we need to check that our selected policies do not conflict with each other (i.e., they don't lead to an increase in costs that would counteract the emissions reduction). If possible, revise your choices if needed. 
+
+In the event of a tie or when there is no clear choice, choose the policy that aligns most closely with the company's sustainability goals and corporate social responsibility commitment.
+
+Finally, monitor the effect of these policies over time. If one source's emissions are not decreasing despite the implemented policies, it might be necessary to reconsider their effectiveness or consider introducing additional measures. 
+Answer: The answer will depend on the specific numbers calculated in Step1-Step8 for each policy and each source of emission. For instance, if Policy A is found to have the highest potential reduction across all sources with a low cost-per-tonne reduction, it may be the most effective overall. 
+

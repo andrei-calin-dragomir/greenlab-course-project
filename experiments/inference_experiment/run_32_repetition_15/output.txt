@@ -1,0 +1,38 @@
+ Here is a list of the capitals of European countries:
+
+1. Austria - Vienna (Wien)
+2. Belgium - Brussels (Brussel)
+3. Bosnia and Herzegovina - Sarajevo
+4. Croatia - Zagreb
+5. Czech Republic - Prague (Praha)
+6. Denmark - Copenhagen (København)
+7. Estonia - Tallinn (Tallin)
+8. Finland - Helsinki (Helsingfors)
+9. France - Paris (Paris)
+10. Germany - Berlin (Berlin)
+11. Greece - Athens (Athína)
+12. Hungary - Budapest (Budapest)
+13. Iceland - Reykjavik (Reykjavíkurbyggð)
+14. Ireland - Dublin (BAILE ÁTHA CLIATH)
+15. Italy - Rome (Roma)
+16. Kosovo - Pristina (Prishtinë/Priština)
+17. Latvia - Riga (Rīga)
+18. Lithuania - Vilnius (Vilniaus)
+19. Luxembourg - City of Luxembourg (Stadbreddeg De Lëtzebuerg)
+20. North Macedonia - Skopje (Skopje)
+21. Netherlands - Amsterdam (Amsterdam)
+22. Norway - Oslo (Oslo)
+23. Poland - Warsaw (Warszawa)
+24. Portugal - Lisbon (Lisboa)
+25. Romania - Bucharest (București)
+26. Russia (partially in Europe) - Moscow (Moskva)
+27. Slovakia - Bratislava
+28. Slovenia - Ljubljana (Ljubljana)
+29. Spain - Madrid (Madrid)
+30. Sweden - Stockholm (Stockholm)
+31. Switzerland - Bern (Berne)
+32. Ukraine (partially in Europe) - Kiev (Kyiv)
+33. United Kingdom - London (Londres)
+
+This list includes all the European Union member states as of 2021, plus some other European countries such as Switzerland and the United Kingdom. For political entities not recognized by all nations, like Kosovo or Northern Cyprus, their capitals are not included here.
+

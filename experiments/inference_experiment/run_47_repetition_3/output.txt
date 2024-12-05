@@ -1,0 +1,6 @@
+Artificial Intelligence (AI) is a field within computer science that aims to create systems capable of imitating human intelligence. These systems can perceive their environment, learn from it, and make decisions based on the information they gather. AI applications range from web searches to autonomous vehicles, generative tools like ChatGPT, and even strategy games.
+
+AI techniques include search algorithms, mathematical optimization, formal logic, neural networks, statistics, operations research, economics, psychology, linguistics, and neuroscience. The field has faced numerous setbacks called "AI winters" due to funding shortages but surged again in 2017 with the advent of the transformer architecture, leading to significant investments by 2020.
+
+However, AI's widespread use has also highlighted unintended consequences and risks, such as job displacement, privacy concerns, and ethical dilemmas. There is an ongoing debate about regulations to ensure safety while leveraging the benefits of AI technology. The long-term goal includes achieving general intelligence capable of performing tasks at a human level across various fields.
+

@@ -1,0 +1,18 @@
+Climate change predominantly results from the accumulation of greenhouse gases (GHGs) in Earth's atmosphere, with carbon dioxide being the most significant contributor because of fossil fuel combustion. This process involves burning oil, natural gas and coal for electricity generation, transportation and industrial activities. Methane and nitrous oxide also significantly contribute to global warming.
+
+The primary sources of these emissions across different industries are:
+
+1. **Electricity Generation**: The power sector is one of the largest emitters of GHGs globally. Coal, oil, and natural gas are primarily used for electricity generation, contributing disproportionately to atmospheric CO2 concentrations.
+
+2. **Transportation**: Vehicles powered by fossil fuels (cars, trucks, ships, planes) release a significant amount of carbon dioxide into the atmosphere. Road transportation is responsible for about 75% of this emissions, making it the leading contributor.
+
+3. **Industrial Processes**: Industries like cement production, steel manufacturing, and chemicals synthesis use large amounts of fossil fuels which emit CO2 during their processes. They are among top emitters globally.
+
+4. **Agriculture**: Methane produced by livestock digestion and manure management is a significant contributor from this sector along with nitrous oxide emissions from fertilizers used in crop cultivation.
+
+5. **Land Use, Land-use Change, and Forestry (LULUCF)**: Deforestation for agriculture expansion, urbanisation or mining releases stored carbon into the atmosphere while reduced carbon sequestration affects the Earth's carbon balance.
+
+6. **Waste Management**: Landfills are significant sources of methane emissions due to organic waste decomposition. Additionally, emissions from sewage and wastewater treatment also contribute.
+
+These emissions vary significantly across regions and sectors due to differing energy consumption patterns, industrial activities, agricultural practices, forest cover management, etc. Addressing climate change requires a multi-faceted approach targeting all major emitting industries globally while promoting cleaner technologies, efficient use of resources, and sustainable development practices.
+

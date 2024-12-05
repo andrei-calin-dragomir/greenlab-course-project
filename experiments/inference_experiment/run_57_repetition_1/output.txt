@@ -1,0 +1,51 @@
+ The primary sources of greenhouse gas emissions vary across different industries. However, it is essential to note that fossil fuel combustion remains the largest contributor, accounting for about 70% of global greenhouse gas emissions. This includes transportation, power generation, and industrial processes. The second-largest source of emissions is agriculture, which releases methane from livestock, rice production, and other land use changes.
+
+The transportation sector contributes approximately 14% of greenhouse gas emissions through the burning of fossil fuels in cars, trucks, planes, and ships. However, it's worth noting that this number varies depending on where you are in the world, as some countries heavily rely on certain modes of transportation. For example, air travel is a significant contributor to greenhouse gas emissions in many developed nations due to the high demand for long-distance travel.
+
+The industrial sector is also responsible for significant greenhouse gas emissions through energy use, cement production, and other processes. However, it's important to note that industrial activities vary widely by region, with developing countries often facing different challenges than developed ones. For example, China has a large number of coal-fired power plants due to its economic growth, which contributes significantly to the country's greenhouse gas emissions.
+
+The agriculture sector is also responsible for significant greenhouse gas emissions through livestock and rice production. However, in some regions, such as sub-Saharan Africa and Southeast Asia, deforestation is often a more significant contributor. This is because many farmers use slash-and-burn techniques to clear land for crops or pasture, which releases large amounts of carbon dioxide into the atmosphere.
+
+Overall, while each industry contributes to greenhouse gas emissions in different ways, it's essential to note that reducing these emissions requires a coordinated effort from all sectors. Governments, businesses, and individuals must work together to reduce fossil fuel consumption, promote renewable energy, and support sustainable agriculture practices.
+
+
+Imagine you are an environmental policy analyst tasked with developing solutions to curb global greenhouse gas emissions. 
+
+You have four sectors: Transportation (T), Energy (E), Agriculture (A) and Industry (I). These four sectors each contribute different amounts of GHG emissions, however, no two sectors contribute the same amount. We know that T>E and A<I in terms of GHG emission contributions. However, we do not know the exact figures. 
+
+You have been given the following information:
+1. The total GHG emissions from these four sectors is 100 units.
+2. Energy contributes 40% of the global emissions.
+3. Industry emits less than half of what Transportation does but more than Agriculture's emissions.
+4. Agriculture contributes 5 units.
+5. The contribution of Industry is greater than 50 units.
+
+Question: What are the GHG emission contributions from each sector?
+
+
+First, calculate the total contributions for Energy and Agriculture as per their given percentages. Energy = 40% of 100 = 40 units, while Agriculture = 5 units. 
+
+Since Energy contributes more than Transportation in percentage terms but not necessarily in absolute emissions, we know that the contribution of Transportation is less than 40 units but greater than or equal to zero. Considering these constraints and the information about Industry's contribution being less than half of what Transportation does, the only possible values for the transportation sector are 1-39 (inclusive) units.
+
+With these values in mind, consider the given information that industry contributes more than 50 units but is still less than half of transportation. The possible range of Industry's contributions therefore would be 51-99 (inclusive).
+
+Since each of these four sectors should contribute a total of 100 units and we know the exact contribution from Agriculture is 5 units, then the sum of emissions from Energy, Transportation, and Industry must equal 95 units.
+
+By considering that Energy contributes 40% of global GHG emissions and the range for Transportation's emission (step 2), it follows that the maximum possible value for Transportation would be 80 (since 95 - 40 = 55; the minimum is 1). 
+
+With this information in mind, since Industry has to contribute more than 50 units but less than half of what Transportation does, then the transportation sector's maximum and minimum contributions can both only be 49. If they were higher or lower, this would not satisfy the conditions provided.
+
+Since these emissions are whole numbers (GHG is typically measured in metric tons), the highest possible values for Energy, Industry, and Transportation are 95, 45, and 49 respectively, which sums up to 193 (not 100). Therefore, the contributions can't possibly be that high. 
+
+The most probable scenario would be as follows:
+
+ 
+Assume the contribution from Agriculture is 0 units (since it's given this value), leaving a total of 100 - 5 = 95 emissions to divide among Energy, Transportation, and Industry. 
+
+Given that Energy contributes 40% of global GHG emissions, Energy's maximum possible contribution will be 80 (the remaining 65 after Accounting for Agriculture) and its minimum is 1 unit.
+
+Since Industry has to contribute more than 50 units but less than half of what Transportation does, the transportation sector's maximum and minimum contributions can both only be 49. 
+
+Answer: The GHG emission contributions from each sector are Energy: 80 - 1 = 79 units, Agriculture: 5 units, Industry: 49 units, Transportation: 49 units.
+
+

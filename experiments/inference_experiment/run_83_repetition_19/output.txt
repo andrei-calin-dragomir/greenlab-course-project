@@ -1,0 +1,7 @@
+Artificial intelligence (AI) encompasses computer systems capable of performing tasks typically requiring human intelligence. From search engines to autonomous vehicles, AI's applications are pervasive.  
+
+The field has evolved through phases of optimism and disappointment, experiencing a resurgence fueled by deep learning and transformer architectures since 2012. 
+
+Despite its transformative impact, AI raises concerns about unintended consequences, risks, and ethical implications.  This necessitates discussions on regulatory policies to ensure responsible development and deployment for the benefit of society.   Key areas of AI research include reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics, ultimately striving towards general intelligence comparable to humans. 
+
+

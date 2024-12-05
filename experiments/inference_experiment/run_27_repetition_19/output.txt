@@ -1,0 +1,10 @@
+ Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in the Earth's atmosphere, with carbon dioxide (CO2) being the most significant contributor. According to the Intergovernmental Panel on Climate Change (IPCC), CO2 makes up about 76% of total global GHG emissions, with methane (CH4) and nitrous oxide (N2O) accounting for around 16% and 5%, respectively.
+
+The primary sources of CO2 emissions are largely attributed to the energy sector, particularly from the combustion of fossil fuels such as coal, oil, and natural gas for electricity generation and transportation. The IPCC reports that in 2019, the power generation sector accounted for approximately 40% of global CO2 emissions, while industry (including manufacturing) contributed around 31%, transportation accounted for 25%, and buildings and agriculture each accounted for around 4%.
+
+Methane emissions come primarily from agriculture (around 40%), followed by the energy sector (around 30%) and waste management (around 25%). The largest sources of methane emissions in agriculture are rice cultivation, livestock farming, and manure management. In the energy sector, methane is often released during coal mining, natural gas production, and the use of biomass for energy.
+
+Nitrous oxide emissions mainly come from agriculture (around 72%) due to nitrogen fertilizer application and livestock farming. Industrial processes such as the production of adipic acid, nitric acid, and nylon, among others, also contribute significantly to N2O emissions.
+
+In summary, while CO2 emissions are primarily driven by energy production and use, methane emissions come largely from agriculture and waste management, and nitrous oxide emissions originate mostly from agriculture and industrial processes. Understanding these sources of GHG emissions is crucial for developing effective strategies to reduce them and mitigate climate change.
+

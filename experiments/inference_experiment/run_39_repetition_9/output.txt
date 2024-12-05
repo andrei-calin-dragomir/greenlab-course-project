@@ -1,0 +1,8 @@
+Climate change is a complex issue driven by greenhouse gas emissions primarily from human activities. The most significant source of carbon dioxide (CO2) emissions is fossil fuel combustion in power plants, transportation, and industrial processes.
+
+Methane (CH4), the second-largest contributor to greenhouse gases, mainly comes from agriculture practices like livestock manure management and rice cultivation, as well as land use changes.
+
+Nitrous oxide (N2O), also known as laughing gas, primarily arises from agricultural activities involving fertilizers, in addition to industrial processes.
+
+Industry-specific emissions vary significantly based on the sector's energy consumption, production processes, and waste management practices. For example, the transportation industry contributes heavily to CO2 emissions due to its reliance on fossil fuels for vehicles. In contrast, the renewable energy sector, such as solar and wind power, has lower greenhouse gas emissions due to their dependence on non-fossil fuel resources.
+

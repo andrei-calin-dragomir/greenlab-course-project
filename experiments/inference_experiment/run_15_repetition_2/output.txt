@@ -1,0 +1,21 @@
+The primary sources of greenhouse gas (GHG) emissions include energy production and consumption, transportation, industry, agriculture, and land use changes. Fossil fuel combustion is a major contributor to GHG emissions, particularly carbon dioxide (CO2), which accounts for approximately 65% of human-induced GHG emissions.
+
+**Energy Production and Consumption:**
+
+*   Electricity generation from fossil fuels, such as coal, natural gas, and oil
+*   Industrial processes that rely on fossil fuel-based energy sources
+
+**Transportation:**
+
+*   Emissions from burning fossil fuels in vehicles, including cars, trucks, airplanes, and ships
+
+**Industry:**
+
+*   Cement production, which releases large amounts of CO2 during the manufacturing process
+*   Steel production, which also emits significant quantities of GHGs
+
+**Agriculture:**
+
+*   Livestock farming, particularly beef and lamb production, due to methane emissions from animal digestion
+*   Rice cultivation and other crops that release nitrous oxide as a byproduct of nitrogen-based fertilizers
+

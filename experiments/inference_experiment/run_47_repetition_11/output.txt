@@ -1,0 +1,8 @@
+AI represents intelligence exhibited by machines, particularly computer systems. It involves developing methods and software that enable machines to perceive their environment, learn from data, and take actions aimed at achieving goals. Common applications include web search engines, recommendation systems, speech interaction, autonomous vehicles, generative AI tools, and game strategy analysis.
+
+The field of AI research aims to achieve various goals such as reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics. General intelligence—akin human performance in tasks—is among long-term objectives. Techniques used include search algorithms, formal logic, artificial neural networks, statistical methods, operations research, and economics.
+
+AI has evolved from its origins in 1956 through cycles of optimism and setbacks known as "AI winters." A significant breakthrough came with deep learning outperforming previous AI techniques around 2012, which further accelerated by the introduction of transformer architectures. By the early 21st century, investments in AI reached hundreds of billions of dollars.
+
+Despite its benefits, the widespread use of AI has revealed unintended consequences and risks to society, such as job displacement, privacy concerns, algorithmic bias, and potential misuse of technology for harmful purposes. This has sparked discussions on the need for regulatory policies to ensure safety and ethical practices surrounding AI development and deployment.
+

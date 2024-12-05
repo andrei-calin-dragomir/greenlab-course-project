@@ -1,0 +1,23 @@
+The primary sources of greenhouse gas (GHG) emissions include fossil fuel combustion, industrial processes, land use changes, and agriculture. Among these, carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) are the most significant contributors.
+
+**Fossil Fuel Combustion:**
+Electricity generation (42% of CO2 emissions), transportation (24%), industry (20%), and buildings (7%) account for over 90% of fossil fuel-related GHG emissions. Coal-fired power plants, industrial processes like cement production, and transportation fuels like gasoline and diesel are major contributors.
+
+**Industrial Processes:**
+Cement production (8-10% of CO2 emissions), steel manufacturing, and aluminum smelting also release significant amounts of greenhouse gases.
+
+**Agriculture:**
+Livestock farming and rice cultivation contribute to CH4 emissions. N2O is released through soil management practices like fertilization and land degradation.
+
+**Land Use Changes:**
+Deforestation and land-use changes account for 15% of global GHG emissions, primarily due to CO2 releases from vegetation decay and soil oxidation.
+
+Industry-wise, the distribution of emissions varies as follows:
+
+* **Energy and Industry:** 42% of CO2 emissions
+* **Agriculture:** 24% of CH4 and 8% of N2O emissions
+* **Transportation:** 17% of CO2 emissions
+* **Waste Management:** 3% of CH4 and N2O emissions
+
+These sources highlight the need for a comprehensive approach to mitigate climate change, including transitioning to renewable energy sources, improving energy efficiency, and promoting sustainable land-use practices.
+

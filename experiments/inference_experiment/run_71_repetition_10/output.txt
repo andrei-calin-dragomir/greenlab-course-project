@@ -1,0 +1,9 @@
+This technical paper outlines artificial intelligence (AI) as a field dedicated to creating systems that exhibit machine-based learning and reasoning capable of performing tasks traditionally associated with human intellect, including web searches, recommendations, speech interaction, autonomous driving, creative production, chess/Go analysis. It highlights the penetration of advanced AI into everyday applications often without recognition as 'AI', illustrating how technological advances become normalized once they prove highly effective and ubiquitous (the "creeping out" phenomenon).
+
+The paper traces traditional goals for general intelligence to be replicated in machines, involving reasoning, knowledge representation, learning, language processing, perception—and robotics. It also notes the integration of diverse techniques from various disciplines including logic, neural networks and statistics with economics' methods like search optimization playing a crucial role.
+
+Tracing its academic origin back to 1956 through periods of excitement (AI winters), optimism post-2012 due to deep learning dominance; it underscores the rapid growth in investment, reaching billions by early 2020—the AI boom.
+
+Lastly, with its prevalent use today have come unintended consequences and harms prompting discussions around regulatory policies for safety assurance of these technologies into their future implications - thus shedding light on potential ethical aspects surrounding the field's growth trajectory. The paper provides a historical perspective as well as current challenges faced by AI, emphasizing its broad impact across society and raising questions about sustainability in unregulated situations which could pose risks to public welfare and privacy.
+
+

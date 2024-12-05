@@ -1,0 +1,50 @@
+## European Capitals:
+
+**Western Europe:**
+
+* **France:** Paris
+* **United Kingdom:** London
+* **Spain:** Madrid
+* **Italy:** Rome
+* **Germany:** Berlin
+* **Netherlands:** Amsterdam
+* **Switzerland:** Bern
+
+**Central & Eastern Europe:**
+
+* **Poland:** Warsaw
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+* **Slovakia:** Bratislava
+* **Austria:** Vienna
+* **Romania:** Bucharest
+
+**Southern Europe:**
+
+* **Greece:** Athens
+* **Italy:** Rome
+* **Portugal:** Lisbon
+* **Malta:** Valletta
+
+**Eastern Europe:**
+
+* **Estonia:** Tallinn
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+* **Belarus:** Minsk
+* **Ukraine:** Kyiv
+
+**Nordic Europe:**
+
+* **Denmark:** Copenhagen
+* **Finland:** Helsinki
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+
+**Other Territories:**
+
+* **Vatican City:** Vatican City
+* **Monaco:** Monaco
+
+**Note:** This list includes only independent European countries. Capitals of dependent territories are not included.
+

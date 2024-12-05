@@ -1,0 +1,22 @@
+Greenhouse gas emissions stem from various human activities, with different industries contributing disproportionately.
+
+**Carbon dioxide (CO₂):** Primarily released through fossil fuel combustion for electricity generation, transportation, and industrial processes. 
+
+* **Electricity & Heat Production:** Burning coal, oil, and natural gas in power plants accounts for the largest share of global CO₂ emissions.
+* **Transportation:** Cars, trucks, ships, and airplanes fueled by gasoline, diesel, and jet fuel release significant CO₂ during operation.
+* **Industry:** Manufacturing processes, cement production, and chemical manufacturing are major emitters of CO₂.
+
+**Methane (CH₄):** Emitted from agricultural activities (livestock, rice cultivation), natural gas leaks during extraction and transportation, landfills, and wastewater treatment.
+
+* **Agriculture:** Livestock, particularly cattle, produce methane as a byproduct of digestion.
+* **Natural Gas:** Leaks during production, processing, and distribution contribute significantly to methane emissions.
+
+**Nitrous Oxide (N₂O):** Released from agricultural activities (fertilizer use), industrial processes (nitric acid production), and burning fossil fuels.
+
+* **Agriculture:** Nitrogen-based fertilizers applied to crops release N₂O into the atmosphere.
+* **Industry:** Manufacturing of nitric acid and other chemicals can result in N₂O emissions.
+
+
+Addressing climate change requires a multifaceted approach, including reducing greenhouse gas emissions across all sectors through energy efficiency improvements, renewable energy adoption, sustainable agricultural practices, and technological advancements. 
+
+

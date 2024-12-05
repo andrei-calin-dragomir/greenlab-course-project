@@ -1,0 +1,60 @@
+Here is a list of the capital cities for all European countries, grouped by region:
+
+**Western Europe:**
+
+* Austria - Vienna
+* Belgium - Brussels
+* France - Paris
+* Germany - Berlin
+* Ireland - Dublin
+* Italy - Rome
+* Luxembourg - Luxembourg City
+* Monaco - Monaco (city-state)
+* Netherlands - Amsterdam
+* Portugal - Lisbon
+* Spain - Madrid
+* Switzerland - Bern
+
+**Eastern Europe:**
+
+* Albania - Tirana
+* Bosnia and Herzegovina - Sarajevo
+* Bulgaria - Sofia
+* Croatia - Zagreb
+* Czech Republic - Prague
+* Estonia - Tallinn
+* Hungary - Budapest
+* Latvia - Riga
+* Lithuania - Vilnius
+* North Macedonia - Skopje
+* Poland - Warsaw
+* Romania - Bucharest
+* Serbia - Belgrade
+* Slovakia - Bratislava
+* Slovenia - Ljubljana
+
+**Northern Europe:**
+
+* Denmark - Copenhagen
+* Finland - Helsinki
+* Iceland - Reykjavik
+* Norway - Oslo
+* Sweden - Stockholm
+
+**Southern Europe (including the Balkans):**
+
+* Albania - Tirana (also listed in Eastern Europe)
+* Bosnia and Herzegovina - Sarajevo (also listed in Eastern Europe)
+* Bulgaria - Sofia (also listed in Eastern Europe)
+* Greece - Athens
+* Kosovo - Pristina
+* Montenegro - Podgorica
+* North Macedonia - Skopje (also listed in Eastern Europe)
+
+**Island Nations:**
+
+* Cyprus - Nicosia
+* Malta - Valletta
+
+Note that this list includes 50 European countries, which is the number of sovereign states recognized by the United Nations.
+

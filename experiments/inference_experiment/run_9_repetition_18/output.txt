@@ -1,0 +1,17 @@
+The primary sources of greenhouse gas emissions responsible for climate change are carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O). Fossil fuel combustion is the leading contributor to CO2 emissions, while agriculture and natural processes drive CH4 and N2O emissions. Here's a breakdown of the primary sources by industry:
+
+1. **Energy sector**: Fossil fuel power plants, industrial processes, and transportation account for approximately 65% of global CO2 emissions. The energy sector is dominated by fossil fuels, such as coal, natural gas, and oil.
+2. **Agriculture**: Livestock production, rice cultivation, and fertilizer use are significant sources of CH4 and N2O emissions. Agricultural activities account for around 14% of global GHG emissions.
+3. **Industrial processes**: Cement production, steel manufacturing, and chemical processing contribute to CO2 emissions. These industries account for approximately 5% of global GHG emissions.
+4. **Transportation**: Emissions from fossil fuel-powered vehicles (cars, trucks, airplanes, etc.) and marine vessels are significant contributors to CO2 emissions. Transportation accounts for around 15% of global GHG emissions.
+5. **Manufacturing**: Cement production, steel manufacturing, and other industrial processes generate N2O and CH4 emissions.
+
+Key takeaways:
+
+* The energy sector is the largest contributor to greenhouse gas emissions.
+* Agriculture and industrial processes also play significant roles in emissions.
+* Transportation is a notable source of CO2 emissions.
+* Manufacturing activities contribute to N2O and CH4 emissions.
+
+To mitigate climate change, reducing emissions from these industries will be crucial. Implementing renewable energy sources, increasing energy efficiency, adopting sustainable agricultural practices, and promoting electric or alternative transportation modes can help reduce greenhouse gas emissions across various sectors.
+

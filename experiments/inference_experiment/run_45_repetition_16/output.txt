@@ -1,0 +1,10 @@
+Climate change is primarily triggered by an accumulation of greenhouse gases (GHGs) in Earth's atmosphere, which traps heat radiating from our planet back to space. Among the GHGs, carbon dioxide (CO2) emerges as the most significant contributor due to activities related to fossil fuel combustion for energy generation and transportation. CO2 emissions are generated mainly through the burning of coal, oil, gas and biofuels across industrial sectors.
+
+In addition to CO2, methane (CH4) and nitrous oxide (N2O) also contribute substantially to climate change despite being present in much smaller quantities than CO2. Methane is primarily released from the fossil fuel production processes that involve extraction activities such as oil and gas drilling along with coal mining operations. Agriculture plays a significant role as another major source of methane emissions, mainly due to livestock management practices like cattle digestion and manure management.
+
+Nitrous oxide, on the other hand, predominantly emanates from agricultural activities related to synthetic fertilizers applied in farming processes and industrial activities associated with the production of nitrogen-based compounds such as ammonia. Land use change activities including deforestation and wetland drainage also contribute significantly to the emission of N2O.
+
+It's noteworthy that industry sectors vary considerably in their contributions towards these GHG emissions. The energy sector, comprising electricity generation through fossil fuels and transportation by oil and gas products, dominates CO2 emissions globally. Agriculture and land use change are key contributors for CH4 and N2O, especially in terms of livestock management and fertilizer application practices.
+
+Overall, understanding the diverse sources of GHG emissions across different industries is crucial for effective climate change mitigation strategies. A comprehensive approach requiring cooperation among multiple sectors to reduce their emission contributions while promoting cleaner technologies and sustainable practices will be essential in addressing this global challenge.
+

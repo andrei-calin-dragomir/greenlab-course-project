@@ -1,0 +1,52 @@
+Here is a list of the capitals of all European countries:
+
+**Western Europe**
+
+1. Austria - Vienna
+2. Belgium - Brussels
+3. Denmark - Copenhagen
+4. Finland - Helsinki
+5. France - Paris
+6. Germany - Berlin
+7. Iceland - Reykjavik
+8. Ireland - Dublin
+9. Italy - Rome
+10. Luxembourg - Luxembourg City
+11. Monaco - Monaco City
+12. Netherlands - Amsterdam
+13. Norway - Oslo
+14. Portugal - Lisbon
+15. Spain - Madrid
+16. Sweden - Stockholm
+17. Switzerland - Bern
+
+**Eastern Europe**
+
+1. Albania - Tirana
+2. Belarus - Minsk
+3. Bosnia and Herzegovina - Sarajevo
+4. Bulgaria - Sofia
+5. Croatia - Zagreb
+6. Czech Republic - Prague
+7. Estonia - Tallinn
+8. Hungary - Budapest
+9. Latvia - Riga
+10. Lithuania - Vilnius
+11. North Macedonia - Skopje
+12. Poland - Warsaw
+13. Romania - Bucharest
+14. Russia (partially in Asia) - Moscow
+15. Serbia - Belgrade
+16. Slovakia - Bratislava
+17. Slovenia - Ljubljana
+
+**Northern Europe**
+
+1. Faroe Islands (Denmark) - Tórshavn
+2. Greenland (Denmark) - Nuuk
+3. United Kingdom - London
+
+Note: Some European countries have multiple capitals, but I have listed the most commonly recognized one.
+
+Also, please note that this answer is based on current information and may be subject to change if any country changes its capital in the future.
+

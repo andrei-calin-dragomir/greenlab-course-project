@@ -1,0 +1,40 @@
+ The Industrial Revolution brought about significant advancements in technology and led to a shift from an agrarian society to an industrialized one. This transformation resulted in increased production, trade, and economic growth. However, it also had negative environmental impacts, including the emission of greenhouse gases. As concerns over global warming grew, efforts were made to mitigate these effects through international agreements such as the Kyoto Protocol and the Paris Agreement. These agreements aimed to reduce emissions and promote sustainable practices.
+
+In response to climate change, various technological advancements have emerged, providing innovative solutions for reducing carbon footprints. For instance, renewable energy sources like solar, wind, and hydroelectric power have gained traction as alternatives to fossil fuels. Electric vehicles are becoming more common, allowing individuals to reduce their carbon emissions while still enjoying the benefits of personal transportation.
+
+Moreover, the growth of green technology has created new industries and job opportunities, driving economic growth in many parts of the world. As governments and businesses continue to invest in renewable energy and sustainability practices, there is a growing recognition that addressing climate change can have significant positive impacts on both the environment and the economy.
+
+In conclusion, while the Industrial Revolution brought about significant advancements, it also contributed to environmental challenges such as greenhouse gas emissions. However, this has spurred technological innovation and economic growth in the form of sustainable practices, renewable energy sources, and green technology industries. By continuing to invest in these areas, we can create a more environmentally-friendly and economically prosperous future for all.
+
+
+Let's imagine that you are a Cloud Engineer working on a project aimed at reducing carbon footprints in five different sectors - Transportation (T), Energy (E), Agriculture (A), Manufacturing (M) and Residential (R). Each sector is represented by a distinct cloud-based technology: 
+1. Electric Vehicles (EVs) for transportation, 
+2. Solar Power Stations for energy, 
+3. Precision Farming Technology for agriculture, 
+4. 3D Printing for manufacturing and 
+5. Smart Home Automation for residential use.
+
+The project is funded by five different countries: Country X, Y, Z, W and V (not in that order). Each country has a budget of $10 million to invest in one sector. However, each country's investment follows specific rules:
+1. Country X will invest more than the country that uses Electric Vehicles but less than Country V.
+2. The country using Solar Power Stations is not Country Z and they are investing less than Country W. 
+3. Country Y is either investing in the agriculture sector or spending the most.
+4. The 3D Printing investment is made by a country that has invested more than Country X but less than the one investing in Manufacturing.
+5. Country V, which isn't investing in the Transportation sector, is also not the one investing the least.
+
+Question: Which cloud-based technology each country uses and how much are they investing?
+
+
+From Clue 3, we know that Country Y is either investing more than $10 million or spending the maximum investment of $15 million. From Clue 4, we understand that 3D Printing isn't being used by the country with a budget less than Country X or more than the country investing in Manufacturing. Since we also know from Clue 1 and Clue 5 that Country V is not using Electric Vehicles, it means that Country Y must be spending $15 million on Precision Farming Technology (Agriculture).
+
+From Clue 2, since Solar Power Stations are invested less than Country W but more than Country Z, the country with Solar Power Stations can only be investing in $5 to $10 million. Since Country X is not using Electric Vehicles and it's also not the one with the smallest investment (from Clue 5), we know that Country X must be investing in $2 to $10 million. 
+
+From Clue 1, since Country X invests more than Electric Vehicle and less than Country V, Country V must invest in Solar Power Stations. Now from Clue 2, since W is investing more than the country using Solar Power Stations (V), the solar power stations investment can't be $10 million as it's more than both countries. Thus, Country V which invests in Solar Power Station must have an investment of $2 to $5 million.
+
+With only one cloud-based technology and one available budget left: 3D Printing and $3 to $10 million respectively. And since we know from Clue 4 that the country with a 3D Printing investment is investing more than X, this leaves us with three options for Country X: Solar Power Stations (from step2), Electric Vehicles or Residential Automation (from Clue 5). Since it's mentioned in the puzzle that W isn't using the country with Solar Power Stations (V), and W can't have the least investment ($10 million) from clue 1, W must be investing $3 to $10 million. 
+
+From steps 4 and 5, we now know that Country X is investing in Residential Automation. This leaves us with one cloud-based technology: Electric Vehicles, which must belong to Countries Z, W or V as they are the only countries left for this sector. Since V cannot invest least (from Clue 5), Electric Vehicles must be used by Countries Z and W.
+
+Finally, Country X is using Residential Automation, Country Y has Precision Farming Technology in Agriculture, Country Z and Country W each have Electric Vehicles (T) in Transportation, and Country V is using Solar Power Stations. 
+
+Answer: Country X uses Smart Home Automation for a $10 million investment, Country Y uses precision farming technology for $15 million, Countries Z,W use electric vehicles for transportation with $5 to $10 million investments each, Country V uses solar power stations for a $2 to $5 million investment. 
+

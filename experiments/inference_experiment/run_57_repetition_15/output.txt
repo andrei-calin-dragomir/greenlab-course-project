@@ -1,0 +1,40 @@
+ Climate change is caused by a buildup of greenhouse gases in the atmosphere. Carbon dioxide is the most significant contributor due to burning fossil fuels, such as coal, oil, and gas. Other gases like methane and nitrous oxide are also major contributors. Each industry has its own sources of emissions, which contribute to overall climate change.
+
+The transportation industry is one of the primary emitters of greenhouse gases, primarily from cars, trucks, planes, and ships. The burning of fossil fuels in these vehicles releases carbon dioxide into the atmosphere. Transportation accounts for almost 20% of global carbon dioxide emissions, with the majority coming from road transport.
+
+Another significant source of greenhouse gas emissions comes from the use of electricity, which is generated mainly by burning coal. This sector accounts for a large portion of energy-related emissions, accounting for around 40% of global emissions.
+
+The industrial sector also contributes to greenhouse gas emissions through the release of gases like methane and nitrous oxide. These gases are produced during manufacturing processes such as cement production, mining, and waste management. The agriculture industry is another significant source of emissions, with livestock farming being a primary contributor. Methane is released by livestock when they digest their food, while nitrous oxide comes from the use of fertilizers in agricultural practices.
+
+In conclusion, the transportation, electricity generation, industrial, and agricultural sectors are all significant sources of greenhouse gas emissions that contribute to climate change. Addressing these emissions will be essential in curbing global warming and achieving a sustainable future.
+
+
+Consider an imaginary world where there exist four industries - Transportation (T), Electricity Generation (E), Manufacturing (M) and Agriculture (A). 
+
+Each industry has one major source of greenhouse gas emissions, which is either: Burning of fossil fuels (F), Cement production (CP), Livestock farming (L) or the use of fertilizers (RF).
+
+Based on the information given in the above conversation, each industry can only have one type of emission as its main cause. Also, no two industries share the same primary source of emissions. 
+
+You are provided with the following clues:
+1. The Transport Industry does not emit from burning of fossil fuels or cement production.
+2. The Electricity Generation Industry has a different major source of emissions than the Manufacturing and Agriculture Industries.
+3. If the Manufacturing industry uses fertilizer as its primary emission source, then the Agriculture industry doesn't use the same.
+4. The Electricity generation industry is not responsible for the methane emissions. 
+5. The Livestock farming is either in the Transport Industry or it's also the second-highest emitter of greenhouse gases in the world.
+6. If cement production is a major source of emissions, then the Manufacturing and Agriculture industries don't have the same primary cause of emissions.
+
+Question: Can you determine which industry is responsible for each type of emission?
+
+
+
+Begin by using Inductive logic to assign the emission sources to the transportation industry. From Clue 1, we know that the transportation industry does not emit from burning fossil fuels or cement production, but it could be either livestock farming or fertilizer use.
+
+Apply Deductive reasoning to rule out possible emission sources for each of the other industries. The Electricity Generation Industry cannot have a source from cement production (from clue 4) and also can't have methane as its primary emission (from clue 4). Therefore, they must use fossil fuels for energy generation. 
+
+From Clue 5, if livestock farming is in the transportation industry then it can't be the second-highest emitter of greenhouse gases which means that the Agriculture Industry has to be the second highest emissions source with methane.
+
+By applying tree of thought reasoning and using clues 3 and 6, we can deduce that Cement production must be responsible for the third highest emissions (as agriculture is the second). Therefore, by process of elimination, Manufacturing industry's primary emission should be burning of fossil fuels.
+
+Answer: The Transportation industry uses Livestock farming as its major source of greenhouse gas emissions, the Electricity Generation industry uses Fossil Fuels, the Manufacturing industry emits from Burning of Fossil fuels and Agriculture emits from Methane.
+
+

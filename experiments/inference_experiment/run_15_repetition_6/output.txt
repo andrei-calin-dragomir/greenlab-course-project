@@ -1,0 +1,18 @@
+The primary sources of greenhouse gas (GHG) emissions include:
+
+1. **Fossil Fuel Combustion**: Electricity generation (35%), transportation (23%), industry (20%), and buildings (6%) are the main sectors contributing to CO2 emissions.
+	* Energy production: coal, oil, and natural gas combustion release large quantities of CO2 into the atmosphere.
+	* Industrial processes: cement production, steel manufacturing, and chemical processing also release significant amounts of CO2.
+2. **Agriculture**: Livestock farming (14%) and land-use changes (12%) contribute to methane (CH4) emissions.
+	* Livestock manure and urine decomposition release CH4, a potent GHG.
+	* Deforestation and agriculture-induced land degradation lead to the release of stored carbon into the atmosphere.
+3. **Industrial Processes**: Manufacturing processes in industries like cement, steel, and chemicals contribute to nitrous oxide (N2O) emissions.
+
+The distribution of these sources varies across different industries:
+
+1. **Energy Sector**: 60% of CO2 emissions come from energy production and consumption.
+2. **Agriculture**: Livestock farming is responsible for 30% of methane emissions, while land-use changes account for 40%.
+3. **Industry**: Cement production and other industrial processes are significant sources of N2O emissions.
+
+Reducing GHG emissions requires a multi-faceted approach that targets these primary sources across various industries. Transitioning to renewable energy sources, increasing energy efficiency, promoting sustainable agriculture practices, and implementing emission-reducing technologies can help mitigate climate change.
+

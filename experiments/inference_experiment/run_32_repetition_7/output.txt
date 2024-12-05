@@ -1,0 +1,41 @@
+ Here is a list of European capital cities for most countries:
+
+1. Austria - Vienna (Wien)
+2. Belgium - Brussels (Brussel)
+3. Bosnia and Herzegovina - Sarajevo
+4. Bulgaria - Sofia
+5. Croatia - Zagreb
+6. Republic of Cyprus - Nicosia
+7. Czech Republic - Prague (Praha)
+8. Denmark - Copenhagen (København)
+9. Estonia - Tallinn
+10. Finland - Helsinki (Helsingfors)
+11. France - Paris
+12. Georgia - Tbilisi
+13. Germany - Berlin
+14. Greece - Athens (Athena)
+15. Hungary - Budapest
+16. Iceland - Reykjavik (Reykjavíkurhlaupstaðir)
+17. Ireland - Dublin
+18. Italy - Rome (Roma)
+19. Latvia - Riga
+20. Lithuania - Vilnius
+21. Luxembourg - City of Luxembourg
+22. North Macedonia - Skopje
+23. Malta - Valletta
+24. Netherlands - Amsterdam
+25. Norway - Oslo (Oslofjord)
+26. Poland - Warsaw (Warszawa)
+27. Portugal - Lisbon (Lisboa)
+28. Romania - Bucharest (București)
+29. Russia - Moscow (Moskva)
+30. Slovakia - Bratislava
+31. Slovenia - Ljubljana
+32. Spain - Madrid
+33. Sweden - Stockholm (Stockholm)
+34. Switzerland - Bern
+35. Ukraine - Kyiv (Kiev)
+36. United Kingdom - London (Londyn, in Welsh: Lundain)
+
+However, it is important to note that Kosovo and Abkhazia are partially recognized countries whose capitals are Pristina and Sukhumi respectively, while not universally accepted as part of Europe by all international organizations. Additionally, the Isle of Man and the City of London are not technically capitals but territories or cities in their respective countries (UK).
+

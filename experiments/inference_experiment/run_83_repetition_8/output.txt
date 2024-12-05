@@ -1,0 +1,7 @@
+This paper provides an overview of artificial intelligence (AI), encompassing its definition, applications, subfields, history, and societal impact. 
+
+Key insights include: AI's broad scope, from everyday applications like search engines to complex tasks like autonomous vehicles; the evolution of AI research goals, driven by advancements in techniques like deep learning; and the significant funding surge after 2012, fueled by breakthroughs in AI capabilities.
+
+The paper also highlights the growing concerns surrounding AI's unintended consequences and potential risks, emphasizing the need for regulatory policies to ensure responsible development and deployment.  
+
+

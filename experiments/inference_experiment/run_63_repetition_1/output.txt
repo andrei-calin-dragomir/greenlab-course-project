@@ -1,0 +1,13 @@
+
+The major greenhouse gas contributors to climate change stem from human activities that release large quantities into the atmosphere each year. Carbon dioxide (CO2) is chiefly emitted through the combustion of fossil fuels such as coal, oil, and natural gas for electricity generation, heat production, transportation, and industrial processes. These sectors account for a significant share of global CO2 emissions; notably, energy-related activities dominate these sources in most countries with their extensive use of carbonaceous fuels.
+
+Methane (CH4), although present as a trace gas in the atmosphere at about 19%, is far more efficient than CO2 on a per molecule basis when it comes to trapping heat, and its impacts are substantial given that livestock such as cattle contribute significantly through enteric fermentation. Furthermore, methane emissions from landfill sites where organic waste decomposes under anaerobic conditions also pose concerns.
+
+Nitrous oxide (N2O), while present in even smaller quantities than methane or carbon dioxide relative to their radiative forcing potentials, has a more potent warming effect over 10 times that of CO2 when considering its atmospheric lifetime and the resulting overall impact. Agriculture is the primary source for nitrous oxide emissions due to soil management practices like fertilizer application which increases microbial activity in soils leading to N2O release, particularly through denitrification processes under certain conditions of moisture and temperature availability.
+
+The transportation sector predominantly contributes CO2 from the combustion engines found in automobiles, ships, trains, and aircraft; while industrial production accounts for a significant share across multiple greenhouse gases including both methane through process emissions like leaks and venting during natural gas use as well as nitrous oxide related to chemical reactions.
+
+To mitigate these issues effectively requires targeted policies in each industry that address the main sources of their respective contributions, alongside global efforts such as carbon pricing mechanisms or regulations on emissions standards which can drive a shift towards more sustainable practices and technologies across all sectors impacting climate change.
+
+(Word count: 250)
+

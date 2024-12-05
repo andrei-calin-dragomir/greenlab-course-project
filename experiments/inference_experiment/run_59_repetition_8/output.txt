@@ -1,0 +1,4 @@
+ Artificial intelligence (AI) is a field of research that aims to develop and study methods and software that enable machines to learn from their environment and achieve specific goals. It includes various subfields such as natural language processing, perception, planning, learning, and reasoning, among others. The traditional goals of AI research include creating general intelligence, which refers to the ability of a machine to perform any task that humans can do on an equal level. To reach this goal, AI researchers have adapted and integrated many techniques from mathematics, statistics, economics, and other fields. However, the widespread use of AI also poses some risks and harms that need to be addressed through regulatory policies. 
+
+
+

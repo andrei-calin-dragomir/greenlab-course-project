@@ -1,0 +1,14 @@
+ The primary sources of greenhouse gas emissions, with a particular focus on carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O), can be attributed to several key sectors. These sectors include energy production, transportation, agriculture, industry, and waste management.
+
+Firstly, the energy sector is responsible for the largest share of greenhouse gas emissions, primarily due to the combustion of fossil fuels such as coal, oil, and natural gas for electricity generation and heating purposes. According to the International Energy Agency (IEA), in 2019, this sector accounted for approximately 43% of global CO₂ emissions. Natural gas systems are also significant sources of methane emissions due to leakage from production, transmission, and distribution.
+
+The transportation sector is the second-largest contributor to greenhouse gas emissions, primarily through the burning of fossil fuels in vehicles such as cars, buses, trucks, and planes. In 2019, this sector accounted for approximately 24% of global CO₂ emissions. Methane emissions from the transportation sector are also significant due to leaks from natural gas vehicles and fuel storage facilities.
+
+The agriculture sector is responsible for approximately 24% of global greenhouse gas emissions, with agriculture accounting for around 15%, and livestock production contributing around 9%. Agricultural activities release methane through rice cultivation, manure management, and enteric fermentation in livestock, while nitrous oxide is emitted from the use of fertilizers.
+
+Industrial processes such as steel production, cement manufacturing, and chemicals production contribute approximately 21% of global greenhouse gas emissions, with CO₂ being the primary greenhouse gas emitted during these activities. Methane and N₂O emissions are also significant in some industrial processes.
+
+Finally, waste management is a relatively small contributor to greenhouse gas emissions but still an important one, accounting for around 3% of global emissions. This sector is responsible for methane emissions from landfills as organic waste decomposes, as well as CO₂ emissions from the production and transportation of waste disposal equipment and facilities.
+
+In summary, energy production, transportation, agriculture, industry, and waste management are the primary sources of greenhouse gas emissions, with carbon dioxide being the most significant contributor. The proportions of emissions vary significantly between sectors, with the energy sector accounting for the largest share, followed by transportation, agriculture, industry, and waste management.
+

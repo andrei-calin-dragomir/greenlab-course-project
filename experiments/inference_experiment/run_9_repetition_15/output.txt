@@ -1,0 +1,16 @@
+The primary sources of greenhouse gas emissions driving climate change are fossil fuel combustion, agriculture, and industrial processes. Carbon dioxide (CO2) is the most significant contributor, largely due to burning of fossil fuels such as coal, natural gas, and oil for energy generation and transportation.
+
+Industry-wise, the main sources of CO2 emissions vary:
+
+1. Energy sector: Power plants (31%), followed by industrial processes (21%) and transport (20%). Coal-fired power plants are the largest contributors.
+2. Manufacturing: Cement production (6%), steel manufacturing (5%), and chemical processing (4%) account for a significant portion.
+3. Agriculture: Livestock farming (14%), rice cultivation (11%), and other agricultural practices (9%) release methane and nitrous oxide.
+4. Transport: Road transportation (23%), air travel (12%), and shipping (6%) are substantial emitters of CO2.
+
+In addition to fossil fuel combustion, agriculture and industrial processes also contribute to greenhouse gas emissions:
+
+1. Agriculture: Methane from livestock (44%) and nitrous oxide from fertilizer use (60%).
+2. Industrial processes: Cement production (70% methane), steel manufacturing (50% CO2), and chemical processing (40% CO2).
+
+To mitigate climate change, reducing emissions across industries is crucial. Transitioning to renewable energy sources, increasing energy efficiency, electrifying transportation, and implementing sustainable agriculture practices can help decrease greenhouse gas emissions.
+

@@ -1,0 +1,22 @@
+Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in Earth's atmosphere, with carbon dioxide (CO2) being the most significant contributor. Human activities such as fossil fuel combustion for electricity generation and transportation are responsible for a vast majority of CO2 emissions. When coal, oil, and natural gas are burned, they release large quantities of CO2 into the atmosphere.
+
+Other GHGs also contribute to climate change:
+
+1. Methane (CH4): Mainly emitted from agriculture through livestock and crop management practices such as rice cultivation. It is also released during the production and processing of fossil fuels like coal mining and natural gas extraction. Land use changes, especially deforestation for agriculture or urbanization, are significant sources of methane.
+
+2. Nitrous Oxide (N2O): Primarily emitted from agricultural activities including fertilizer use in farming and livestock manure management. Industrial processes involving nitrogen-based compounds also contribute to N2O emissions. Additionally, natural sources like soil microorganisms release small quantities into the atmosphere.
+
+3. Fluorinated gases: These include greenhouse gases such as hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), and sulfur hexafluoride (SF6). They are mostly emitted from refrigeration, air conditioning, electrical insulation processes in manufacturing industries and industrial gas production.
+
+These GHG emissions vary significantly across different industries:
+
+1. Energy: The energy sector generates the highest amount of GHG emissions due to electricity generation using fossil fuels like coal, oil, and natural gas.
+
+2. Agriculture: Agricultural practices, especially livestock rearing and rice cultivation, are significant sources of methane and carbon dioxide emissions.
+
+3. Industrial processes: Manufacturing industries emit N2O from ammonia production, HFCs from refrigeration and air conditioning equipment, and PFCs during semiconductor fabrication or arc welding processes.
+
+4. Transportation: Motor vehicles and aircraft contribute to CO2 emissions mainly through the combustion of fossil fuels for transportation purposes.
+
+In summary, human activities across different sectors contribute significantly to GHG emissions that drive climate change. Reducing these emissions requires a comprehensive approach involving improvements in energy efficiency, increasing use of renewable energy sources, better waste management practices, and enhancing agricultural techniques while transitioning towards low-carbon technology solutions in industries.
+

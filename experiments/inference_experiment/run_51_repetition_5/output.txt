@@ -1,0 +1,14 @@
+The primary sources of greenhouse gas (GHG) emissions, including carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), are diverse and vary significantly across different sectors. The energy sector is the largest source of CO2 emissions, primarily from burning fossil fuels in power generation, industry, transportation, and residential/commercial buildings. This sector accounts for approximately 80% of global energy-related CO2 emissions.
+
+In agriculture, methane and nitrous oxide are more prominent due to livestock production (particularly enteric fermentation and manure management) and fertilizer use, respectively. The agricultural sector contributes about 10-15% of total GHG emissions globally.
+
+Forestry and land use changes, such as deforestation and reforestation activities, can also release significant amounts of CO2 into the atmosphere. These practices contribute approximately 9-14% of global GHG emissions annually.
+
+Industrial processes, including cement production, steel manufacturing, and chemical industry operations, emit substantial quantities of both CO2 and other GHGs like fluorinated gases (F-gases). This sector is responsible for about 25% of total energy-related CO2 emissions but also contributes to the release of non-CO2 greenhouse gases.
+
+Waste management, particularly from landfills, releases methane as organic matter decomposes anaerobically. It accounts for around 4-10% of global GHG emissions annually.
+
+Transportation is another significant source of GHGs, especially CO2, due to the widespread use of fossil fuels in road transport, aviation, maritime shipping, and rail. This sector contributes approximately 16% of global energy-related CO2 emissions.
+
+Each industry has unique mitigation strategies and technological advancements that can reduce its GHG footprint, highlighting the need for targeted policies and innovations across all sectors to address climate change effectively.
+

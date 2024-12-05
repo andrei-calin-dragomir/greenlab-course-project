@@ -1,0 +1,14 @@
+Climate change is fundamentally driven by an increase in greenhouse gases (GHGs), predominantly carbon dioxide (CO2) from burning fossil fuels. However, methane and nitrous oxide are also significant contributors to the atmospheric burden of GHGs with varying impact levels across industries.
+
+
+Primary sources for CO2 emissions stem largely from energy production—specifically within electricity generation where coal-fired power plants stand out as major emitters due to their carbon intensity, alongside transportation which relies heavily on oil and gas for fuel combustion in vehicles and aircrafts. Industry also contributes through chemical processes like cement manufacturing that release CO2 during the calcination of limestone (calcium carbonate).
+
+
+Methane emissions arise largely from agriculture, particularly livestock enterprises which produce methane as a by-product of digestion in ruminant animals such as cattle and sheep. It is also released through landfills where organic waste decomposes anaerobically (without oxygen), and natural gas systems can leak during production or transportation due to its similarity with carbon dioxide molecules, making it harder for detection at emission points unless combusted.
+
+
+Nitrous oxide emissions predominantly come from agricultural soil management practices that involve the use of nitrogen-based fertilizers and manure spreading which can release N2O when microbes break down organic matter in the soil, especially under anaerobic conditions. Industrial activities such as chemical production also contribute to these emissions through processes like ammonia synthesis for industrial use or waste treatment that releases nitrogen compounds into the atmosphere.
+
+
+Each industry's emission levels of methane and nitrous oxide vary based on its practices, scale, technology in place, regulatory frameworks, and geographical location affecting climate change impact differently across sectors. For instance, while transportation contributes significant CO2 emissions globally due to reliance on fossil fuels, agriculture might be a more dominant source of methane per unit energy produced within the same region owing to livests and rice paddies as major sources in that area.
+

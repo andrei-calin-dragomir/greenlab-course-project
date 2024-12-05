@@ -1,0 +1,14 @@
+The primary sources of greenhouse gas emissions contributing to climate change can be categorized into several key sectors, each with its own unique patterns of emission.
+
+1. **Energy Sector**: This is the largest emitter globally, accounting for approximately 76% of total energy-related CO2 emissions. The combustion of fossil fuels (coal, oil, and natural gas) in power plants, industrial processes, residential and commercial heating, and transportation is a significant source. Coal has the highest carbon content and thus emits the most CO2 per unit of energy produced.
+
+2. **Agriculture**: This sector contributes about 10-12% of global greenhouse gases. Methane is emitted primarily from enteric fermentation in livestock production (such as cattle, sheep) and manure management. Nitrous oxide emissions arise mainly from fertilizer use in crop cultivation.
+
+3. **Industry**: Industry accounts for around 24-29% of total energy-related CO2 emissions. Emissions originate from the direct combustion of fossil fuels for industrial processes, heat production, and manufacturing activities like cement production (which involves significant amounts of CO2).
+
+4. **Waste Management**: This sector contributes about 5-6% of global greenhouse gas emissions, primarily through methane released during the decomposition of organic waste in landfills.
+
+5. **Forestry and Land Use Changes**: Deforestation and forest degradation contribute approximately 10-12% of total GHG emissions by removing carbon sinks that help mitigate climate change.
+
+The variability across different industries is substantial; for instance, agriculture's contribution is more pronounced in developing countries with extensive farming practices, while energy consumption dominates in industrialized nations. Understanding these sectoral differences helps in tailoring specific mitigation strategies and policies to reduce greenhouse gas emissions effectively.
+

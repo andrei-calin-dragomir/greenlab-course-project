@@ -1,0 +1,10 @@
+Artificial intelligence (AI) is a field of research that focuses on developing intelligent machines capable of perceiving their environment, learning from experience, and making decisions based on that knowledge.
+
+Traditional AI goals encompass reasoning, knowledge representation, planning, learning, natural language processing, perception, and support for robotics. The long-term goal of general intelligence aims to create machines that can perform any human task at an equal or higher level.
+
+AI researchers employ a wide range of techniques, including search and mathematical optimization, formal logic, artificial neural networks, statistical methods, operations research, and economics, to achieve their goals.
+
+However, the widespread use of AI has brought about unintended consequences. These include privacy concerns, biases in decision-making due to data limitations or algorithmic flaws, job displacement for tasks that can be automated, and ethical dilemmas in applications where AI is involved.
+
+To address these issues and ensure the safe and beneficial use of AI, regulatory policies are being developed and implemented. These policies aim to set guidelines, standards, and oversight mechanisms to govern AI development, deployment, and usage.
+

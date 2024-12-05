@@ -1,0 +1,23 @@
+Greenhouse gas emissions stem from various human activities, varying significantly across industries:
+
+**Fossil Fuel Combustion:** This is the dominant source, responsible for ~75% of global CO₂ emissions.  
+
+* **Electricity & Heat Production:** Burning coal, oil, and natural gas in power plants to generate electricity is a major contributor. 
+* **Transportation:** Cars, trucks, ships, and airplanes fueled by gasoline, diesel, and jet fuel release substantial amounts of CO₂.
+* **Industry:** Manufacturing processes often rely on fossil fuels for energy, generating emissions from steel production, cement manufacturing, and chemical processing.
+
+**Agriculture & Land Use:** These sectors account for ~24% of global emissions:
+
+* **Livestock:** Methane, a potent greenhouse gas, is released during digestion by cattle, sheep, and goats.
+* **Rice Cultivation:** Flooding rice paddies produces methane emissions.
+* **Deforestation:** Trees absorb CO₂, so deforestation releases stored carbon and reduces the planet's capacity to absorb future emissions.
+
+**Other Sources:** 
+
+* **Waste Management:** Decomposition in landfills generates methane.
+* **Industrial Processes:** Certain chemical processes release fluorinated gases, which have a high global warming potential.
+
+
+Addressing climate change requires reducing emissions across all sectors through transitioning to renewable energy, improving energy efficiency, adopting sustainable agricultural practices, and promoting responsible land use. 
+
+

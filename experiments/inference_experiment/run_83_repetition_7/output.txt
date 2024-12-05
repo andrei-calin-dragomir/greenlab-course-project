@@ -1,0 +1,9 @@
+Artificial intelligence (AI) encompasses machine intelligence enabling systems to perceive their environment, learn, and act to achieve goals. From search engines to autonomous vehicles, AI's applications are widespread, though many go unnoticed as they become commonplace.
+
+Research in AI focuses on areas like reasoning, learning, and natural language processing, ultimately aiming for general intelligence comparable to humans.  AI employs diverse techniques, including neural networks and logic-based approaches.
+
+After initial periods of excitement and disillusionment, AI experienced a boom fueled by deep learning advancements. However, its widespread use has raised concerns about unintended consequences and potential risks, sparking discussions on regulation to ensure responsible development and deployment. 
+
+
+
+

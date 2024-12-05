@@ -1,0 +1,12 @@
+Artificial Intelligence (AI) is a rapidly evolving field that involves developing intelligent machines capable of tasks typically performed by humans. This includes tasks such as reasoning, language processing, perception, and robotics.
+
+Traditional AI research goals include achieving general intelligence, improving search and optimization methods, using formal logic, developing neural networks, and leveraging statistics and operational research.
+
+Deep learning, a subset of AI that uses neural networks with multiple layers, has been particularly influential since its performance surpassed traditional AI techniques around 2012.
+
+This growth has been further accelerated by the introduction of transformer architectures in 2017. As a result, AI has attracted massive investment during the so-called AI boom of the early 2020s.
+
+However, the widespread use of AI has also raised concerns about its unintended consequences and potential harms. These include issues such as bias in decision-making, loss of jobs to automation, privacy violations, and the ethical implications of AI-powered systems.
+
+To address these concerns and ensure the safe and beneficial use of AI, regulatory policies are being developed and implemented. These policies aim to govern AI development, deployment, and use, promoting transparency, accountability, and ethical standards in the AI industry.
+

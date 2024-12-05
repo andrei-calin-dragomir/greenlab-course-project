@@ -1,0 +1,56 @@
+## Capitols of European Countries:
+
+**Western Europe:**
+
+* **France:** Paris
+* **United Kingdom:** London
+* **Spain:** Madrid
+* **Italy:** Rome
+* **Germany:** Berlin
+* **Switzerland:** Bern
+* **Netherlands:** Amsterdam
+* **Belgium:** Brussels
+* **Portugal:** Lisbon
+
+**Central & Eastern Europe:**
+
+* **Poland:** Warsaw
+* **Czech Republic:** Prague
+* **Slovakia:** Bratislava
+* **Hungary:** Budapest
+* **Austria:** Vienna
+* **Slovenia:** Ljubljana
+* **Romania:** Bucharest
+* **Belarus:** Minsk
+
+**Southern Europe:**
+
+* **Italy:** Rome
+* **Spain:** Madrid
+* **Portugal:** Lisbon
+* **Greece:** Athens
+* **Malta:** Valletta
+
+**Eastern Europe:**
+
+* **Estonia:** Tallinn
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+* **Finland:** Helsinki
+* **Russia:** Moscow
+
+**Nordic & Baltic States:**
+
+* **Denmark:** Copenhagen
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+* **Finland:** Helsinki
+* **Iceland:** Reykjavik
+
+**Other Territories:**
+
+* **Vatican City:** Vatican City
+* **Monaco:** Monaco
+
+**Note:** This list includes the capital cities of all 44 countries recognized by the United Nations as of October 2023.
+

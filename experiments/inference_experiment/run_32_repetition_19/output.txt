@@ -1,0 +1,51 @@
+ Here is a list of the capitals for most European countries:
+
+1. Albania - Tirana
+2. Andorra - Andorra la Vella
+3. Armenia - Yerevan
+4. Austria - Vienna (Wien)
+5. Azerbaijan - Baku
+6. Belarus - Minsk
+7. Belgium - Brussels (Brussel)
+8. Bosnia and Herzegovina - Sarajevo (Sarajevo is the capital of the entity of Bosnia, while Banja Luka is the capital of Republika Srpska, and Mostar is the capital of the Herzegovina-Neretva Canton)
+9. Croatia - Zagreb
+10. Czech Republic - Prague (Praha)
+11. Denmark - Copenhagen (København)
+12. Estonia - Tallinn
+13. Finland - Helsinki (Helsingfors)
+14. France - Paris
+15. Georgia - Tbilisi
+16. Germany - Berlin
+17. Greece - Athens (Athina)
+18. Hungary - Budapest
+19. Iceland - Reykjavik
+20. Ireland - Dublin
+21. Italy - Rome (Roma)
+22. Kosovo - Pristina (not recognized by all countries)
+23. Latvia - Riga
+24. Liechtenstein - Vaduz
+25. Lithuania - Vilnius
+26. Luxembourg - City of Luxembourg (Ville de Luxembourog)
+27. Macedonia - Skopje (Skopje is the administrative capital, but Bitola is the cultural capital)
+28. Malta - Valletta
+29. Moldova - Chișinău
+30. Monaco - Monaco (Monte-Carlo is a district, not the capital)
+31. Montenegro - Podgorica
+32. Netherlands - Amsterdam (Amsterdam is the administrative capital, but The Hague is the political capital and seat of government)
+33. North Macedonia - Skopje (Skopje is the administrative capital, but Bitola is the cultural capital)
+34. Norway - Oslo
+35. Poland - Warsaw (Warszawa)
+36. Portugal - Lisbon (Lisboa)
+37. Romania - Bucharest (București)
+38. Russia - Moscow
+39. San Marino - City of San Marino (San Marino is the capital and also the smallest sovereign state in Europe)
+40. Serbia - Belgrade
+41. Slovakia - Bratislava
+42. Slovenia - Ljubljana
+43. Spain - Madrid
+44. Sweden - Stockholm
+45. Switzerland - Bern (Berna)
+46. Ukraine - Kiev (Kyiv)
+47. United Kingdom - London (England); Edinburgh (Scotland); Cardiff (Wales); Belfast (Northern Ireland)
+48. Vatican City - Vatican City (Vatican City is not part of Italy, but it's an independent city-state enclaved within Rome)
+

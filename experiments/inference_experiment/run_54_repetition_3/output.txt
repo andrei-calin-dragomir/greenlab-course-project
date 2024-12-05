@@ -1,0 +1,43 @@
+ Artificial intelligence (AI) has transformed industries by improving efficiency, accuracy, and decision-making capabilities. It has revolutionized customer service with chatbots that can provide instant support to users. AI also helps businesses optimize their supply chain management, leading to reduced costs and increased productivity. In healthcare, AI is being used to analyze medical images, diagnose diseases, and develop personalized treatment plans. Furthermore, AI algorithms can help predict weather patterns, enabling us to better prepare for natural disasters. Overall, artificial intelligence has become an integral part of our daily lives, enhancing various aspects of society.
+
+
+Consider five industries: Customer Service (CS), Supply Chain Management (SCM), Healthcare (HC), Natural Disaster Management (NDM) and Weather Forecasting (WF). 
+
+Each industry uses AI for a different task: Chatbot Support, Inventory Management, Disease Diagnosis, Predictive Analysis and Climate Monitoring respectively.
+
+We also know that:
+1. The Industry using AI for chatbot support is not CS or SCM.
+2. Healthcare doesn't use the AI for predictive analysis.
+3. AI used for disease diagnosis isn't in NDM or WF.
+4. AI used for climate monitoring is in an industry different from healthcare and customer service.
+5. Supply chain management does not utilize AI for chatbot support.
+6. Weather forecasting doesn't use AI for climate monitoring.
+
+Question: Match each AI task to its correct industry.
+
+
+ 
+Begin by creating a table or list with the five industries at one side, and five different tasks at the other. By looking at the statements, you can eliminate certain tasks from certain industries: 
+- Chatbot support isn't used in CS, SCM or NDM (Statement 1)
+- Predictive analysis isn't used in HC (Statement 2)
+- Disease diagnosis isn’t in NDM or WF (Statement 3)
+- Climate monitoring is not in Healthcare and Customer service (Statement 4)
+- AI for chatbot support isn't in SCM (Statement 5) 
+- AI for climate monitoring isn’t in Weather forecasting (Statement 6)
+
+ 
+By using a process of elimination, we can now match each task to its industry:
+- Chatbot Support goes to the industry not mentioned in statement 1 or 2. That is Supply Chain Management and Natural Disaster management
+- Inventory Management goes to Healthcare, as it's the only one left for this job.
+- Predictive Analysis goes to Weather Forecasting, as it's the last task remaining for that industry.
+- Disease diagnosis can't go to NDM or WF; hence, it goes to Customer Service.
+- This leaves Climate Monitoring for Supply Chain Management, which is a perfect match as per our task and statement 4. 
+
+Answer: 
+Chatbot Support - Supply Chain Management (SCM)
+Inventory Management - Healthcare (HC)
+Predictive Analysis - Weather Forecasting (WF)
+Disease Diagnosis - Customer Service (CS)
+Climate Monitoring - Natural Disaster Management (NDM)
+
+

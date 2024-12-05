@@ -1,0 +1,57 @@
+Here is a list of European country capitals, grouped by region:
+
+**Western Europe:**
+
+1. Andorra - Andorra la Vella
+2. Austria - Vienna (Wien)
+3. Belgium - Brussels (Bruxelles)
+4. France - Paris
+5. Germany - Berlin
+6. Ireland - Dublin
+7. Liechtenstein - Vaduz
+8. Luxembourg - Luxembourg City (Luxembourg Ville)
+9. Monaco - Monaco-Ville
+10. Netherlands - Amsterdam
+11. Portugal - Lisbon (Lisboa)
+12. Spain - Madrid
+
+**Central Europe:**
+
+1. Czech Republic - Prague (Praha)
+2. Denmark - Copenhagen (København)
+3. Estonia - Tallinn
+4. Finland - Helsinki
+5. Hungary - Budapest
+6. Iceland - Reykjavik (Reykjavík)
+7. Latvia - Riga
+8. Lithuania - Vilnius
+9. Norway - Oslo
+10. Poland - Warsaw (Warszawa)
+11. Slovakia - Bratislava
+12. Slovenia - Ljubljana
+
+**Eastern Europe:**
+
+1. Albania - Tirana
+2. Belarus - Minsk
+3. Bosnia and Herzegovina - Sarajevo
+4. Bulgaria - Sofia (Sofia)
+5. Croatia - Zagreb
+6. Cyprus - Nicosia (Lefkosía)
+7. Greece - Athens (Athína)
+8. Kosovo - Pristina (Prishtinë)
+9. Macedonia (FYROM) - Skopje
+10. Malta - Valletta
+11. Moldova - Chisinau
+12. Montenegro - Podgorica
+13. Romania - Bucharest (București)
+14. Russia (partially in Asia) - Moscow (Moskva)
+15. Serbia - Belgrade (Beograd)
+
+**Northern Europe:**
+
+1. Sweden - Stockholm
+2. United Kingdom - London
+
+Please note that this list includes only sovereign countries recognized by the international community. The status of some territories, such as Gibraltar and the Azores, is disputed or not internationally recognized.
+

@@ -1,0 +1,204 @@
+ Thank you for your inquiry! The capital city of each European country is as follows:
+
+1. Austria - Vienna
+2. Belgium - Brussels
+3. Bulgaria - Sofia
+4. Croatia - Zagreb
+5. Cyprus - Nicosia
+6. Czech Republic - Prague
+7. Denmark - Copenhagen
+8. Estonia - Tallinn
+9. Finland - Helsinki
+10. France - Paris
+11. Germany - Berlin
+12. Greece - Athens
+13. Hungary - Budapest
+14. Iceland - Reykjavik
+15. Ireland - Dublin
+16. Italy - Rome
+17. Latvia - Riga
+18. Lithuania - Vilnius
+19. Luxembourg - Luxembourg City
+20. Macedonia - Skopje
+21. Moldova - Chisinau
+22. Montenegro - Podgorica
+23. Netherlands - Amsterdam
+24. Romania - Bucharest
+25. Russia - Moscow
+26. Serbia - Belgrade
+27. Slovakia - Bratislava
+28. Slovenia - Ljubljana
+29. Spain - Madrid
+30. Sweden - Stockholm
+31. Switzerland - Bern
+32. United Kingdom - London
+33. Vatican City - Rome
+34. Bosnia and Herzegovina - Sarajevo
+35. Montenegro - Podgorica
+36. North Macedonia - Skopje
+37. Poland - Warsaw
+38. Portugal - Lisbon
+39. Romania - Bucharest
+40. Croatia - Zagreb
+41. Hungary - Budapest
+42. Ireland - Dublin
+43. Austria - Vienna
+44. Belgium - Brussels
+45. Bulgaria - Sofia
+46. Cyprus - Nicosia
+47. Czech Republic - Prague
+48. Estonia - Tallinn
+49. Finland - Helsinki
+50. France - Paris
+51. Germany - Berlin
+52. Greece - Athens
+53. Hungary - Budapest
+54. Iceland - Reykjavik
+55. Ireland - Dublin
+56. Italy - Rome
+57. Latvia - Riga
+58. Lithuania - Vilnius
+59. Luxembourg - Luxembourg City
+60. Macedonia - Skopje
+61. Moldova - Chisinau
+62. Montenegro - Podgorica
+63. Netherlands - Amsterdam
+64. Romania - Bucharest
+65. Russia - Moscow
+66. Serbia - Belgrade
+67. Slovakia - Bratislava
+68. Slovenia - Ljubljana
+69. Spain - Madrid
+70. Sweden - Stockholm
+71. Switzerland - Bern
+72. United Kingdom - London
+73. Vatican City - Rome
+74. Bosnia and Herzegovina - Sarajevo
+75. Montenegro - Podgorica
+76. North Macedonia - Skopje
+77. Poland - Warsaw
+78. Portugal - Lisbon
+79. Romania - Bucharest
+80. Croatia - Zagreb
+81. Hungary - Budapest
+82. Ireland - Dublin
+83. Austria - Vienna
+84. Belgium - Brussels
+85. Bulgaria - Sofia
+86. Cyprus - Nicosia
+87. Czech Republic - Prague
+88. Estonia - Tallinn
+89. Finland - Helsinki
+90. France - Paris
+91. Germany - Berlin
+92. Greece - Athens
+93. Hungary - Budapest
+94. Iceland - Reykjavik
+95. Ireland - Dublin
+96. Italy - Rome
+97. Latvia - Riga
+98. Lithuania - Vilnius
+99. Luxembourg - Luxembourg City
+100. Macedonia - Skopje
+101. Moldova - Chisinau
+102. Montenegro - Podgorica
+103. Netherlands - Amsterdam
+104. Romania - Bucharest
+105. Russia - Moscow
+106. Serbia - Belgrade
+107. Slovakia - Bratislava
+108. Slovenia - Ljubljana
+109. Spain - Madrid
+110. Sweden - Stockholm
+111. Switzerland - Bern
+112. United Kingdom - London
+113. Vatican City - Rome
+114. Bosnia and Herzegovina - Sarajevo
+115. Montenegro - Podgorica
+116. North Macedonia - Skopje
+117. Poland - Warsaw
+118. Portugal - Lisbon
+119. Romania - Bucharest
+120. Croatia - Zagreb
+121. Hungary - Budapest
+122. Ireland - Dublin
+123. Austria - Vienna
+124. Belgium - Brussels
+125. Bulgaria - Sofia
+126. Cyprus - Nicosia
+127. Czech Republic - Prague
+128. Estonia - Tallinn
+129. Finland - Helsinki
+130. France - Paris
+131. Germany - Berlin
+132. Greece - Athens
+133. Hungary - Budapest
+134. Iceland - Reykjavik
+135. Ireland - Dublin
+136. Italy - Rome
+137. Latvia - Riga
+138. Lithuania - Vilnius
+139. Luxembourg - Luxembourg City
+140. Macedonia - Skopje
+141. Moldova - Chisinau
+142. Montenegro - Podgorica
+143. Netherlands - Amsterdam
+144. Romania - Bucharest
+145. Russia - Moscow
+146. Serbia - Belgrade
+147. Slovakia - Bratislava
+148. Slovenia - Ljubljana
+149. Spain - Madrid
+150. Sweden - Stockholm
+151. Switzerland - Bern
+152. United Kingdom - London
+153. Vatican City - Rome
+154. Bosnia and Herzegovina - Sarajevo
+155. Montenegro - Podgorica
+156. North Macedonia - Skopje
+157. Poland - Warsaw
+158. Portugal - Lisbon
+159. Romania - Bucharest
+160. Croatia - Zagreb
+161. Hungary - Budapest
+162. Ireland - Dublin
+163. Austria - Vienna
+164. Belgium - Brussels
+165. Bulgaria - Sofia
+166. Cyprus - Nicosia
+167. Czech Republic - Prague
+168. Estonia - Tallinn
+169. Finland - Helsinki
+170. France - Paris
+171. Germany - Berlin
+172. Greece - Athens
+173. Hungary - Budapest
+174. Iceland - Reykjavik
+175. Ireland - Dublin
+176. Italy - Rome
+177. Latvia - Riga
+178. Lithuania - Vilnius
+179. Luxembourg - Luxembourg City
+180. Macedonia - Skopje
+181. Moldova - Chisinau
+182. Montenegro - Podgorica
+183. Netherlands - Amsterdam
+184. Romania - Bucharest
+185. Russia - Moscow
+186. Serbia - Belgrade
+187. Slovakia - Bratislava
+188. Slovenia - Ljubljana
+189. Spain - Madrid
+190. Sweden - Stockholm
+191. Switzerland - Bern
+192. United Kingdom - London
+193. Vatican City - Rome
+194. Bosnia and Herzegovina - Sarajevo
+195. Montenegro - Podgorica
+196. North Macedonia - Skopje
+197. Poland - Warsaw
+198. Portugal - Lisbon
+199. Romania - Bucharest
+200. Croatia - Zagreb
+
+

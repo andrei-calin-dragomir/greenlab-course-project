@@ -1,0 +1,6 @@
+The technical paper explores artificial intelligence (AI), which is a computer science discipline aimed at creating machines with learning abilities that mimic human cognition for goal-orientated tasks, leading to innovations like search engines and autonomous vehicles. Its applications pervade everyday life via tools such as Amazon recommenders or Google Assistant without explicit identification as AI due to ubiquity in common uses—from web searches to creative outputs (e.g., ChatGPT). The paper outlines the subfields of traditional and emerging goals within AI research, including reasoning, learning algorithms like deep neural networks, planning, natural language processing, perceptions for robotics applications among others.
+ 
+AI's journey since its inception as an academic field has been marked by alternating periods of optimism (peak interest) and disappointment or 'winter,' with substantial funding shifts after breakthrough advancements like deep learning post-2012, culminating into a massive investment drive dubbed the "AI boom" in early 2020s.
+  
+Despite these developments and its integration within various sectors of modern life, widespread AI use has led to unintended consequences that have raised ethical concerns about potential long-term impacts on society—prompting the necessity for regulatory policies towards safe utilization.
+

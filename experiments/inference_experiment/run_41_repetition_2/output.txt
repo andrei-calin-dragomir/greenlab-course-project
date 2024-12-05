@@ -1,0 +1,8 @@
+Artificial intelligence (AI), a subset of computer science, represents the development and application of intelligent machines. These machines utilize various tools, techniques, and subfields such as machine learning, natural language processing, and robotics.
+
+The traditional goals of AI research include reasoning, knowledge representation, planning, learning, NLP, perception, and support for robotics. However, AI is not limited to solving these problems; it has infiltrated daily life, from search engines to smart home devices.
+
+Unintended consequences and harms associated with widespread AI usage have been brought to light. These include job displacement due to automation, biases in AI systems based on biased data, privacy concerns with AI-powered surveillance, and the potential for misuse by authoritarian regimes.
+
+To address these challenges and ensure the safe and beneficial use of AI, regulatory policies are being developed and implemented. These policies aim to govern AI development, deployment, and usage, ensuring accountability, transparency, and protection of human rights and values.
+

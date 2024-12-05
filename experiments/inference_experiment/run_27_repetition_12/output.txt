@@ -1,0 +1,14 @@
+ Climate change is primarily driven by the accumulation of greenhouse gases (GHGs) in the Earth's atmosphere, with carbon dioxide (CO2) being the most significant contributor. According to the Intergovernmental Panel on Climate Change (IPCC), CO2 accounts for about 76% of total GHG emissions from human activities as of 2019. The primary sources of these emissions are as follows:
+
+1. Energy sector: The energy sector is the largest contributor to global GHG emissions, accounting for around 63% of total CO2 emissions in 2019. Most of these emissions come from burning fossil fuels such as coal, oil, and natural gas to generate electricity and heat.
+
+2. Industry: The industrial sector is the second-largest contributor to global GHG emissions, accounting for around 21% of total CO2 emissions in 2019. Industries such as steel, cement, and chemicals are significant emitters due to their energy-intensive processes.
+
+3. Agriculture: The agricultural sector is responsible for around 14% of global GHG emissions, with agriculture accounting for about 11% and livestock farming accounting for around 3%. Methane and nitrous oxide are the primary GHGs emitted from agriculture, with rice cultivation, livestock production, and manure management being significant sources.
+
+4. Transport: The transport sector is responsible for around 15% of global GHG emissions, with road transport accounting for about three-quarters of this total. The burning of fossil fuels in vehicles is the primary source of these emissions.
+
+These sources and sectors vary across different regions and countries depending on their economic activities and energy mixes. For example, countries with large agricultural sectors, such as Brazil and India, have higher emissions from agriculture than industrialized nations. Similarly, countries with heavy reliance on coal-fired power generation, such as China and the US, have higher emissions from the energy sector than countries that rely more on renewable energy sources.
+
+In summary, while CO2 is the most significant contributor to GHG emissions, methane and nitrous oxide also play substantial roles. The primary sources of these emissions are the energy, industry, agriculture, and transport sectors, with the energy sector being the largest contributor due to fossil fuel combustion. The variation in emissions across different industries and regions depends on economic activities and energy mixes.
+

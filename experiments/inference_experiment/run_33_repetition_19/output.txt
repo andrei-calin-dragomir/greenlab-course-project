@@ -1,0 +1,14 @@
+ Greenhouse gas emissions primarily originate from human activities and natural sources, with human-induced emissions being the predominant cause of current climate change. The following outlines the primary sources of carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) emissions across various industries:
+
+1. Energy sector: This is the leading contributor to greenhouse gas emissions, accounting for approximately 75% of global CO2 emissions. The burning of fossil fuels like coal, oil, and natural gas for electricity, heat, and transportation releases significant amounts of CO2 into the atmosphere. Methane is also emitted from natural gas extraction, transportation, and use.
+
+2. Industry sector: This includes manufacturing, construction, and mining activities. Industrial processes generate large quantities of CO2 through burning fossil fuels for energy. Cement production is a significant source of CO2 emissions, while methane can be released during coal mining and from the decay of organic waste in landfills.
+
+3. Agriculture sector: This sector contributes approximately 24% of global greenhouse gas emissions. The primary greenhouse gases emitted in this sector are CH4 (methane) and N2O (nitrous oxide). Methane is produced by livestock, rice cultivation, and the decomposition of organic waste in manure and landfills. Nitrous oxide is emitted from fertilizer use, livestock farming, and agricultural soils.
+
+4. Waste sector: This sector contributes to greenhouse gas emissions through the management of municipal solid waste. The primary greenhouse gases produced include CH4 (methane) and CO2. Methane is released from the decomposition of organic waste in landfills, while CO2 is produced during waste transportation and disposal processes.
+
+5. Land-use changes: Activities such as deforestation, reforestation, and urbanization can affect the levels of greenhouse gases in the atmosphere. These activities may release stored carbon (CO2) from soils and vegetation into the atmosphere.
+
+The variation in emissions across industries depends on factors such as energy intensity, technology used, practices followed, and region-specific conditions. Implementing policies that promote cleaner technologies, improve energy efficiency, and increase renewable energy use can help reduce greenhouse gas emissions across various sectors.
+

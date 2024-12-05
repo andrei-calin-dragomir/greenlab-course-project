@@ -1,0 +1,16 @@
+ Climate change is primarily caused by the increase in greenhouse gases (GHGs) in the Earth's atmosphere, with carbon dioxide (CO2) being the most significant contributor. According to the Intergovernmental Panel on Climate Change (IPCC), anthropogenic activities are responsible for a large portion of GHG emissions, with the burning of fossil fuels being the largest single source of CO2 emissions.
+
+The primary sources of CO2 emissions can be broadly categorized into the following sectors:
+
+1. Energy: This sector is the largest contributor to global GHG emissions, accounting for around 63% of total CO2 emissions in 2019. The majority of these emissions come from the combustion of coal, oil, and natural gas for electricity, heat, and transportation.
+
+2. Industry: This sector accounts for around 22% of global GHG emissions. It includes industries such as cement, iron and steel, chemicals, and pulp and paper production. These industries emit large quantities of CO2 due to their energy-intensive processes and the use of fossil fuels in manufacturing.
+
+3. Agriculture: This sector accounts for around 14% of global GHG emissions. Agricultural activities such as livestock farming, rice cultivation, and manure management are significant sources of methane and nitrous oxide, two potent greenhouse gases.
+
+4. Transportation: This sector is responsible for around 13% of global GHG emissions. The combustion of fossil fuels in cars, trucks, buses, ships, and airplanes emits large quantities of CO2.
+
+5. Waste: This sector accounts for around 3% of global GHG emissions. The decomposition of organic waste in landfills produces methane and nitrous oxide.
+
+It is important to note that the relative contributions of these sectors can vary significantly depending on regional economic structures, population densities, and energy policies. For example, industries may contribute a larger share of emissions in countries with heavy manufacturing industries or economies heavily reliant on extractive industries. Conversely, transportation may be a larger contributor in countries with large populations and extensive road networks. Addressing climate change will require a concerted effort to reduce emissions across all sectors and promote sustainable practices.
+

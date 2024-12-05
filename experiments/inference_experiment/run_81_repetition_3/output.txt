@@ -1,0 +1,15 @@
+Greenhouse gas emissions stem from various human activities across diverse industries.
+
+**Fossil Fuel Combustion:** This sector is the largest contributor, accounting for approximately 75% of global greenhouse gas emissions. Burning coal, oil, and natural gas for electricity generation, transportation, and industrial processes releases vast amounts of carbon dioxide (CO2).
+
+**Agriculture:** Livestock farming, particularly cattle, produces significant methane (CH4) through enteric fermentation. Rice cultivation and the use of nitrogen-based fertilizers also release nitrous oxide (N2O). Agriculture contributes roughly 24% to global emissions.
+
+**Industry:** Manufacturing processes, cement production, and chemical manufacturing release CO2, CH4, and other potent greenhouse gases. Industrial activities contribute around 21% to total emissions.
+
+**Land Use Changes:** Deforestation and land conversion for agriculture destroy carbon sinks and release stored carbon. This process accounts for approximately 10% of global emissions.
+
+**Transportation:** Cars, trucks, ships, and airplanes fueled by fossil fuels emit significant CO2 and other pollutants. Transportation contributes around 14% to greenhouse gas emissions.
+
+These emission sources vary significantly across industries, highlighting the need for targeted mitigation strategies in each sector to effectively address climate change.
+
+

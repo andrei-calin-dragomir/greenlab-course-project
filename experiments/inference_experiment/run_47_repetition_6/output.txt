@@ -1,0 +1,8 @@
+Artificial intelligence (AI) is defined as intelligence exhibited by machines, particularly computer systems. AI has a wide range of applications including advanced web search engines like Google, recommendation systems from Amazon or Netflix, speech interaction tools such as Siri and Alexa, autonomous vehicles like Waymo, generative and creative AI tools like ChatGPT and AI art creation, and superhuman game strategy analysis.
+
+AI research focuses on various goals like reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics. The field aims at creating general intelligence that can perform any human task as well or better than humans.
+
+A range of techniques are used to achieve these goals including search methods, mathematical optimization, formal logic, artificial neural networks, statistical methods, operations research, economics, and knowledge from psychology, linguistics, philosophy, neuroscience, among other fields. AI was established in the 1950s and faced cycles of optimism followed by periods of disappointment due to funding loss.
+
+AI experienced a resurgence after deep learning outperformed previous techniques starting in 2012 and grew even more with advancements like transformer architecture post-2017, resulting in billions being invested into AI as of the early 2020s. Widespread use also brought unintended consequences and concerns about future risks prompting discussions on regulatory policies for AI safety and benefits.
+

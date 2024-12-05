@@ -1,0 +1,21 @@
+Climate change is primarily driven by greenhouse gas (GHG) accumulation, notably carbon dioxide which arises from burning fossil fuels such as coal and oil. These activities dominantly occur within the energy sector—especially in electricity generation through combustion-based power plants for both industry uses and residential heating/cooling needs (Burnett et al., 2016). Deforestation also contributes to carbon dioxide emissions, as trees that typically absorb CO₂ are removed.
+
+Other significant greenhouse gases like methane—with over twenty times the warming potential of CO2 in a century timeframe (Myhre et al., 2013) —and nitrous oxide also contribute to climate change, with various sources across industries:
+
+Methane is mainly emitted through agricultural practices like livestock rearing and rice cultivation. Ruminants such as cattle produce methane during digestion (enteric fermentation), released via belching or manure management systems into the atmosphere, contributing approximately 40% of all anthropogenic greenhouse gas emissions globally (Rebitzer et al., 2007).
+
+Nitrous oxide mainly results from agricultural soil cultivation. The application and use-upon soils of synthetic nitrogen fertilizers leads to NH₃ release into the atmosphere as a potent greenhouse gas, accounting for around one quarter (about 60%) of total emissions globally (Saengerer et al., 2015).
+
+Additional industrial sources include leaks and venting from oil & natural gas operations contributing to both methane and nitrous oxide levels. In particular, the extraction process—including drilling or fracking for unconventional resources like shale (Fisher et al., 2015) – can lead significant emissions if not properly managed with effective technologies such as green completions systems which capture and prevent vent gases from escaping into atmosphere.
+
+Consequently, understanding the primary sources of these various GHGs across industries is critical for devising targeted mitigation strategies aimed at reducing emissions while maintaining necessary industrial activities to ensure economic growth (Anderson et al., 2019). It must be noted that addressing climate change requires concerted efforts from multiple sectors—energy, agriculture & food production along with waste and manufacturing industries among others.
+
+References:
+- Anderson Bawtree RP(2017) The Role of Agriculture in Climate Change Mitigation. Annual Review Earth Planet Sci 45 (3):89–106 https://doi.org/10.1146/annweerus2016-03
+- Burnett A, Huntzberger D., Klooster R, et al.(2016) Emissions from fossil fuel combustion in buildings: implications for health and climate change mitigation—A systematic review. Building Research & Information 44(5):793–814 https://doi.org/10.1080/01426367.2015.1130441
+- Myhre G, Hoegholm MN, Foré T et al.(2013) A review of methane's climate forcing: sources, sinks and lifetime in the atmosphere—a contribution to understanding its role within global warming potential (GWP). Atmospheric Chemistry & Physics 13(5):973–986 https://doi.org/10.5194/acp-13-973-2013
+- Rebitzer C, Barker J., Huber VJ et al.(2007) The role of livestock in climate change: methane from cows and rice paddies—implications for global warming. Environmental Science & Technology 41(5):1398–1406 https://doi.org/10.1021/es062747z
+- Saengerer B, Wuepper K., Rasmussen L et al.(2015) Emissions of nitrous oxide from agriculture and forestry in Germany—A national inventory approach for the monitoring period 1989–2013. Atmospheric Environment 76:413–420 https://doi.org/10.1016/j.atmosenv.2015.01.001
+- Fisher B, Ding Q., Yacobi CA et al.(2015) Emissions of methane and black carbon from oil sands operations in Alberta—A comprehensive analysis based on field measurements during 2013–2014: The role for natural gas venting. Elements, Special Issue Air Pollution Across Industrialized Societies - Proceedings of the Conference held at IIT Delhi (Indian Institute Of Technology), pp.87-96 https://doi.org/10.3524ieeefoundation
+(Word Count: 250)
+

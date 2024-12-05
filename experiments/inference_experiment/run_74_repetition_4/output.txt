@@ -1,0 +1,49 @@
+## European Capital Cities:
+
+**Western Europe:**
+
+* **France:** Paris
+* **United Kingdom:** London
+* **Spain:** Madrid
+* **Germany:** Berlin
+* **Italy:** Rome
+* **Switzerland:** Bern
+
+**Central & Eastern Europe:**
+
+* **Poland:** Warsaw
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+* **Austria:** Vienna
+* **Romania:** Bucharest
+* **Slovakia:** Bratislava
+
+**Southern Europe:**
+
+* **Italy:** Rome
+* **Greece:** Athens
+* **Portugal:** Lisbon
+* **Malta:** Valletta
+
+**Northern Europe:**
+
+* **Denmark:** Copenhagen
+* **Finland:** Helsinki
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+* **Belgium:** Brussels
+
+**Eastern Europe:**
+
+* **Belarus:** Minsk
+* **Ukraine:** Kyiv
+* **Moldova:** Chisinau
+* **Estonia:** Tallinn
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+
+**Additional Notes:**
+
+* Monaco and Vatican City are not recognized as independent countries and do not have official capitals.
+* While Lisbon is the capital of Portugal, the historical center is known as Alfama.
+

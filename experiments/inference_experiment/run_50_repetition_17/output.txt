@@ -1,0 +1,55 @@
+Providing the capitals of all European countries is quite extensive due to the number of nations involved, but I will try to list as many as possible within the given constraint:
+
+1. **Albania** - Tirana
+2. **Andorra** - Andorra la Vella
+3. **Armenia** - Yerevan
+4. **Austria** - Vienna
+5. **Belarus** - Minsk
+6. **Belgium** - Brussels
+7. **Bosnia and Herzegovina** - Sarajevo
+8. **Bulgaria** - Sofia
+9. **Croatia** - Zagreb
+10. **Cyprus** - Nicosia (North) / Kyrenia (South)
+11. **Czech Republic** - Prague
+12. **Denmark** - Copenhagen
+13. **Estonia** - Tallinn
+14. **Finland** - Helsinki
+15. **France** - Paris
+16. **Germany** - Berlin
+17. **Greece** - Athens
+18. **Hungary** - Budapest
+19. **Iceland** - Reykjavik
+20. **Ireland** - Dublin
+21. **Italy** - Rome
+22. **Kosovo** - Pristina
+23. **Latvia** - Riga
+24. **Liechtenstein** - Vaduz
+25. **Lithuania** - Vilnius
+26. **Luxembourg** - Luxembourg City
+27. **Malta** - Valletta
+28. **Moldova** - Chisinau
+29. **Monaco** - Monaco-Ville
+30. **Montenegro** - Podgorica
+31. **Netherlands** - Amsterdam (seat of government) / The Hague (seat of parliament)
+32. **North Macedonia** - Skopje
+33. **Norway** - Oslo
+34. **Poland** - Warsaw
+35. **Portugal** - Lisbon
+36. **Romania** - Bucharest
+37. **Russia** - Moscow (officially a federal city, but Saint Petersburg is the seat of government)
+38. **San Marino** - City of San Marino
+39. **Serbia** - Belgrade
+40. **Slovakia** - Bratislava
+41. **Slovenia** - Ljubljana
+42. **Spain** - Madrid
+43. **Sweden** - Stockholm
+44. **Switzerland** - Bern (federal government center) / Geneva (seat of international organizations)
+45. **Turkey** - Ankara (official capital) / Istanbul (largest city and commercial capital)
+46. **Ukraine** - Kyiv
+47. **United Kingdom** - London
+48. **Vatican City** - Vatican City
+
+Note: The United Kingdom is not entirely in Europe, but it is often included due to its geographical proximity.
+
+This list covers most of the European countries and their capitals. Some smaller nations or territories might be omitted for brevity.
+

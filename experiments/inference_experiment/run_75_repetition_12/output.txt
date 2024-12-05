@@ -1,0 +1,46 @@
+## Primary Sources of Greenhouse Gas Emissions:
+
+**Carbon Dioxide:**
+
+* **Energy production:** Power plants, coal-fired heating, transportation
+* **Industrial processes:** Manufacturing, steel production, cement production
+* **Agriculture:** Livestock farming, agricultural practices (fertilizers)
+* **Residential and commercial buildings:** Heating and cooling systems, appliances
+
+**Methane:**
+
+* **Waste management:** Landfill decomposition, sewage treatment
+* **Agriculture:** Enteric fermentation in livestock, manure management
+* **Energy production:** Natural gas leaks and production
+* **Agriculture:** Rice cultivation
+
+**Nitrous Oxide:**
+
+* **Agriculture:** Soil management practices, fertilizer use
+* **Waste management:** Wastewater treatment
+* **Transportation:** Emissions from vehicles
+* **Chemical manufacturing:** Production of nitric acid and other fertilizers
+
+
+**Variations Across Industries:**
+
+**Energy production:**
+* High emissions of carbon dioxide from coal-fired power plants and natural gas power plants.
+* Renewable energy sources emit little to no greenhouse gases.
+
+**Transportation:**
+* Majority of emissions come from gasoline and diesel vehicles.
+* Electric vehicles and public transport emit little to no greenhouse gases.
+
+**Manufacturing:**
+* Emissions of carbon dioxide and methane from industrial processes like steel production and chemical manufacturing.
+* Implementation of energy efficiency measures can reduce emissions.
+
+**Agriculture:**
+* Emissions of methane from livestock and nitrous oxide from soil management practices.
+* Sustainable agricultural practices can mitigate emissions.
+
+**Waste management:**
+* Emissions of methane from landfills and nitrous oxide from wastewater treatment.
+* Implementing composting and anaerobic digestion can reduce methane emissions.
+

@@ -1,0 +1,20 @@
+Greenhouse gas emissions arise from a multitude of sources across various industries.
+
+**Carbon Dioxide (CO2):** The largest contributor stems from **electricity and heat production**, primarily reliant on fossil fuels like coal, oil, and natural gas. **Transportation**, fueled by gasoline and diesel, is another significant source. **Industry**, including manufacturing, cement production, and steelmaking, emits substantial CO2 through energy consumption and chemical processes.
+
+**Methane (CH4):**  Agriculture, particularly livestock rearing and rice cultivation, is responsible for a large portion of methane emissions due to digestive processes and flooded fields. **Natural gas extraction and distribution** leak significant amounts during production and transport. 
+
+**Nitrous Oxide (N2O):** Agricultural activities like fertilizer use and manure management are major sources of N2O. **Industrial processes**, including nitric acid production, also contribute. 
+
+These emissions vary across industries:
+
+* **Electricity & Heat:** Dominated by CO2 from fossil fuel combustion.
+* **Transportation:**  Primarily reliant on gasoline and diesel for CO2 emissions.
+* **Agriculture:** Significant CH4 and N2O contributions from livestock and fertilizer use.
+* **Industry:** Diverse emissions profile depending on processes, including CO2, CH4, and N2O.
+
+Addressing climate change necessitates reducing these emissions through cleaner energy sources, sustainable transportation, efficient industrial practices, and responsible agricultural methods. 
+
+
+
+

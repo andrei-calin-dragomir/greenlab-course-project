@@ -1,0 +1,10 @@
+The technical paper provides an overview of artificial intelligence (AI), defining it as the field that develops methods and software enabling machines to perceive their environment through learning and intelligence, taking actions for achieving set goals. AI has broad applications such as web search engines, recommendation systems, speech interaction tools like Google Assistant and Alexa, autonomous vehicles, generative arts, and strategic game analysis.
+
+A significant aspect is how AI's utility leads to its obfuscation from being labeled specifically as AI; advancements have infiltrated general applications, often escaping categorization. Research focuses on areas like reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics, with the ultimate goal including the development of general intelligence comparable to human capabilities.
+
+AI researchers employ various techniques such as search, mathematical optimization, formal logic, artificial neural networks, statistical methods, operations research, economics, psychology, linguistics, philosophy, neuroscience, etc. for their work. AI's academic foundation was established in 1956 but experienced multiple cycles of optimism followed by setbacks known as AI winter.
+
+In recent years, significant growth occurred post-2012 due to the adoption of deep learning and further acceleration after the transformer architecture emerged by 2017. By early 2020s, AI attracted hundreds of billions in investments, termed an AI boom. The widespread use revealed unintended consequences such as harms and concerns about future risks and long-term effects prompting discussions on regulatory policies for AI safety and benefits.
+
+In summary, this paper highlights the vast potential, transformative capabilities, and ongoing challenges surrounding AI developments over its history to the present day.
+

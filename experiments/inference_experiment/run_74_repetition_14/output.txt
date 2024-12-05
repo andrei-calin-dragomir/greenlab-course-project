@@ -1,0 +1,54 @@
+## Capitals of European Countries:
+
+**Western Europe:**
+
+* **France:** Paris
+* **United Kingdom:** London
+* **Germany:** Berlin
+* **Spain:** Madrid
+* **Italy:** Rome
+* **Switzerland:** Bern
+* **Netherlands:** Amsterdam
+* **Belgium:** Brussels
+* **Portugal:** Lisbon
+
+**Central & Eastern Europe:**
+
+* **Poland:** Warsaw
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+* **Slovakia:** Bratislava
+* **Austria:** Vienna
+* **Romania:** Bucharest
+* **Bulgaria:** Sofia
+
+**Southern Europe:**
+
+* **Italy:** Rome
+* **Spain:** Madrid
+* **Greece:** Athens
+* **Portugal:** Lisbon
+* **Malta:** Valletta
+
+**Eastern Europe:**
+
+* **Belarus:** Minsk
+* **Estonia:** Tallinn
+* **Latvia:** Riga
+* **Lithuania:** Vilnius
+* **Poland:** Warsaw
+* **Czech Republic:** Prague
+* **Hungary:** Budapest
+
+**Northern Europe:**
+
+* **Denmark:** Copenhagen
+* **Finland:** Helsinki
+* **Norway:** Oslo
+* **Sweden:** Stockholm
+
+**Additional Notes:**
+
+* Monaco and Vatican City are not considered independent countries and do not have capitals.
+* Gibraltar is a British Overseas Territory and does not have its own capital.
+

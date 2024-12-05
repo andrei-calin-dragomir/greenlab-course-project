@@ -1,0 +1,3 @@
+ Artificial intelligence (AI) is a field of computer science that studies methods and software enabling machines to take actions that maximize their chances of achieving defined goals. AI has various applications such as advanced web search engines, recommendation systems, natural language processing, perception, and support for robotics. The traditional goals of AI research include reasoning, knowledge representation, planning, learning, and general intelligence. The growth of AI was accompanied by the AI boom in the early 2020s, but it raised concerns about its unintended consequences and risks.
+
+

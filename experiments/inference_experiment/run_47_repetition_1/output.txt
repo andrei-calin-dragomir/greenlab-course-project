@@ -1,0 +1,8 @@
+The technical paper provides an overview of artificial intelligence (AI), defining it as machine intelligence that learns from experience and adapts to its environment. AI applications include web search engines, recommendation systems, human speech interaction, autonomous vehicles, generative tools, and strategy game analysis. The field's core areas focus on reasoning, knowledge representation, planning, learning, natural language processing, perception, and robotics, with the goal of developing general intelligence comparable to human capabilities.
+
+To achieve these goals, AI techniques such as search algorithms, formal logic, artificial neural networks, statistical methods, operations research, and economics are employed. AI draws from psychology, linguistics, philosophy, neuroscience, and other disciplines for inspiration and development. The paper highlights AI's cyclical history of optimism followed by disappointment due to funding shortages known as AI winters.
+
+A significant breakthrough occurred in 2012 when deep learning outperformed previous AI techniques. This led to a substantial increase in funding and interest from investors by 2017, marking the start of the AI boom with hundreds of billions of dollars invested in the field by the early 2020s.
+
+The paper concludes with a discussion on AI's unintended consequences and potential harms, such as job displacement, privacy concerns, and ethical issues. These have prompted discussions about regulatory policies to ensure AI safety and maximize its benefits while minimizing risks. The future promises of AI technology alongside these challenges underscore the need for responsible development and implementation.
+

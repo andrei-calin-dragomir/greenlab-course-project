@@ -1,0 +1,25 @@
+The primary sources of greenhouse gas emissions, including carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O), are largely attributed to human activities. CO2 is the most significant contributor, primarily resulting from fossil fuel combustion, with the majority coming from:
+
+1. Energy production: Fossil fuels used for electricity generation, heating, and transportation account for approximately 65% of global CO2 emissions.
+2. Industry: Cement, steel, and aluminum production require large amounts of energy, leading to significant emissions (15-20%).
+3. Agriculture: Livestock farming and rice cultivation release CH4, while synthetic fertilizers produce N2O (around 10%).
+
+Methane emissions also originate from:
+
+1. Agriculture: Livestock and rice cultivation (35-40%).
+2. Natural Gas and Oil Systems: Leaks and venting during extraction, processing, and transportation (20-25%).
+3. Landfills and Waste Management: Anaerobic decomposition of organic waste releases CH4 (10-15%).
+
+Nitrous oxide emissions primarily come from:
+
+1. Agriculture: Synthetic fertilizers and animal agriculture (60-70%).
+2. Industrial Processes: Cement production, fossil fuel combustion, and chemical synthesis (20-30%).
+
+Key differences across industries include:
+
+* Energy production is the largest contributor to CO2 emissions.
+* Agriculture dominates CH4 and N2O emissions.
+* Industry, particularly cement production, contributes significantly to CO2 emissions.
+
+Understanding the primary sources of greenhouse gas emissions helps identify areas for reduction and mitigation strategies.
+

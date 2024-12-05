@@ -1,0 +1,15 @@
+Greenhouse gas emissions stem from diverse human activities, varying significantly across industries. 
+
+**Energy production** stands as the largest contributor, primarily fueled by fossil fuels (coal, oil, and natural gas) for electricity generation and transportation. Burning these fuels releases massive amounts of CO2 into the atmosphere.  
+
+**Industry** accounts for substantial emissions through processes like manufacturing, cement production, and chemical synthesis. These activities often rely on fossil fuels and release CO2, methane (CH4), and nitrous oxide (N2O). 
+
+**Agriculture** is a significant source of methane and nitrous oxide. Livestock, particularly cattle, produce methane during digestion. Agricultural practices like fertilizer application and manure management release nitrous oxide. 
+
+**Transportation** contributes significantly through the combustion of fossil fuels in vehicles, airplanes, and ships.  
+
+**Deforestation** exacerbates climate change by removing carbon-absorbing trees, releasing stored carbon, and reducing the planet's capacity to absorb CO2.
+
+Addressing these emissions requires a multi-faceted approach involving transitioning to renewable energy sources, improving energy efficiency, adopting sustainable agricultural practices, promoting public transportation, and protecting forests. 
+
+

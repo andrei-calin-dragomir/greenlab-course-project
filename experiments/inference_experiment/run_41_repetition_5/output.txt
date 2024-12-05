@@ -1,0 +1,12 @@
+Artificial intelligence (AI) is a field of research that aims to develop intelligent machines capable of perceiving their environment, learning from experience, and making decisions.
+
+Traditional AI goals include reasoning, knowledge representation, planning, learning, natural language processing, perception, and support for robotics. General intelligence, the ability to perform any human task, remains an area of long-term interest.
+
+To achieve these goals, AI researchers have employed a wide range of techniques, including search algorithms, mathematical optimization, formal logic, neural networks, and statistical methods.
+
+AI also draws on psychology, linguistics, philosophy, neuroscience, and other interdisciplinary fields to enhance its understanding and capabilities.
+
+Since its founding in 1956, AI has gone through cycles of optimism and disillusionment. However, the deep learning breakthrough in 2012 and subsequent advancements have led to a significant increase in funding and interest in AI.
+
+The widespread use of AI in the 21st century has brought about several unintended consequences and societal concerns. This has prompted discussions and efforts to develop regulatory policies that can ensure the safe and beneficial integration of AI into society.
+

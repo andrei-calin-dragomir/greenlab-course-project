@@ -1,0 +1,10 @@
+The primary sources of greenhouse gas emissions, particularly carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O), can be categorized into several key sectors based on their contribution. In the energy sector, the combustion of fossil fuels such as coal, oil, and natural gas for electricity generation, transportation, and industrial processes is the largest source of CO₂ emissions, accounting for approximately 76% globally in 2019. 
+
+In the agricultural sector, methane and nitrous oxide are significant contributors due to livestock enteric fermentation and manure management (main sources of CH₄), as well as synthetic fertilizers and manure use leading to N₂O emissions. This sector is responsible for about 10% of global CO₂-equivalent greenhouse gas emissions.
+
+Forestry and land-use changes, including deforestation and urbanization, contribute significantly to CO₂ emissions by altering carbon sinks and releasing stored carbon into the atmosphere. These activities account for around 11% globally in 2019. 
+
+Industrial processes emit a variety of gases depending on the industry, with sectors like cement production, chemical manufacturing, and waste management being notable sources. The buildings sector contributes to CO₂ emissions through energy use for heating, cooling, and lighting, while transportation includes both road vehicles and non-road mobile machinery.
+
+Understanding these variations is crucial for developing targeted mitigation strategies across different industries, focusing on improving energy efficiency, adopting cleaner technologies, enhancing carbon capture methods, and promoting sustainable land management practices.
+

@@ -1,0 +1,12 @@
+ The primary sources of greenhouse gas (GHG) emissions can be categorized into four broad sectors: Energy, Industry, Agriculture, and Waste Management.
+
+1. Energy sector: This is the largest contributor to global GHG emissions, primarily due to burning fossil fuels for electricity, heat, and transportation. Coal, oil, and natural gas are the main sources of energy-related CO2 emissions, while methane leaks occur from the extraction, processing, and transport of natural gas.
+
+2. Industry sector: This includes manufacturing, construction, mining, and other industrial activities. Cement production is a major source of CO2 due to the high temperature calcination process. Other sources include iron and steel production, chemical manufacturing, and pulp and paper production, which emit significant amounts of CO2 and other GHGs.
+
+3. Agriculture: This sector contributes about 24% of total global greenhouse gas emissions, with the majority coming from agricultural activities like deforestation for agriculture and livestock rearing. Rice cultivation produces methane, while enteric fermentation (digestion in the stomachs of cattle, sheep, and other ruminant animals) is a significant source of methane emissions as well.
+
+4. Waste management: The decomposition of organic waste in landfills generates methane, making this sector an important contributor to GHG emissions. Other sources include waste disposal sites, municipal solid waste treatment facilities, and agricultural waste management activities.
+
+The distribution of these emissions varies significantly across different industries. While the energy sector dominates overall emissions, the industry, agriculture, and waste sectors each account for a substantial portion of total GHG emissions in their respective regions. For example, the industrial sector contributes more to emissions in developed countries, while the agricultural sector plays a larger role in developing countries. Understanding these differences is crucial for targeted policy interventions aimed at mitigating climate change.
+

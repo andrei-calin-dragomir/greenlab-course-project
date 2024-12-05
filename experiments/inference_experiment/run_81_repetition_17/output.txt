@@ -1,0 +1,17 @@
+Greenhouse gas emissions stem from various sources across different industries, contributing to climate change.
+
+**Carbon Dioxide (CO₂):**  The dominant source is **electricity and heat production**, primarily from burning fossil fuels like coal, oil, and natural gas in power plants.  
+   * **Transportation** is another major contributor, emitting CO₂ through the combustion of gasoline and diesel fuel in cars, trucks, ships, and airplanes. 
+   * **Industry** releases significant CO₂ during manufacturing processes involving fossil fuel use for energy and as feedstock materials.
+
+**Methane (CH₄):**  Agriculture, particularly **livestock farming**, is a major source due to methane emissions from animal digestion and manure management.
+    * **Natural gas extraction and distribution** also contribute significantly through leaks during production and transportation. 
+    * **Landfills** decompose organic waste, releasing methane into the atmosphere.
+
+**Nitrous Oxide (N₂O):**  **Agriculture** is the primary source, primarily from the use of nitrogen-based fertilizers in crop production.
+   * **Industrial processes**, such as nitric acid production, also release N₂O.
+
+
+Understanding these emission sources allows for targeted efforts to reduce greenhouse gas concentrations and mitigate climate change impacts.
+
+

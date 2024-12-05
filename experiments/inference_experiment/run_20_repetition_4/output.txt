@@ -1,0 +1,31 @@
+There are 27 member states of the European Union, each with its own capital city. The capitals of the European countries are:
+1. Austria: Vienna
+2. Belgium: Brussels
+3. Bulgaria: Sofia
+4. Croatia: Zagreb
+5. Cyprus: Nicosia
+6. Czech Republic: Prague
+7. Denmark: Copenhagen
+8. Estonia: Tallinn
+9. Finland: Helsinki
+10. France: Paris
+11. Germany: Berlin
+12. Greece: Athens
+13. Hungary: Budapest
+14. Ireland: Dublin
+15. Italy: Rome
+16. Latvia: Riga
+17. Liechtenstein: Vaduz
+18. Lithuania: Vilnius
+19. Luxembourg: Luxembourg City
+20. Malta: Valletta
+21. Netherlands: Amsterdam
+22. Poland: Warsaw
+23. Portugal: Lisbon
+24. Romania: Bucharest
+25. Russia: Moscow
+26. San Marino: San Marino
+27. Slovakia: Bratislava
+28. Slovenia: Ljubljana
+It is important to note that some countries in Europe, such as the United Kingdom and Switzerland, are not part of the European Union and therefore do not have a capital city within its borders.
+

@@ -1,0 +1,35 @@
+## Primary Sources of Greenhouse Gas Emissions
+
+**Carbon Dioxide:**
+
+* **Power generation:** Thermal power plants, coal-fired power plants, natural gas power plants
+* **Transportation:** Cars, trucks, airplanes, shipping
+* **Industrial processes:** Cement production, steel production, manufacturing
+* **Residential and commercial buildings:** Heating and cooling systems, appliances
+
+**Methane:**
+
+* **Agriculture:** Livestock digestion, manure management, rice cultivation
+* **Waste management:** Landfills, sewage treatment plants
+* **Fugitive emissions:** Leaks from pipelines and storage facilities
+
+**Nitrous Oxide:**
+
+* **Agriculture:** Soil management practices, livestock digestion
+* **Waste management:** Denitrification process in landfills
+* **Agriculture and industrial processes:** Use of synthetic fertilizers, fuel combustion
+
+**Variation Across Industries:**
+
+**Power generation:** Highest emissions due to widespread fossil fuel use for electricity generation.
+
+**Transportation:** Significant emissions due to dependence on cars and trucks for transportation.
+
+**Agriculture:** Major emissions from livestock and agricultural practices like manure management and fertilizer use.
+
+**Manufacturing:** Emissions arise from industrial processes like steel production and cement manufacturing.
+
+**Residential and commercial buildings:** Emissions come from energy consumption for heating and cooling.
+
+**Waste management:** Emissions occur during landfill decomposition and wastewater treatment.
+
