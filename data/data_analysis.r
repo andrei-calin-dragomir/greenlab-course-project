@@ -20,6 +20,11 @@ data <- data %>%
 data <- data %>%
   mutate(GPU0_ENERGY..J. = GPU0_ENERGY..mJ. / 1000)
 
+# Additional preprocessing: Remove rows with negative values in energy consumption columns
+energy_columns <- c("DRAM_ENERGY..J.", "PACKAGE_ENERGY..J.", "GPU0_ENERGY..J.")
+data <- data %>%
+  filter(across(all_of(energy_columns), ~ . >= 0))
+
 # Function to create plots for each model family
 create_plots <- function(data, model_family) {
   filtered_data <- data %>% filter(grepl(paste0("^", model_family), model_version))
