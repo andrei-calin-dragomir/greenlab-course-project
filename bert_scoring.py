@@ -96,6 +96,7 @@ df = pd.read_csv(os.path.join(experiment_directory_path, "run_table.csv"))
 
 df["bert_score"] = None
 
+length = len(df.index)
 # Iterate over each row
 for index, row in df.iterrows():
     run_id = row["__run_id"]  # Assumes 'run_id' column exists
@@ -105,9 +106,8 @@ for index, row in df.iterrows():
             generated_text = file.read().strip()  # Read the file contents and strip any extra spaces/newlines
 
         # Compute BERTScore
-        print(generated_text)
-        print(input_prompts[row['task_type']][row['input_size']]['expected_outputs'][0])
-        P, R, F1 = score([generated_text], [input_prompts[row['task_type']][row['input_size']]['expected_outputs'][0]], lang="en")
+
+        P, R, F1 = score([generated_text], [input_prompts[row['task_type']][row['input_size']]['expected_outputs']], lang="en")
 
        # Create a dictionary for the BERTScore
         bert_score_dict = {
@@ -120,6 +120,7 @@ for index, row in df.iterrows():
         df.at[index, "bert_score"] = bert_score_dict
     else:
         print(f"File for run_id {run_id} not found in {experiment_directory_path}")
+    print(f"Remaining: {length - index}")
 
 results_csv_path = "./updated_results.csv"  # Replace with your desired output path
 df.to_csv(results_csv_path, index=False)
